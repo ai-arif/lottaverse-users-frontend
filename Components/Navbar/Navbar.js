@@ -29,7 +29,7 @@ const Navbar = () => {
 <div className="d-flex align-items-center justify-content-between">
   <a href="index.html" className="logo d-flex align-items-center">
     <img src="assets/img/logo.png" alt=""/>
-    <span className="d-none d-lg-block">NiceAdmin</span>
+    <span className="d-none d-lg-block">LottaVerse</span>
   </a>
   <i onClick={()=>{
     setToggle(!isToggle)
@@ -266,20 +266,37 @@ const Navbar = () => {
 <ul className="sidebar-nav" id="sidebar-nav">
 
   <li className="nav-item">
-    <a className="nav-link " href="index.html">
+    <Link className="nav-link " href="/">
       <i className="bi bi-grid"></i>
       <span>Dashboard</span>
-    </a>
+    </Link>
   </li>
-
+  <li class="nav-item">
+        <Link class="nav-link collapsed" href="/my-profile">
+          <i class="bi bi-person"></i>
+          <span>My Profile</span>
+        </Link>
+      </li>
   <li className="nav-item">
-    <a className="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-      <i className="bi bi-menu-button-wide"></i><span>Mess</span><i className="bi bi-chevron-down ms-auto"></i>
+    <Link className="nav-link collapsed" href="/">
+    <i class="bi bi-currency-dollar"></i>
+      <span>My Earning</span>
+    </Link>
+  </li>
+  <li className="nav-item">
+    <a className="nav-link collapsed" data-bs-target="#myteam" data-bs-toggle="collapse" href="#">
+      <i className="bxs-group"></i><span>My Team</span><i className="bi bi-chevron-down ms-auto"></i>
     </a>
-    <ul id="components-nav" className="nav-content collapse " data-bs-parent="#sidebar-nav">
+    <ul id="myteam" className="nav-content collapse " data-bs-parent="#sidebar-nav">
         <li>
             <Link href="/create-mess">
-                <i className="bi bi-circle"></i><span>Create</span>
+                <i className="bi bi-circle"></i><span>Structure</span>
+            </Link>
+            <Link href="/create-mess">
+                <i className="bi bi-circle"></i><span>Generation</span>
+            </Link>
+            <Link href="/create-mess">
+                <i className="bi bi-circle"></i><span>Referral Link</span>
             </Link>
         </li>
       

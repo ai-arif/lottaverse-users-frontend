@@ -4,61 +4,54 @@ import axios from '../utils/axios'
 import Cookies from 'js-cookie'
 import { useDispatch } from 'react-redux'
 import { setUserInformation } from '@/features/user/userSlice'
+import Head from 'next/head'
 
 export const getServerSideProps = async (context) => {
-  const token = context.req.cookies.token
-  
-  if(!token){
-    return {
-      redirect: {
-        destination: '/login',
-        permanent: false,
-      },
-    }
-  }
-  const res = await axios.get('/api/home', {
-    headers: {
-      Authorization: `${token}`,
-    },
-  })
-  const data = await res.data
-  
-  if(res.status!=200){
-    // clear the cookie
-    Cookies.remove('mess_token')
-    return {
-      redirect: {
-        destination: '/login',
-        permanent: false,
-      },
-    }
-  }
-  
   return {
     props: {
-      data,
-    },
+      
+    }
   }
-}
+  // const token = context.req.cookies.token
+  
+  // if(!token){
+  //   return {
+  //     redirect: {
+  //       destination: '/login',
+  //       permanent: false,
+  //     },
+  //   }
+  // }
+  // const res = await axios.get('/api/home', {
+  //   headers: {
+  //     Authorization: `${token}`,
+  //   },
+  // })
+  // const data = await res.data
+  
+  // if(res.status!=200){
+  //   // clear the cookie
+  //   Cookies.remove('mess_token')
+  //   return {
+  //     redirect: {
+  //       destination: '/login',
+  //       permanent: false,
+  //     },
+  //   }
+  }
 
-const index = ({data}) => {
+
+const index = () => {
   const dispatch=useDispatch()
-  useEffect(() => {
-    dispatch(setUserInformation(data.data.user))
-    console.log(data.data.mess_id)
-  }
-  , [])
+  
   return (
     <div>
-      {
-        data?.data?.mess_id == null ? 
-        <main id="main" className="main">
-          <div className="alert alert-danger text-center" role="alert">
-          <h1>You are not assigned to any mess.</h1>
-        </div>
-        </main> : <Homepage/>
-      }
-      
+      <Head>
+        <title>Lottaverse - Dashboard</title>
+        <meta name="description" content="" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+       <Homepage/>
     </div>
   )
 }
