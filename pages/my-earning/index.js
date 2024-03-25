@@ -28,29 +28,27 @@ const index = () => {
     
     <div class="row">
       <div class="col-md-12">
-        <h2>My Earnings</h2>
+        <table className="table">
+            <tr>
+            <th>My Earing</th>
+            </tr>
+            <tr>
+                <td>Jackpot Fund</td>
+            </tr>
+            <tr>
+                <td>Referral Commission</td>
+            </tr>
+            <tr>
+                <td>Leader bonus</td>
+            </tr>
+            <tr>
+                <td>Founder Bonus</td>
+            </tr>
+
+        </table>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-3 border border-1 text-center">
-        <p>Jackpot Fund</p>
-        <p>$5,000.00</p>
-      </div>
-      <div class="col-md-3 border border-1 text-center">
-        <p>Referral Commission</p>
-        <p>$1,000.00</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6">
-        <p>Leader Bonus</p>
-        <p>$2,000.00</p>
-      </div>
-      <div class="col-md-6">
-        <p>Founder Bonus</p>
-        <p>$2,000.00</p>
-      </div>
-    </div>
+    
   </div>
     </div>
   )
