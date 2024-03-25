@@ -278,7 +278,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link collapsed" href="/">
+            <Link className="nav-link collapsed" href="/my-earning">
               <i class="bi bi-currency-dollar"></i>
               <span>My Earning</span>
             </Link>
@@ -289,13 +289,13 @@ const Navbar = () => {
             </a>
             <ul id="myteam" className="nav-content collapse " data-bs-parent="#sidebar-nav">
               <li>
-                <Link href="/create-mess">
+                <Link href="/my-team/structure">
                   <i className="bi bi-circle"></i><span>Structure</span>
                 </Link>
-                <Link href="/create-mess">
+                <Link href="/my-team/generation">
                   <i className="bi bi-circle"></i><span>Generation</span>
                 </Link>
-                <Link href="/create-mess">
+                <Link href="/my-team/referral-link">
                   <i className="bi bi-circle"></i><span>Referral Link</span>
                 </Link>
               </li>

@@ -24,7 +24,9 @@ export default function Document() {
       </Head>
       <body>
         <Analytics/>
+        <main id="main" className="main">
         <Main />
+        </main>
         <NextScript />
         <script src="/assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
