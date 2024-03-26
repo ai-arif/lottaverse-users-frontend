@@ -324,8 +324,6 @@ const Navbar = () => {
                 </Link>
               </li>
 
-              
-
             </ul>
           </li>
 
