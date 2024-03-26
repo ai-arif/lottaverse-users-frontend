@@ -8,4 +8,27 @@
     justify-content: center;
     align-items: center;
   }
+  .ticket-component{
+    background-color: #031434;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 1px;
+  }
+  .buy-now-container{
+    background-color: #0647c0;
+  }
+
+
+  .ticket-btn {
+    background-color: transparent;
   
+    /* color: #031434; */
+    border: 2px solid gray;
+    
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+  }
