@@ -309,19 +309,19 @@ const Navbar = () => {
             </a>
             <ul id="components-nav" className="nav-content collapse " data-bs-parent="#sidebar-nav">
               <li>
-                <a href="components-alerts.html">
+                <Link href="/our-services/view-ticket">
                   <i className="bi bi-circle"></i><span>View Ticket</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="components-accordion.html">
+                <Link href="/our-services/buy-ticket">
                   <i className="bi bi-circle"></i><span>Buy Ticket</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="components-accordion.html">
+                <Link href="/our-services/winner">
                   <i className="bi bi-circle"></i><span>Winner</span>
-                </a>
+                </Link>
               </li>
 
 

@@ -4,7 +4,7 @@ import PackagesComponent from './PackagesComponent'
 const Homepage = () => {
   return (
     <div>
-      <main id="main" className="main">
+      
 
         <div className="pagetitle">
           <h1>Dashboard</h1>
@@ -30,7 +30,6 @@ const Homepage = () => {
           </div>
         </section>
 
-      </main>
     </div>
   )
 }
