@@ -1,3 +1,18 @@
+.admin-dashboard {
+  /* Gradient background */
+  background: linear-gradient(to bottom right, #000080, #800080);
+  /* Fallback for older browsers */
+  background: -webkit-linear-gradient(to bottom right, #000080, #800080);
+  background: -moz-linear-gradient(to bottom right, #000080, #800080);
+  background: -o-linear-gradient(to bottom right, #000080, #800080);
+  background: -ms-linear-gradient(to bottom right, #000080, #800080);
+  color: white;
+  /* Other styling */
+  /* Add your additional styles here */
+}
+.admin-dashboard a, .admin-dashboard h1, .admin-dashboard span  {
+  color: white;
+}
 .circle-group {
     width: 150px;
     height: 150px;

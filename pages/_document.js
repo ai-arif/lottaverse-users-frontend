@@ -22,7 +22,7 @@ export default function Document() {
   
 
       </Head>
-      <body>
+      <body className="admin-dashboard">
         <Analytics/>
         <main id="main" className="main">
         <Main />

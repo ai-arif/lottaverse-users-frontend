@@ -23,14 +23,14 @@ const Navbar = () => {
     router.push('/login')
   }
   return (
-    <div>
-      <header id="header" className="header fixed-top d-flex align-items-center">
+    <div className='admin-dashboard'>
+      <header id="header" className="header admin-dashboard fixed-top d-flex align-items-center">
 
         <div className="d-flex align-items-center justify-content-between">
-          <a href="index.html" className="logo d-flex align-items-center">
+          <Link href="/" className="logo d-flex align-items-center">
             <img src="assets/img/logo.png" alt="" />
             <span className="d-none d-lg-block">LottaVerse</span>
-          </a>
+          </Link>
           <i onClick={() => {
             setToggle(!isToggle)
             if (isToggle) {
@@ -261,7 +261,7 @@ const Navbar = () => {
       </header>
 
 
-      <aside id="sidebar" className="sidebar">
+      <aside id="sidebar" className="sidebar admin-dashboard">
 
         <ul className="sidebar-nav" id="sidebar-nav">
 
@@ -271,12 +271,23 @@ const Navbar = () => {
               <span>Dashboard</span>
             </Link>
           </li>
-          <li class="nav-item">
-            <Link class="nav-link collapsed" href="/my-profile">
-              <i class="bi bi-person"></i>
-              <span>My Profile</span>
-            </Link>
+          <li className="nav-item">
+            <a className="nav-link collapsed" data-bs-target="#myprofile" data-bs-toggle="collapse" href="#">
+            <i class="bi bi-person"></i><span>My Profile</span><i className="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="myprofile" className="nav-content collapse " data-bs-parent="#sidebar-nav">
+              <li>
+                <Link href="/my-profile">
+                  <i className="bi bi-circle"></i><span>Profile</span>
+                </Link>
+                <Link href="/my-team/referral-link">
+                  <i className="bi bi-circle"></i><span>Referral Link</span>
+                </Link>
+              </li>
+
+            </ul>
           </li>
+          
           <li className="nav-item">
             <Link className="nav-link collapsed" href="/my-earning">
               <i class="bi bi-currency-dollar"></i>
