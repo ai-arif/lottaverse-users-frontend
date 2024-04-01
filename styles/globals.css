@@ -1,14 +1,10 @@
-.admin-dashboard {
-  /* Gradient background */
+/* .admin-dashboard {
   background: linear-gradient(to bottom right, #000080, #800080);
-  /* Fallback for older browsers */
   background: -webkit-linear-gradient(to bottom right, #000080, #800080);
   background: -moz-linear-gradient(to bottom right, #000080, #800080);
   background: -o-linear-gradient(to bottom right, #000080, #800080);
   background: -ms-linear-gradient(to bottom right, #000080, #800080);
-  color: white;
-  /* Other styling */
-  /* Add your additional styles here */
+  
 }
 .admin-dashboard a, .admin-dashboard h1, .admin-dashboard span  {
   color: white;
@@ -38,7 +34,6 @@
   .ticket-btn {
     background-color: transparent;
   
-    /* color: #031434; */
     border: 2px solid gray;
     
     padding: 10px 20px;
@@ -47,3 +42,8 @@
     font-size: 12px;
     font-weight: bold;
   }
+
+  #home{
+    margin: 0;
+    padding: 0;
+  } */

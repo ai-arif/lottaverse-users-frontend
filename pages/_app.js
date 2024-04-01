@@ -9,7 +9,7 @@ import store from "@/store/store";
 export default function App({ Component, pageProps }) {
   
   const router=useRouter()
-  const restictedRoutes=["/login","/register","/create-mess","/join-mess"]
+  const restictedRoutes=["/login","/register","/create-mess","/join-mess",'/']
   
   return <Provider store={store}>
   {
