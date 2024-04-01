@@ -1,3 +1,5 @@
+import LandingFeatures from '@/Components/LandingPage/LandingFeatures'
+import LandingFooter from '@/Components/LandingPage/LandingFooter'
 import LandingHero from '@/Components/LandingPage/LandingHero'
 import LandingNavbar from '@/Components/LandingPage/LandingNavbar'
 import Head from 'next/head'
@@ -22,59 +24,9 @@ const index = () => {
       </Head>
       <LandingNavbar/>
       <LandingHero/>
-      <div class="features">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="feature-box">
-							<div class="feature-box-inner">
-								<div class="row">
-									<div class="col-lg-4 col-md-6">
-										<div class="single-feature">
-											<div class="icon one">
-												<img src="assets/images/feature/icon1.png" alt=""/>
-											</div>
-											<div class="content">
-												<h4 class="title">
-													Exclusive Offer
-												</h4>
-												<a href="#" class="link">read more <i class="fas fa-arrow-right"></i></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-lg-4 col-md-6">
-										<div class="single-feature">
-											<div class="icon two">
-												<img src="assets/images/feature/icon2.png" alt=""/>
-											</div>
-											<div class="content">
-												<h4 class="title">
-													Provably Fair
-												</h4>
-												<a href="#" class="link">read more <i class="fas fa-arrow-right"></i></a>
-											</div>
-										</div>
-									</div>
-									<div class="col-lg-4 col-md-6">
-										<div class="single-feature">
-											<div class="icon three">
-												<img src="assets/images/feature/icon3.png" alt=""/>
-											</div>
-											<div class="content">
-												<h4 class="title">
-													24/7 Support
-												</h4>
-												<a href="#" class="link">read more <i class="fas fa-arrow-right"></i></a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+      <LandingFeatures/>
+      <br />
+    <LandingFooter/>
     </div>
   )
 }
