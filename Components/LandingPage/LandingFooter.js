@@ -8,7 +8,10 @@ const LandingFooter = () => {
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="footer__top__logo">
-                            <a href="#"><img src="/img/logo.png" alt=""/></a>
+                            {/* <a href="#"><img src="/img/logo.png" alt=""/></a> */}
+                            <span className='fw-bold text-white fs-2'>
+                                Lotaverse
+                            </span>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
