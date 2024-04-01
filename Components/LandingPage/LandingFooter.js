@@ -27,8 +27,7 @@ const LandingFooter = () => {
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="footer__option__item">
                             <h5>About us</h5>
-                            <p>Formed in 2006 by Matt Hobbs and Cael Jones, Videoprah is an award-winning, full-service
-                                production company specializing.</p>
+                            <p>Lotaverse ensures transparency, security, and efficiency in ticket transactions, eliminating common issues.</p>
                             <a href="#" class="read__more">Read more <span class="arrow_right"></span></a>
                         </div>
                     </div>
@@ -57,7 +56,7 @@ const LandingFooter = () => {
                     <div class="col-lg-4 col-md-12">
                         <div class="footer__option__item">
                             <h5>Newsletter</h5>
-                            <p>Videoprah is an award-winning, full-service production company specializing.</p>
+                            <p>Lotaverse is an award-winning, full-service production company specializing.</p>
                             <form action="#">
                                 <input type="text" placeholder="Email"/>
                                 <button type="submit"><i class="fa fa-send"></i></button>
@@ -71,11 +70,9 @@ const LandingFooter = () => {
                     <div class="col-lg-12 text-center">
                         
                         <p class="footer__copyright__text">Copyright &copy;
-                            <script>
-                                document.write(new Date().getFullYear());
-                            </script>
+                            2024
                             All rights reserved | This template is made with <i class="fa fa-heart-o"
-                                aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                                aria-hidden="true"></i> by <a href="https://www.facebook.com/ai.arif.main" target="_blank">AI Arif</a>
                         </p>
                         
                     </div>
