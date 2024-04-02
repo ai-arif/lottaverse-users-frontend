@@ -19,7 +19,7 @@ const LandingHero = () => {
                             </div>
                         </div>
 
-                        <div className="col-lg-7">
+                        <div className="col-lg-7" style={{position:'relative'}}>
 					<div className="hero-img2 d-block d-md-none">
 						<img src="assets/images/heroarea.png" alt=""/>
 					</div>
@@ -43,6 +43,7 @@ const LandingHero = () => {
                         
                     </div>
                 </div>
+                <br /><br /><br />
             </div>
             
   )

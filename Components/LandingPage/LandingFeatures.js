@@ -2,7 +2,7 @@ import React from 'react'
 
 const LandingFeatures = () => {
   return (
-    <div className="features mb-4">
+    <div className="features mb-4 " style={{marginTop:"70px"}}>
 			<div className="container">
 				<div className="row">
 					<div className="col-lg-12">

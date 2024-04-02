@@ -1,6 +1,7 @@
 import LandingFeaturedGames from '@/Components/LandingPage/LandingFeaturedGames'
 import LandingFeatures from '@/Components/LandingPage/LandingFeatures'
 import LandingFooter from '@/Components/LandingPage/LandingFooter'
+import LandingFunFact from '@/Components/LandingPage/LandingFunFact'
 import LandingHero from '@/Components/LandingPage/LandingHero'
 import LandingNavbar from '@/Components/LandingPage/LandingNavbar'
 import Head from 'next/head'
@@ -27,6 +28,7 @@ const index = () => {
       <LandingHero/>
       <LandingFeatures/>
       <LandingFeaturedGames/>
+      <LandingFunFact/>
       <br />
     <LandingFooter/>
     </div>
