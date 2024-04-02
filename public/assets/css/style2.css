@@ -663,6 +663,53 @@ img{
   background: #252f5a;
   margin: 0px 5px;
 }
+.activities .table {
+  -webkit-box-shadow: 0px 10px 40px 0px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 10px 40px 0px rgba(0, 0, 0, 0.4);
+  position: relative;
+  --bs-table-bg: transparent;
+  color: transparent;
+}
+.activities .table tr th {
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-top: 0px;
+  border-bottom: 0px;
+  padding: 20px 15px;
+  background: #0b122e;
+  color: #fff;
+}
+.activities .table tr td:nth-child(1) {
+  color: #fff;
+}
+.activities .table tr td {
+  vertical-align: middle;
+  padding: 20px 15px;
+  font-weight: 600;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #a1aed4;
+}
+.activities .table tr td:nth-child(3) {
+  color: #045cf0;
+}
+.activities .table tr td {
+  vertical-align: middle;
+  padding: 20px 15px;
+  font-weight: 600;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #a1aed4;
+}
+.activities .table tr td:nth-child(1) img, .activities .table tr td:nth-child(3) img, .activities .table tr td:nth-child(6) img {
+  margin-right: 5px;
+}
+.activities .table tr td:nth-child(5), .activities .table tr td:nth-child(6) {
+  color: #f0ad4e;
+}
 .activities .shape.shape1 {
   z-index: -5;
   top: 320px;

@@ -32,7 +32,7 @@ const LandingNavbar = () => {
                                         <li><a href="./blog-details.html">Blog Details</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="./contact.html">Contact</a></li>
+                                <li><Link href="/dashboard">Dashboard</Link></li>
                             </ul>
                         </nav>
                         <div class="header__nav__social">

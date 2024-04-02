@@ -55,7 +55,7 @@ const LandingActivities = () => {
 									<tbody>
 										<tr>
 											<td>
-												<img src="assets/images/people/p1.png" alt=""/>
+												<img src="https://pixner.net/dooplo3/main-v1/assets/images/people/p1.png" alt=""/>
 												Tom Bass
 											</td>
 											<td>
@@ -74,7 +74,7 @@ const LandingActivities = () => {
 										</tr>
 										<tr>
 											<td>
-												<img src="assets/images/people/p2.png" alt=""/>
+												<img src="https://pixner.net/dooplo3/main-v1/assets/images/people/p1.png" alt=""/>
 												Tom Bass
 											</td>
 											<td>
@@ -93,7 +93,7 @@ const LandingActivities = () => {
 										</tr>
 										<tr>
 											<td>
-												<img src="assets/images/people/p3.png" alt=""/>
+												<img src="https://pixner.net/dooplo3/main-v1/assets/images/people/p1.png" alt=""/>
 												Tom Bass
 											</td>
 											<td>
@@ -112,7 +112,7 @@ const LandingActivities = () => {
 										</tr>
 										<tr>
 											<td>
-												<img src="assets/images/people/p4.png" alt=""/>
+												<img src="https://pixner.net/dooplo3/main-v1/assets/images/people/p1.png" alt=""/>
 												Tom Bass
 											</td>
 											<td>
@@ -131,7 +131,7 @@ const LandingActivities = () => {
 										</tr>
 										<tr>
 											<td>
-												<img src="assets/images/people/p5.png" alt=""/>
+												<img src="https://pixner.net/dooplo3/main-v1/assets/images/people/p1.png" alt=""/>
 												Tom Bass
 											</td>
 											<td>
@@ -150,7 +150,7 @@ const LandingActivities = () => {
 										</tr>
 										<tr>
 											<td>
-												<img src="assets/images/people/p6.png" alt=""/>
+												<img src="https://pixner.net/dooplo3/main-v1/assets/images/people/p1.png" alt=""/>
 												Tom Bass
 											</td>
 											<td>
@@ -169,7 +169,7 @@ const LandingActivities = () => {
 										</tr>
 										<tr>
 											<td>
-												<img src="assets/images/people/p1.png" alt=""/>
+												<img src="https://pixner.net/dooplo3/main-v1/assets/images/people/p1.png" alt=""/>
 												Tom Bass
 											</td>
 											<td>
@@ -396,7 +396,7 @@ const LandingActivities = () => {
 										</tr>
 										<tr>
 											<td>
-												<img src="assets/images/people/p2.png" alt=""/>
+												<img src="https://pixner.net/dooplo3/main-v1/assets/images/people/p1.png" alt=""/>
 												Tom Bass
 											</td>
 											<td>
@@ -415,7 +415,7 @@ const LandingActivities = () => {
 										</tr>
 										<tr>
 											<td>
-												<img src="assets/images/people/p3.png" alt=""/>
+												<img src="https://pixner.net/dooplo3/main-v1/assets/images/people/p1.png" alt=""/>
 												Tom Bass
 											</td>
 											<td>
@@ -434,7 +434,7 @@ const LandingActivities = () => {
 										</tr>
 										<tr>
 											<td>
-												<img src="assets/images/people/p4.png" alt=""/>
+												<img src="https://pixner.net/dooplo3/main-v1/assets/images/people/p1.png" alt=""/>
 												Tom Bass
 											</td>
 											<td>
@@ -471,7 +471,7 @@ const LandingActivities = () => {
 									<tbody>
 										<tr>
 											<td>
-												<img src="assets/images/people/p1.png" alt=""/>
+												<img src="https://pixner.net/dooplo3/main-v1/assets/images/people/p1.png" alt=""/>
 												Tom Bass
 											</td>
 											<td>
@@ -490,7 +490,7 @@ const LandingActivities = () => {
 										</tr>
 										<tr>
 											<td>
-												<img src="assets/images/people/p2.png" alt=""/>
+												<img src="https://pixner.net/dooplo3/main-v1/assets/images/people/p1.png" alt=""/>
 												Tom Bass
 											</td>
 											<td>
@@ -509,7 +509,7 @@ const LandingActivities = () => {
 										</tr>
 										<tr>
 											<td>
-												<img src="assets/images/people/p3.png" alt=""/>
+												<img src="https://pixner.net/dooplo3/main-v1/assets/images/people/p1.png" alt=""/>
 												Tom Bass
 											</td>
 											<td>
@@ -528,7 +528,7 @@ const LandingActivities = () => {
 										</tr>
 										<tr>
 											<td>
-												<img src="assets/images/people/p4.png" alt=""/>
+												<img src="https://pixner.net/dooplo3/main-v1/assets/images/people/p1.png" alt=""/>
 												Tom Bass
 											</td>
 											<td>
