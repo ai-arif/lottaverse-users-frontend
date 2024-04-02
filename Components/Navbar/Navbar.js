@@ -306,8 +306,8 @@ const Navbar = () => {
                 <Link href="/my-team/generation">
                   <i className="bi bi-circle"></i><span>Generation</span>
                 </Link>
-                <Link href="/my-team/referral-link">
-                  <i className="bi bi-circle"></i><span>Referral Link</span>
+                <Link href="/my-team/referral">
+                  <i className="bi bi-circle"></i><span>Referral</span>
                 </Link>
               </li>
 

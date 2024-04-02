@@ -14,7 +14,7 @@ const index = () => {
                 <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Amount" />
             </div>
             <div className='my-2 me-auto'>
-                <button className="btn btn-primary btn-sm">Deposite</button>
+                <button className="btn btn-primary btn-sm">Withdraw</button>
             </div>
             {/* create a table of ID, Date, Amount */}
             <div className="container-fluid my-4">
@@ -24,6 +24,7 @@ const index = () => {
                             <th scope="col">ID</th>
                             <th scope="col">Date</th>
                             <th scope="col">Amount</th>
+                            <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -31,6 +32,9 @@ const index = () => {
                             <th scope="row">01</th>
                             <td>Mark</td>
                             <td>Otto</td>
+                            <td>
+                            <span class="badge text-bg-success">Success</span>
+                            </td>
                         </tr>
                         
                     </tbody>
