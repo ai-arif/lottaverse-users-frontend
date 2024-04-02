@@ -52,7 +52,7 @@ const index = () => {
   }, [])
   
   return (
-    <div>
+    <div className='pagetitle'>
       <Head>
         <title>Lottaverse - Dashboard</title>
         <meta name="description" content="" />
