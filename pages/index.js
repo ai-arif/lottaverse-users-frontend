@@ -1,3 +1,4 @@
+import LandingActivities from '@/Components/LandingPage/LandingActivities'
 import LandingFeaturedGames from '@/Components/LandingPage/LandingFeaturedGames'
 import LandingFeatures from '@/Components/LandingPage/LandingFeatures'
 import LandingFooter from '@/Components/LandingPage/LandingFooter'
@@ -29,6 +30,7 @@ const index = () => {
       <LandingHero/>
       <LandingFeatures/>
       <LandingFeaturedGames/>
+      <LandingActivities/>
       <LandingFunFact/>
       <LandingRecentWinners/>
       <br />
