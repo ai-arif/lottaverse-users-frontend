@@ -18,6 +18,8 @@ const index = () => {
                             <th scope="col">Date</th>
                             <th scope="col">Amount</th>
                             <th scope="col">Address</th>
+                            <th scope="col">Action</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -26,6 +28,9 @@ const index = () => {
                             <td>Mark</td>
                             <td>Otto</td>
                             <td>Otto</td>
+                            <td>
+                            <span class="badge text-bg-success">Success</span>
+                            </td>
                         </tr>
                         
                     </tbody>

@@ -1,7 +1,11 @@
+import LandingActivities from '@/Components/LandingPage/LandingActivities'
+import LandingFeaturedGames from '@/Components/LandingPage/LandingFeaturedGames'
 import LandingFeatures from '@/Components/LandingPage/LandingFeatures'
 import LandingFooter from '@/Components/LandingPage/LandingFooter'
+import LandingFunFact from '@/Components/LandingPage/LandingFunFact'
 import LandingHero from '@/Components/LandingPage/LandingHero'
 import LandingNavbar from '@/Components/LandingPage/LandingNavbar'
+import LandingRecentWinners from '@/Components/LandingPage/LandingRecentWinners'
 import Head from 'next/head'
 import React, { useEffect } from 'react'
 
@@ -27,6 +31,10 @@ const index = () => {
       <LandingNavbar/>
       <LandingHero/>
       <LandingFeatures/>
+      <LandingFeaturedGames/>
+      <LandingActivities/>
+      <LandingFunFact/>
+      <LandingRecentWinners/>
       <br />
     <LandingFooter/>
     </div>

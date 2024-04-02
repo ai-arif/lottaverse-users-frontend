@@ -20,19 +20,9 @@ const LandingNavbar = () => {
                     <div class="header__nav__option">
                         <nav class="header__nav__menu mobile-menu">
                             <ul>
-                                <li class="active"><a href="./index.html">Home</a></li>
-                                <li><a href="./about.html">About</a></li>
-                                <li><a href="./portfolio.html">Portfolio</a></li>
-                                <li><a href="./services.html">Services</a></li>
-                                <li><a href="#">Pages</a>
-                                    <ul class="dropdown">
-                                        <li><a href="./about.html">About</a></li>
-                                        <li><a href="./portfolio.html">Portfolio</a></li>
-                                        <li><a href="./blog.html">Blog</a></li>
-                                        <li><a href="./blog-details.html">Blog Details</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="./contact.html">Contact</a></li>
+                                <li class="active"><Link href="/">Home</Link></li>
+                                
+                                <li><Link href="/dashboard">Dashboard</Link></li>
                             </ul>
                         </nav>
                         <div class="header__nav__social">

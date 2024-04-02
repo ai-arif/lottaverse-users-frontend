@@ -44,6 +44,12 @@ export const getServerSideProps = async (context) => {
 
 const index = () => {
   const dispatch=useDispatch()
+  useEffect(() => {
+    // add main id to main tag
+    document.querySelector('main').setAttribute('id', 'main')
+    // add main class to main tag
+    document.querySelector('main').setAttribute('class', 'main')
+  }, [])
   
   return (
     <div className='pagetitle'>

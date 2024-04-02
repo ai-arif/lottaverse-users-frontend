@@ -24,6 +24,7 @@ const index = () => {
                             <th scope="col">ID</th>
                             <th scope="col">Date</th>
                             <th scope="col">Amount</th>
+                            <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -31,6 +32,9 @@ const index = () => {
                             <th scope="row">01</th>
                             <td>Mark</td>
                             <td>Otto</td>
+                            <td>
+                            <span class="badge text-bg-success">Success</span>
+                            </td>
                         </tr>
                         
                     </tbody>

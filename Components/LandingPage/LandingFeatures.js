@@ -2,7 +2,7 @@ import React from 'react'
 
 const LandingFeatures = () => {
   return (
-    <div className="features">
+    <div className="features mb-4 " style={{marginTop:"70px"}}>
 			<div className="container">
 				<div className="row">
 					<div className="col-lg-12">
@@ -18,7 +18,7 @@ const LandingFeatures = () => {
 												<h4 className="title">
 													Exclusive Offer
 												</h4>
-												<a href="#" className="link">read more <i className="fas fa-arrow-right"></i></a>
+												<a href="#" className="link">read more <i class="bi bi-arrow-right-short"></i></a>
 											</div>
 										</div>
 									</div>
@@ -31,7 +31,7 @@ const LandingFeatures = () => {
 												<h4 className="title">
 													Provably Fair
 												</h4>
-												<a href="#" className="link">read more <i className="fas fa-arrow-right"></i></a>
+												<a href="#" className="link">read more <i class="bi bi-arrow-right-short"></i></a>
 											</div>
 										</div>
 									</div>
@@ -44,7 +44,7 @@ const LandingFeatures = () => {
 												<h4 className="title">
 													24/7 Support
 												</h4>
-												<a href="#" className="link">read more <i className="fas fa-arrow-right"></i></a>
+												<a href="#" className="link">read more <i class="bi bi-arrow-right-short"></i></a>
 											</div>
 										</div>
 									</div>
