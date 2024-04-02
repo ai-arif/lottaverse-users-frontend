@@ -29,7 +29,7 @@ const Navbar = () => {
         <div className="d-flex align-items-center justify-content-between">
           <Link href="/" className="logo d-flex align-items-center">
             <img src="assets/img/logo.png" alt="" />
-            <span className="d-none d-lg-block">LottaVerse</span>
+            <span className="d-none d-lg-block text-white">LottaVerse</span>
           </Link>
           <i onClick={() => {
             setToggle(!isToggle)
@@ -266,7 +266,7 @@ const Navbar = () => {
         <ul className="sidebar-nav" id="sidebar-nav">
 
           <li className="nav-item">
-            <Link className="nav-link " href="/">
+            <Link className="nav-link " href="/dashboard">
               <i className="bi bi-grid"></i>
               <span>Dashboard</span>
             </Link>

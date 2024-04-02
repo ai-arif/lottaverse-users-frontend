@@ -46,7 +46,7 @@ const index = () => {
   const dispatch=useDispatch()
   
   return (
-    <div>
+    <div className='pagetitle'>
       <Head>
         <title>Lottaverse - Dashboard</title>
         <meta name="description" content="" />
