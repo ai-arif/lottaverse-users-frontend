@@ -10,16 +10,14 @@ const IndexPage = () => {
         children: [
           {
             name: 'Grandchild 1.1', children: [
-              { name: 'Great Grandchild 1.1.1' },
-              { name: 'Great Grandchild 1.1.2' }
+
             ]
           },
-
           { name: 'Grandchild 1.2' }
         ]
       },
       {
-        name:"Child 2",
+        name: 'Child 2',
         children: [
           { name: 'Grandchild 2.1' },
           { name: 'Grandchild 2.2' }
@@ -28,17 +26,28 @@ const IndexPage = () => {
     ]
   };
 
-  const renderFamily = (family) => {
+  const renderFamily = (family, isFirstChild = false) => {
     return (
       <>
-        <ProfileStructure name={family.name} />
         {family.children && (
-          <div className="d-flex justify-content-center">
-            {family.children.map((child, index) => (
-              <div key={index} className="d-flex flex-column align-items-center">
-                {renderFamily(child)}
-              </div>
-            ))}
+          <>
+            <div className="d-flex flex-column align-items-center">
+              <ProfileStructure name={family.name} />
+              <div className="arrow-down"></div>
+              <div className="connect-line-horizontal"></div>
+            </div>
+            <div className="d-flex justify-content-center">
+              {family.children.map((child, index) => (
+                <div key={index} className="d-flex flex-column align-items-center">
+                  {renderFamily(child, index === 0)}
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+        {!family.children && (
+          <div className="d-flex flex-column align-items-center">
+            <ProfileStructure name={family.name} />
           </div>
         )}
       </>
@@ -49,7 +58,7 @@ const IndexPage = () => {
     <div className="container">
       <div className="row">
         <div className="col">
-          {renderFamily(familyData)}
+          {renderFamily(familyData, true)}
         </div>
       </div>
     </div>
