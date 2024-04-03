@@ -46,6 +46,31 @@ h6 {
   padding: 20px 30px;
   transition: all 0.3s;
 }
+/* Horizontal line */
+.connect-line-horizontal {
+  border-top: 1px solid black; /* Adjust thickness and color as needed */
+  
+  margin: 0 auto; /* Center the line horizontally */
+}
+
+/* Vertical line */
+.connect-line-vertical {
+  border-left: 1px solid black; /* Adjust thickness and color as needed */
+  height: 50px; /* Adjust length as needed */
+}
+
+.connect-line {
+  border-left: 1px solid greenyellow;
+  height: 50px; /* Adjust height as needed */
+}
+
+.arrow-down {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+}
 
 @media (max-width: 1199px) {
   #main {

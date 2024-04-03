@@ -1,45 +1,48 @@
-import React from 'react'
+import ProfileStructure from '@/Components/Structure/ProfileStructure';
+import React from 'react';
 
-const index = () => {
+const IndexPage = () => {
+  const familyData = {
+    name: 'Parent',
+    children: [
+      {
+        name: 'Child 1',
+        children: [
+          { name: 'Grandchild 1' },
+          { name: 'Grandchild 2' }
+        ]
+      },
+      {
+        name: 'Child 2',
+        children: [
+          { name: 'Grandchild 3' }
+        ]
+      },
+      { name: 'Child 3' }
+    ]
+  };
+
+  
+
   return (
-    <div>
-      <div class="container">
-        <div class="row">
-          <div className="col-md-3 d-flex justify-content-center align-items-center flex-column">
-            <div class="circle-group">
-            </div>
-            <div className="container p-2 border border-1 bg-success text-white">
-              Wallet
-            </div>
-          </div>
-
-          <div className="col-md-3 d-flex justify-content-center align-items-center flex-column">
-            <div class="circle-group">
-            </div>
-            <div className="container p-2 border border-1 bg-success text-white">
-              Wallet
-            </div>
-          </div>
-
-          <div className="col-md-3 d-flex justify-content-center align-items-center flex-column">
-            <div class="circle-group">
-            </div>
-            <div className="container p-2 border border-1 bg-success text-white">
-              Wallet
-            </div>
-          </div>
-          <div className="col-md-3 d-flex justify-content-center align-items-center flex-column">
-            <div class="circle-group">
-            </div>
-            <div className="container p-2 border border-1 bg-success text-white">
-              Wallet
-            </div>
-          </div>
-
+    <div className="container">
+      <div className="row">
+        <div className="col">
+          {
+            familyData.children.map((child, index) => (
+              <ProfileStructure key={index} name={child.name}>
+                {
+                  child.children && child.children.map((grandchild, index) => (
+                    <ProfileStructure key={index} name={grandchild.name} />
+                  ))
+                }
+              </ProfileStructure>
+            ))
+          }
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default index
+export default IndexPage;

@@ -280,7 +280,7 @@ const Navbar = () => {
                 <Link href="/my-profile">
                   <i className="bi bi-circle"></i><span>Profile</span>
                 </Link>
-                <Link href="/my-team/referral-link">
+                <Link href="/my-profile/referral-link">
                   <i className="bi bi-circle"></i><span>Referral Link</span>
                 </Link>
               </li>
