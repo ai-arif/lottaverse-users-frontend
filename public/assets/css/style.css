@@ -829,7 +829,8 @@ h6 {
 /* Info Cards */
 .dashboard .info-card {
   padding-bottom: 10px;
-  background-color: #7359fe;
+  background-color: transparent;
+  box-shadow: 0 3px 12px rgba(241, 223, 223, 0.05);
 }
 
 .dashboard .info-card h6 {
