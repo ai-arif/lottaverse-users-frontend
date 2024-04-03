@@ -9,9 +9,7 @@ const IndexPage = () => {
         name: 'Child 1',
         children: [
           {
-            name: 'Grandchild 1.1', children: [
-
-            ]
+            name: 'Grandchild 1.1',
           },
           { name: 'Grandchild 1.2' }
         ]
