@@ -15,14 +15,37 @@ function Leaderboard() {
             <h5 className="fw-bold mb-0">Locked</h5>
           </div>
           <div className="card-body">
-            <div className="d-flex gap-2">
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>Package</th>
+                  <th>Price</th>
+                  <th>Percentage</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>
+                  Easy
+                </td>
+                <td>
+                  3$
+                </td>
+                <td>
+                  10%
+                </td>
+              </tr>
+              </tbody>
+
+            </table>
+            {/* <div className="d-flex gap-2">
               <img
                 src="img/check-icon.png"
                 alt="check-icon"
                 width="25"
                 height="25"
               />
-              <p className="text-warning">$0.000</p>
+              <p className="text-warning">Easy - 3$</p>
             </div>
             <div className="d-flex gap-2">
               <img
@@ -31,7 +54,7 @@ function Leaderboard() {
                 width="25"
                 height="25"
               />
-              <p className="text-warning">$0.000</p>
+              <p className="text-warning">Super - $5</p>
             </div>
             <div className="d-flex gap-2">
               <img
@@ -40,11 +63,12 @@ function Leaderboard() {
                 width="25"
                 height="25"
               />
-              <p className="text-warning">$0.000</p>
-            </div>
+              <p className="text-warning">Super-X - $10</p>
+            </div> */}
           </div>
         </div>
         <img src="img/arrow.png" alt="check-icon" width="55" height="55" />
+        <div className="unlocked-holder-box">
         <div
           className="card px-4 py-4 my-4 mb-0  leaderboard-card d-flex flex-column align-items-center"
           style={{ borderRadius: "100px" }}
@@ -62,6 +86,7 @@ function Leaderboard() {
               <p className="text-warning">$0.000</p>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </div>

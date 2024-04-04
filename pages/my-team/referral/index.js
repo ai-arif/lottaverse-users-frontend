@@ -5,7 +5,7 @@ const index = () => {
     <div>
       {/* create table using bootstrap class, with fields Referral Level, Total user Active User, Inactive User, Referral Commission */}
       <div class="container-fluid">
-        <table class="table p-2">
+        <table class="table table-dark p-2">
           <thead>
             <tr>
               <th scope="col">Order ID</th>

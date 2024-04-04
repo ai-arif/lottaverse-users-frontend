@@ -829,8 +829,18 @@ h6 {
 /* Info Cards */
 .dashboard .info-card {
   padding-bottom: 10px;
-  background-color: transparent;
+  /* background-color: transparent; */
+  /* a gradient color #4328f9 in the bottom to #7c61fa top*/
+  background: linear-gradient(180deg,#7c61fa  0%, #4328f9 100%);
+  
   box-shadow: 0 3px 12px rgba(241, 223, 223, 0.05);
+}
+.unlocked-holder-box{
+  background-color: transparent;
+  border: #fff 2px dotted;
+  padding: 2px 2px 2px 2px;
+
+
 }
 
 .dashboard .info-card h6 {
