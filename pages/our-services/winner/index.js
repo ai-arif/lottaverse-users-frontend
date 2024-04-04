@@ -23,7 +23,7 @@ const index = () => {
                 <div className="row">
 
                     <div className="form-group col-3">
-                        <label htmlFor="exampleFormControlSelect1">Package</label>
+                        <label className='text-white' htmlFor="exampleFormControlSelect1">Package</label>
                         <select className="form-control" id="exampleFormControlSelect1">
                             <option>Package 1</option>
                             <option>2</option>
@@ -33,7 +33,7 @@ const index = () => {
                         </select>
                     </div>
                     <div className="form-group col-3 mx-1">
-                        <label htmlFor="exampleFormControlSelect1">Round</label>
+                        <label className='text-white' htmlFor="exampleFormControlSelect1">Round</label>
                         <select className="form-control" id="exampleFormControlSelect1">
                             <option>Round 1</option>
                             <option>2</option>
@@ -44,13 +44,13 @@ const index = () => {
                     </div>
 
                     <div className="form-group col-3 ">
-                        <label htmlFor="exampleInputEmail1">Ticket</label>
+                        <label className='text-white' htmlFor="exampleInputEmail1">Ticket</label>
                         <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter ticket number" />
                     </div>
                 </div>
             </div>
             <div className="container-fluid my-4">
-                <table className="table p-2">
+                <table className="table table-dark p-2">
                     <thead>
                         <tr>
                             <th scope="col">Position</th>

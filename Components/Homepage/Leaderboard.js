@@ -18,23 +18,72 @@ function Leaderboard() {
             <table className="table">
               <thead>
                 <tr>
+                  <th>#</th>
                   <th>Package</th>
                   <th>Price</th>
                   <th>Percentage</th>
                 </tr>
               </thead>
               <tbody>
-              <tr>
-                <td>
-                  Easy
-                </td>
-                <td>
-                  3$
-                </td>
-                <td>
-                  10%
-                </td>
-              </tr>
+                <tr>
+                  <td>
+                    <img
+                      src="img/check-icon.png"
+                      alt="check-icon"
+                      width="25"
+                      height="25"
+                    />
+                  </td>
+                  <td>
+                    Easy
+                  </td>
+                  <td>
+                    3$
+                  </td>
+                  <td>
+                    10%
+                  </td>
+                </tr>
+                {/* Super, Super-X */}
+                <tr>
+                  <td>
+                    <img
+                      src="img/check-icon.png"
+                      alt="check-icon"
+                      width="25"
+                      height="25"
+                    />
+                  </td>
+                  <td>
+                    Super
+                  </td>
+                  <td>
+                    5$
+                  </td>
+                  <td>
+                    20%
+                  </td>
+                  
+                </tr>
+                <tr>
+                  <td>
+                    <img
+                      src="img/check-icon.png"
+                      alt="check-icon"
+                      width="25"
+                      height="25"
+                    />
+                  </td>
+                  <td>
+                    Super-X
+                  </td>
+                  <td>
+                    10$
+                  </td>
+                  <td>
+                    30%
+                  </td>
+                </tr>
               </tbody>
 
             </table>
@@ -69,24 +118,24 @@ function Leaderboard() {
         </div>
         <img src="img/arrow.png" alt="check-icon" width="55" height="55" />
         <div className="unlocked-holder-box">
-        <div
-          className="card px-4 py-4 my-4 mb-0  leaderboard-card d-flex flex-column align-items-center"
-          style={{ borderRadius: "100px" }}
-        >
-          <div className="card-title">Unlocked</div>
-          <div className="card-body">
-            <i className="far fa-circle text-warning"></i>
-            <div className="d-flex gap-2">
-              <img
-                src="img/check-icon.png"
-                alt="check-icon"
-                width="25"
-                height="25"
-              />
-              <p className="text-warning">$0.000</p>
+          <div
+            className="card px-4 py-4 my-4 mb-0  leaderboard-card d-flex flex-column align-items-center"
+            style={{ borderRadius: "100px" }}
+          >
+            <div className="card-title">Unlocked</div>
+            <div className="card-body">
+              <i className="far fa-circle text-warning"></i>
+              <div className="d-flex gap-2">
+                <img
+                  src="img/check-icon.png"
+                  alt="check-icon"
+                  width="25"
+                  height="25"
+                />
+                <p className="text-warning">$0.000</p>
+              </div>
             </div>
           </div>
-        </div>
         </div>
       </div>
     </div>

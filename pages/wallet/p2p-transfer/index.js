@@ -9,9 +9,9 @@ const index = () => {
             <meta name="description" content="" />
             <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h3>P2P Transfer Historys</h3>
+      <h3 className='text-white'>P2P Transfer Historys</h3>
       <div className="container-fluid my-4">
-                <table className="table p-2">
+                <table className="table table-dark p-2">
                     <thead>
                         <tr>
                             <th scope="col">W</th>

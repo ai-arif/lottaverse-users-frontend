@@ -10,7 +10,7 @@ const index = () => {
             <meta name="description" content="" />
             <link rel="icon" href="/favicon.ico" />
         </Head>
-        <table class="table p-2">
+        <table class="table table-dark p-2">
           <thead>
             <tr>
               <th scope="col">Package</th>

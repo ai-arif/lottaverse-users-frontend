@@ -23,10 +23,10 @@ const TicketComponent = () => {
                     <span className="text-white fw-bold">1x</span>
                 </div>
 
-                <div className="row align-items-center justify-content-center my-2">
+                {/* <div className="row align-items-center justify-content-center my-2">
                     <button className="ticket-btn bg-info col-md-5 mx-2 text-white btn-outlined" type="button">+RANDOM TICKET</button>
                     <button className="ticket-btn bg-info col-md-5 text-white btn-outlined" type="button">+MANUAL TICKET</button>
-                </div>
+                </div> */}
 
                 {/* buy ticket button full width */}
                 <div className="d-grid buy-now-container bg-primary  gap-2 my-4">
