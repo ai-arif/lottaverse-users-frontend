@@ -25,7 +25,7 @@ const PackagesComponent = () => {
   }, []);
 
   return (
-    <div className="container-fluid">
+    <div className="">
       {/* show the day, hour, minute, and seconds timer here */}
       <CountdownTimer 
       days={timer.days}

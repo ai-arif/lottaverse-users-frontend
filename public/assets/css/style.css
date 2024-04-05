@@ -47,6 +47,40 @@ h6 {
   padding: 20px 30px;
   transition: all 0.3s;
 }
+
+/* CountdownTimer.css */
+
+/* Transparent background */
+.countdown-timer-card {
+  background: transparent;
+}
+
+/* Custom font styles */
+.countdown-number {
+  font-size: 36px;
+  font-weight: bold;
+  color: #fff; /* White color for numbers */
+  /* Gradient box shadow */
+  box-shadow: 5px 5px 15px rgba(246, 211, 101, 0.5), -5px -5px 15px rgba(253, 160, 133, 0.5);
+}
+
+.countdown-label {
+  font-size: 16px;
+  color: #fff; /* Dark color for labels */
+}
+
+/* Additional styles for layout */
+.countdown-container {
+  display: flex; /* Ensure items are in a row */
+  justify-content: space-between; /* Evenly distribute items */
+}
+
+.countdown-item {
+  width: 80px; /* Set width to avoid overlap */
+  text-align: center; /* Center-align items */
+  margin: 0 5px; /* Add margin between items */
+}
+
 /* Vertical line */
 .connect-line-vertical {
   border-left: 1px solid black; /* Adjust thickness and color as needed */
