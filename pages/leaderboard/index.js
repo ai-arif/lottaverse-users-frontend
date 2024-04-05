@@ -4,7 +4,7 @@ const index = () => {
   return (
     <div>
       <div className="container-fluid my-4">
-                <table className="table table-dark p-2" style={{background:"#1c2642"}}>
+                <table className="table text-center table-dark p-2" style={{background:"#1c2642"}}>
                     <thead>
                         <tr>
                             <th scope="col">Id</th>

@@ -11,7 +11,7 @@ const index = () => {
       </Head>
       <h3 className='text-white'>P2P Transfer Historys</h3>
       <div className="container-fluid my-4">
-                <table className="table table-dark p-2">
+                <table className="table text-center table-dark p-2">
                     <thead>
                         <tr>
                             <th scope="col">W</th>

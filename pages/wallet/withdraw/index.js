@@ -11,14 +11,14 @@ const index = () => {
             </Head>
             <div className="form-group">
                 <label for="exampleInputEmail1">Amount</label>
-                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Amount" />
+                <input type="email" className="form-control bg-dark text-white" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Amount" />
             </div>
             <div className='my-2 me-auto'>
                 <button className="btn btn-primary btn-sm">Withdraw</button>
             </div>
             {/* create a table of ID, Date, Amount */}
             <div className="container-fluid my-4">
-                <table className="table p-2">
+                <table className="table text-center table-dark p-2">
                     <thead>
                         <tr>
                             <th scope="col">ID</th>

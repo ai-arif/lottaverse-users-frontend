@@ -18,7 +18,7 @@ const index = () => {
             </div>
             {/* create a table of ID, Date, Amount */}
             <div className="container-fluid my-4">
-                <table className="table table-dark p-2">
+                <table className="table text-center table-dark p-2">
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
