@@ -69,7 +69,7 @@ const PackagesComponent = () => {
           </div>
         </div>
         {/* buy ticket button full width */}
-        <div className="d-grid gap-2 my-4">
+        <div className="text-center gap-2 my-4">
           <button className="btn btn-warning " type="button">
             Buy Ticket
           </button>

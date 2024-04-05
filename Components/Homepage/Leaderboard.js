@@ -1,8 +1,10 @@
 import React from "react";
-
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 function Leaderboard() {
+  let percentage = 5;
   return (
-    <div className=" card w-75 mx-auto p-4">
+    <div className=" card  mx-auto p-4">
       <div className="d-flex align-items-center gap-5 mx-auto">
         <div className="card leaderboard-card mb-0 px-3">
           <div className="card-title d-flex gap-2 align-items-center justify-content-center">
@@ -14,106 +16,110 @@ function Leaderboard() {
             />
             <h5 className="fw-bold mb-0">Locked</h5>
           </div>
-          <div className="card-body">
-            <table className="table">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Package</th>
-                  <th>Price</th>
-                  <th>Percentage</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <img
-                      src="img/check-icon.png"
-                      alt="check-icon"
-                      width="25"
-                      height="25"
-                    />
-                  </td>
-                  <td>
-                    Easy
-                  </td>
-                  <td>
-                    3$
-                  </td>
-                  <td>
-                    10%
-                  </td>
-                </tr>
-                {/* Super, Super-X */}
-                <tr>
-                  <td>
-                    <img
-                      src="img/check-icon.png"
-                      alt="check-icon"
-                      width="25"
-                      height="25"
-                    />
-                  </td>
-                  <td>
-                    Super
-                  </td>
-                  <td>
-                    5$
-                  </td>
-                  <td>
-                    20%
-                  </td>
-                  
-                </tr>
-                <tr>
-                  <td>
-                    <img
-                      src="img/check-icon.png"
-                      alt="check-icon"
-                      width="25"
-                      height="25"
-                    />
-                  </td>
-                  <td>
-                    Super-X
-                  </td>
-                  <td>
-                    10$
-                  </td>
-                  <td>
-                    30%
-                  </td>
-                </tr>
-              </tbody>
+          <div className="card-body " style={{ width: "450px" }}>
 
-            </table>
-            {/* <div className="d-flex gap-2">
-              <img
-                src="img/check-icon.png"
-                alt="check-icon"
-                width="25"
-                height="25"
-              />
-              <p className="text-warning">Easy - 3$</p>
+            <div className="d-flex justify-content-between">
+              <div>
+                <img
+                  src="img/check-icon.png"
+                  alt="check-icon"
+                  width="25"
+                  height="25"
+                />
+              </div>
+              <div>
+                Easy
+              </div>
+              <div>
+              $3
+              </div>
+              <div>
+                <div style={{ width: 30, height: 30 }}>
+                  <CircularProgressbar styles={buildStyles({
+                    rotation: 0.25,
+                    strokeLinecap: 'butt',
+
+                    textSize: '46px',
+
+                    pathTransitionDuration: 0.5,
+
+                    pathColor: `blue`,
+                    textColor: '#f88',
+                    trailColor: '#d6d6d6',
+                    backgroundColor: '#3e98c7',
+                  })} className="fw-bold" value={percentage} text={`${percentage}%`} />
+                </div>
+              </div>
             </div>
-            <div className="d-flex gap-2">
-              <img
-                src="img/check-icon.png"
-                alt="check-icon"
-                width="25"
-                height="25"
-              />
-              <p className="text-warning">Super - $5</p>
+            {/* Super, Super-X */}
+            <div className="d-flex justify-content-between">
+              <div>
+                <img
+                  src="img/check-icon.png"
+                  alt="check-icon"
+                  width="25"
+                  height="25"
+                />
+              </div>
+              <div>
+                Super
+              </div>
+              <div>
+              $5
+              </div>
+              <div>
+                <div style={{ width: 30, height: 30 }}>
+                  <CircularProgressbar styles={buildStyles({
+                    rotation: 0.25,
+                    strokeLinecap: 'butt',
+
+                    textSize: '46px',
+
+                    pathTransitionDuration: 0.5,
+
+                    pathColor: `yellow`,
+                    textColor: 'yellow',
+                    trailColor: '#d6d6d6',
+                    backgroundColor: '#3e98c7',
+                  })} className="fw-bold" value={percentage} text={`${percentage}%`} />
+                </div>
+              </div>
             </div>
-            <div className="d-flex gap-2">
-              <img
-                src="img/check-icon.png"
-                alt="check-icon"
-                width="25"
-                height="25"
-              />
-              <p className="text-warning">Super-X - $10</p>
-            </div> */}
+
+            <div className="d-flex justify-content-between">
+              <div>
+                <img
+                  src="img/check-icon.png"
+                  alt="check-icon"
+                  width="25"
+                  height="25"
+                />
+              </div>
+              <div>
+                Super-X
+              </div>
+              <div>
+              $10
+              </div>
+              <div>
+                <div style={{ width: 30, height: 30 }}>
+                  <CircularProgressbar styles={buildStyles({
+                    rotation: 0.25,
+                    strokeLinecap: 'butt',
+
+                    textSize: '46px',
+
+                    pathTransitionDuration: 0.5,
+
+                    pathColor: `purple`,
+                    textColor: '#e2f0f1',
+                    trailColor: '#d6d6d6',
+                    backgroundColor: '#3e98c7',
+                  })} className="fw-bold" value={percentage} text={`${percentage}%`} />
+                </div>
+              </div>
+            </div>
+          
           </div>
         </div>
         <img src="img/arrow.png" alt="check-icon" width="55" height="55" />
