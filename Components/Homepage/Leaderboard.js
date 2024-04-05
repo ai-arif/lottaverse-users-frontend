@@ -134,14 +134,9 @@ function Leaderboard() {
         <img src="img/arrow.png" alt="check-icon" width="55" height="55" />
         <div className="unlocked-holder-box">
         <div style={{ width: 200, height: 200 }}>
-      <CircularProgressbar
-        value={50}
-        styles={buildStyles({
-          pathColor: getColor(50),
-          trailColor: '#d6d6d6',
-        })}
-      />
+    
     </div>
+    
           <div
             className="card px-4 py-4 my-4 mb-0  leaderboard-card d-flex flex-column align-items-center"
             style={{ borderRadius: "100px" }}
