@@ -10,7 +10,7 @@ const index = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div className="form-group">
-                <label for="exampleInputEmail1">Amount</label>
+                <label className='text-white' htmlFor="exampleInputEmail1">Amount</label>
                 <input type="email" className="form-control bg-dark text-white" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Amount" />
             </div>
             <div className='my-2 me-auto'>
