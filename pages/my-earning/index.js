@@ -25,7 +25,8 @@ const index = () => {
     
     <div class="row">
       <div class="col-md-12">
-        <table className="table">
+        <table className="table   text-white table-dark">
+            <thead>
             <tr>
             <th>My Earing</th>
             </tr>
@@ -41,6 +42,7 @@ const index = () => {
             <tr>
                 <td>Founder Bonus</td>
             </tr>
+            </thead>
 
         </table>
       </div>
