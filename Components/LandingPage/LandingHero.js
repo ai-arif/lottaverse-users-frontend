@@ -1,6 +1,10 @@
-import React from 'react'
+import {
+	_setRandomNumber,
+	_getRandomNumber
+} from "../../utils/randomNumbers";
 
 const LandingHero = () => {
+
   return (
     <div className="hero-area hero__item hero_background" style={{background:"#070b28"}}>
                 <div className="container">
@@ -15,8 +19,15 @@ const LandingHero = () => {
                                 </p>
                                 <div className="links">
 								<a href="#" className="mybtn1 link1">Get Started Now!</a>
-							</div>
-                            </div>
+								<button className={"mybtn1 link1"} onClick={_setRandomNumber}>
+									set
+								</button>
+								<button className={"mybtn1 link1"} onClick={_getRandomNumber}>
+									get
+								</button>
+								</div>
+								</div>
+                            
                         </div>
 
                         <div className="col-lg-7" style={{position:'relative'}}>
