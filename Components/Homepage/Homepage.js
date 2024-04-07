@@ -31,6 +31,10 @@ const Homepage = () => {
           </div>
         </div>
       </section>
+      <div className="pagetitle">
+        <h1>Results</h1>
+        
+      </div>
       <section className="section results">
         <div className="row">
           <div className="col-xxl-4 col-md-4">
@@ -44,6 +48,10 @@ const Homepage = () => {
           </div>
         </div>
       </section>
+      <div className="pagetitle">
+        <h1>Leaderboard</h1>
+        
+      </div>
       <section className="section leaderboard">
        <Leaderboard />
       </section>

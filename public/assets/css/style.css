@@ -15,7 +15,8 @@
 
 body {
   font-family: "Open Sans", sans-serif;
-  background: #0a1223;
+  /* background: #0a1223; */
+  background: #080852;
   color: #444444;
 }
 
@@ -46,6 +47,40 @@ h6 {
   padding: 20px 30px;
   transition: all 0.3s;
 }
+
+/* CountdownTimer.css */
+
+/* Transparent background */
+.countdown-timer-card {
+  background: transparent;
+}
+
+/* Custom font styles */
+.countdown-number {
+  font-size: 36px;
+  font-weight: bold;
+  color: #fff; /* White color for numbers */
+  /* Gradient box shadow */
+  box-shadow: 5px 5px 15px rgba(246, 211, 101, 0.5), -5px -5px 15px rgba(253, 160, 133, 0.5);
+}
+
+.countdown-label {
+  font-size: 16px;
+  color: #fff; /* Dark color for labels */
+}
+
+/* Additional styles for layout */
+.countdown-container {
+  display: flex; /* Ensure items are in a row */
+  justify-content: space-between; /* Evenly distribute items */
+}
+
+.countdown-item {
+  width: 80px; /* Set width to avoid overlap */
+  text-align: center; /* Center-align items */
+  margin: 0 5px; /* Add margin between items */
+}
+
 /* Vertical line */
 .connect-line-vertical {
   border-left: 1px solid black; /* Adjust thickness and color as needed */
@@ -79,6 +114,7 @@ h6 {
 .pagetitle {
   margin-bottom: 10px;
   background-color: #0a1223;
+  padding: 10px 15px;
 }
 
 .pagetitle h1 {
@@ -408,7 +444,8 @@ h6 {
   z-index: 997;
   height: 60px;
   box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
-  background-color: #0a1223;
+  /* background-color: #0a1223; */
+  background-color: #080852;
   padding-left: 20px;
   /* Toggle Sidebar Button */
   /* Search Bar */
@@ -638,7 +675,8 @@ h6 {
   scrollbar-width: thin;
   scrollbar-color: #aab7cf transparent;
   box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
-  background-color: #0a1223;
+  /* background-color: #0a1223; */
+  background-color: #080852;
 }
 
 @media (max-width: 1199px) {
@@ -660,7 +698,7 @@ h6 {
 @media (min-width: 1200px) {
   #main,
   #footer {
-    margin-left: 300px;
+    margin-left: 280px;
   }
 }
 
@@ -829,8 +867,18 @@ h6 {
 /* Info Cards */
 .dashboard .info-card {
   padding-bottom: 10px;
-  background-color: transparent;
+  /* background-color: transparent; */
+  /* a gradient color #4328f9 in the bottom to #7c61fa top*/
+  background: linear-gradient(180deg,#7c61fa  0%, #4328f9 100%);
+  
   box-shadow: 0 3px 12px rgba(241, 223, 223, 0.05);
+}
+.unlocked-holder-box{
+  background-color: transparent;
+  border: #fff 2px dotted;
+  padding: 2px 2px 2px 2px;
+
+
 }
 
 .dashboard .info-card h6 {

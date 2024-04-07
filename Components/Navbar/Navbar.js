@@ -360,9 +360,9 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
-                <a href="/wallet/p2p-transfer">
+                <Link href="/wallet/p2p-transfer">
                   <i className="bi bi-circle"></i><span>P2p Transfer</span>
-                </a>
+                </Link>
               </li>
               
             </ul>

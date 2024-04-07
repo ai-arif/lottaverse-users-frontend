@@ -6,15 +6,15 @@ const index = () => {
       <div class="container card">
     
     <div class="row card-body my-4">
-      <div class="col-md-4 border border-1 text-center text-end">
+      <div class="col-md-4 border border-1 text-center p-4 text-end">
         <h4>Total Balance</h4>
         <p>$10,000.00</p>
       </div>
-      <div class="col-md-4 border border-1 text-center">
+      <div class="col-md-4 border border-1 text-center p-4">
         <h4>Available Balance</h4>
         <p>$8,000.00</p>
       </div>
-      <div class="col-md-4 border border-1 text-center">
+      <div class="col-md-4 border border-1 text-center p-4">
         <h4>Pay Out</h4>
         <p>$1,000.00</p>
       </div>

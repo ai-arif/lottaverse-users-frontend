@@ -13,7 +13,7 @@ const index = () => {
                   <div className="d-flex gap-2">
                     <p className="mb-0">0000XXXXXXXXXXXX0000</p>
                     <img
-                      src="img/verified-icon.png"
+                      src="/img/check.png"
                       alt="verified-icon"
                       width="20"
                       height="20"
@@ -21,13 +21,13 @@ const index = () => {
                   </div>
                 </div>
                 <i class="ki-duotone ki-verify fs-1 text-primary"></i>
-                <p className="px-3 py-2 badge badge text-bg-success mb-0">
+                {/* <p className="px-3 py-2 badge badge text-bg-success mb-0">
                   Status: Active
-                </p>
+                </p> */}
               </div>
               <div className="d-flex justify-content-between align-items-center">
                 <p>
-                  <b>User Type:</b>User/Premium
+                  <b>User Type: </b>Premium
                 </p>
                 <p>
                   <b>Expiry Date:</b>00/00/0000

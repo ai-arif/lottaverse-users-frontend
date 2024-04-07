@@ -7,7 +7,7 @@ const index = () => {
       <div class="container-fluid">
         <table class="table table-dark p-2">
           <thead>
-            <tr>
+            <tr className='text-center p-3'>
               <th scope="col">Referral Level</th>
               <th scope="col">Total User</th>
               <th scope="col">Active User</th>
@@ -15,7 +15,7 @@ const index = () => {
               <th scope="col">Referral Commission</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className='text-center'>
             <tr>
               <th scope="row">1</th>
               <td>Mark</td>

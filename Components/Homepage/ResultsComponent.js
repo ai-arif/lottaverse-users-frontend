@@ -1,6 +1,8 @@
+import { useRouter } from "next/router";
 import React from "react";
 
 function ResultsComponent() {
+  const router=useRouter()
   return (
     <div className="card info-card shadow-lg">
       <div className="card-body">
@@ -14,7 +16,9 @@ function ResultsComponent() {
         </div>
         {/* buy ticket button full width */}
         <div className="d-grid gap-2 my-4">
-          <button className="btn btn-warning " type="button">
+          <button onClick={()=>{
+            router.push('/our-services/winner')
+          }} className="btn btn-warning " type="button">
             See More
           </button>
         </div>
