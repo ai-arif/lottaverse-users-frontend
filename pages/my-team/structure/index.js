@@ -11,7 +11,8 @@ const IndexPage = () => {
           {
             name: 'Grandchild 1.1',
           },
-          { name: 'Grandchild 1.2' }
+          { name: 'Grandchild 1.2' },
+          { name: 'Grandchild 1.3', children: [{ name: 'Great Grandchild 1.3.1' }, { name: 'Great Grandchild 1.3.2' }] },
         ]
       },
       {

@@ -18,10 +18,12 @@ export async function _requestRandomness() {
     // The MetaMask plugin also allows signing transactions to
     // send ether and pay to change state within the blockchain.
     // For this, you need the account signer...
+    
     const signer = provider.getSigner()
     const LOTTERYContract = new ethers.Contract(LOTTERY_CONTRACT_ADDRESS, LOTTERY_CONTRACT_ABI, provider);
     const LotteryWithSigner = LOTTERYContract.connect(signer);
     const tx =await LotteryWithSigner.requestRandomness();
+    console.log(tx);
     } catch (error) {
       // Check if the error is specifically because the wallet is not detected
       console.error('Can\'t detect wallet on account');

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import Link from 'next/link'
 import {useState} from 'react'
-import axios from '../../utils/axios'
+import axios from '../../utils/axiosInstance'
 import toast from 'react-hot-toast'
 import Cookies from 'js-cookie'
 import { useRouter } from 'next/router'

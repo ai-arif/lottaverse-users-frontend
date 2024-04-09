@@ -1,6 +1,6 @@
 import Homepage from '@/Components/Homepage/Homepage'
 import React, { useEffect } from 'react'
-import axios from '../../utils/axios'
+import axios from '../../utils/axiosInstance'
 
 import Cookies from 'js-cookie'
 import { useDispatch } from 'react-redux'
