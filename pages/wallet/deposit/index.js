@@ -14,7 +14,7 @@ const index = () => {
                 <input type="email" className="form-control bg-dark text-white" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Amount" />
             </div>
             <div className='my-2 me-auto'>
-                <button className="btn btn-primary btn-sm">Deposite</button>
+                <button className="btn btn-primary btn-sm">Deposit</button>
             </div>
             {/* create a table of ID, Date, Amount */}
             <div className="container-fluid my-4">

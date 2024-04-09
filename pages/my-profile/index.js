@@ -1,6 +1,16 @@
 import React from "react";
+import axiosInstance from "../../utils/axiosInstance";
 
-const index = () => {
+export const getServerSideProps = async (context) => {
+  const res = await axiosInstance.get("/api/user");
+  const data = res.data.data;
+  return {
+    props: { data },
+  };
+};
+
+const index = ({data}) => {
+  console.log(data)
   return (
     <div class="container">
       <div class="row">
@@ -27,7 +37,7 @@ const index = () => {
               </div>
               <div className="d-flex justify-content-between align-items-center">
                 <p>
-                  <b>User Type: </b>Premium
+                  <b>Premium</b>
                 </p>
                 <p>
                   <b>Expiry Date:</b>00/00/0000

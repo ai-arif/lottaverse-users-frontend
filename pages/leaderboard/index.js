@@ -1,7 +1,16 @@
 import React from 'react'
 import axiosInstance from '../../utils/axiosInstance'
 
-const index = () => {
+export const getServerSideProps = async (context) => {
+  const res = await axiosInstance.get('/api/leaderboard')
+  const data = res.data.data
+  return {
+    props: { data }
+  }
+}
+
+const index = ({data}) => {
+  
   return (
     <div>
       <div className="container-fluid my-4">
@@ -16,13 +25,17 @@ const index = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">01</th>
-                            <td>Mark</td>
-                            <td>20 June, 2024</td>
-                            <td>19</td>
-                            <td>$5,534</td>
-                        </tr>
+                        {
+                          data.map((item, index) => (
+                            <tr key={index}>
+                                <td>{item?.referralId}</td>
+                                <td>{item.address}</td>
+                                <td>{new Date(item.createdAt).toDateString()}</td>
+                                <td>{item.totalTickets}</td>
+                                <td>{item.payout}</td>
+                            </tr>
+                          ))
+                        }
                         
                     </tbody>
                 </table>

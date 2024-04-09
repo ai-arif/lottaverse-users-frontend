@@ -6,9 +6,14 @@ function ResultsComponent() {
   return (
     <div className="card info-card shadow-lg">
       <div className="card-body">
-        <h5 className="card-title">
+        <div className="card-title d-flex justify-content-between">
+        <h5>
         EASY
         </h5>
+        <h5>
+          Round #1
+        </h5>
+        </div>
         <div className="d-flex justify-content-between">
             <p className="fw-semibold">Winner</p>
             <p className="fw-semibold">Name</p>

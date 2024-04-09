@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import CountdownTimer from "./CountdownTimer";
+import { useRouter } from "next/router";
 
 const PackagesComponent = () => {
+  const router=useRouter()
   const [timer, setTimer] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
@@ -94,9 +96,28 @@ const PackagesComponent = () => {
             <span className="text-color small fw-bold">$10</span>
           </div>
         </div>
-        {/* buy ticket button full width */}
+        
+          <table className="table table-dark my-4">
+            <thead>
+              <tr>
+                <th scope="col">Round</th>
+                <th scope="col">Ticket Purchased</th>
+                <th scope="col">Players</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>100</td>
+                <td>100</td>
+              </tr>
+            </tbody>
+          </table>
+        
         <div className="text-center gap-2 my-4">
-          <button className="btn btn-warning " type="button">
+          <button onClick={()=>{
+            router.push('/our-services/buy-ticket')
+          }} className="btn btn-warning " type="button">
             Buy Ticket
           </button>
         </div>
