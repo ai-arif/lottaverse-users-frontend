@@ -1,7 +1,6 @@
 import {
-	_setRandomNumber,
-	_getRandomNumber
-} from "../../utils/randomNumbers";
+	_getRemainingTickets
+} from "../../utils/newUtils/getRemainingTickets";
 
 const LandingHero = () => {
 
@@ -19,12 +18,13 @@ const LandingHero = () => {
                                 </p>
                                 <div className="links">
 								<a href="#" className="mybtn1 link1">Get Started Now!</a>
-								<button className={"mybtn1 link1"} onClick={_setRandomNumber}>
+								{/* <button className={"mybtn1 link1"} onClick={_setRandomNumber}>
 									set
+								</button> */}
+								<button className={"mybtn1 link1"} onClick={() => _getRemainingTickets(2)}>
+								get
 								</button>
-								<button className={"mybtn1 link1"} onClick={_getRandomNumber}>
-									get
-								</button>
+
 								</div>
 								</div>
                             
