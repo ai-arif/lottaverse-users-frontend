@@ -351,6 +351,25 @@ export const LOTTERY_CONTRACT_ABI = [
 		"inputs": [
 			{
 				"internalType": "uint256",
+				"name": "_lotteryId",
+				"type": "uint256"
+			}
+		],
+		"name": "LotteryWinner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
 			}
@@ -383,4 +402,4 @@ export const LOTTERY_CONTRACT_ABI = [
 	}
 ]
 
-export const LOTTERY_CONTRACT_ADDRESS = "0x53c52e97c304b1cbb1e5becd77cdc675121c58ca";
+export const LOTTERY_CONTRACT_ADDRESS = "0x6dcd9b7253f596ae46354e85a08a67d0e88a30cf";
