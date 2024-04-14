@@ -1,27 +1,19 @@
 import ProfileStructure from '@/Components/Structure/ProfileStructure';
 import React, { useEffect, useState } from 'react';
 import axiosInstance from '../../../utils/axiosInstance';
+import {fetchReferralHierarchy} from '../../../features/user/userSlice';
+import Head from 'next/head';
+import { useDispatch, useSelector } from 'react-redux';
 
 const IndexPage = () => {
-  const [structure, setStructure]=useState()
-  const [loading, setLoading]=useState(false)
-  // load the structure, api/referral-hierarchy
-
-  const loadStructure=async()=>{
-    try {
-      setLoading(true)
-      let res=await axiosInstance.get('/api/referral-hierarchy')
-      setStructure(res.data.data)
-      console.log(res.data.data)
-      setLoading(false)
-    } catch (error) {
-      console.log(error)
-      setLoading(false)
+  const dispatch = useDispatch()
+  const {structure} = useSelector(state=>state.user)
+  
+  useEffect(() => {
+    if (Object.keys(structure).length !== 0) {
+      dispatch(fetchReferralHierarchy());
     }
-  }
-  useEffect(()=>{
-    loadStructure()
-  },[])
+  }, [dispatch, structure]);
 
   const familyData = {
     name: 'Parent',
@@ -49,7 +41,7 @@ const IndexPage = () => {
   const renderFamily = (family, isFirstChild = false) => {
     return (
       <>
-        {family.children && (
+        {family?.children && (
           <>
             <div className="d-flex flex-column align-items-center">
               <ProfileStructure name={family.name} />
@@ -57,7 +49,7 @@ const IndexPage = () => {
               <div className="connect-line-horizontal"></div>
             </div>
             <div className="d-flex justify-content-center">
-              {family.children.map((child, index) => (
+              {family?.children.map((child, index) => (
                 <div key={index} className="d-flex flex-column align-items-center">
                   {renderFamily(child, index === 0)}
                 </div>
@@ -65,9 +57,9 @@ const IndexPage = () => {
             </div>
           </>
         )}
-        {!family.children && (
+        {!family?.children && (
           <div className="d-flex flex-column align-items-center">
-            <ProfileStructure name={family.name} />
+            <ProfileStructure name={family?.name} />
           </div>
         )}
       </>
@@ -76,6 +68,9 @@ const IndexPage = () => {
 
   return (
     <div className="container">
+      <Head>
+        <title>My Team - Structure</title>
+      </Head>
       <div className="row">
         <div className="col">
           {renderFamily(structure, true)}

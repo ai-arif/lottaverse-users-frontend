@@ -13,3 +13,14 @@ export const getUserInformation = async (token) => {
         console.log(err)
     }
 }
+// let res=await axiosInstance.get('/api/referral-hierarchy')
+
+export const getReferralHierarchy = async () => {
+    try {
+        let res = await axiosInstance.get('/api/referral-hierarchy')
+        return res.data
+    }
+    catch (err) {
+        console.log(err)
+    }
+}

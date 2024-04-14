@@ -1,5 +1,5 @@
 import { createSlice,createAsyncThunk } from "@reduxjs/toolkit";
-import {getUserInformation} from './userAPI'
+import {getUserInformation,getReferralHierarchy} from './userAPI'
 
 export const fetchUserInformation = createAsyncThunk(
     "user/fetchUserInformation",
@@ -9,11 +9,21 @@ export const fetchUserInformation = createAsyncThunk(
     }
 );
 
+export const fetchReferralHierarchy = createAsyncThunk(
+    "user/fetchReferralHierarchy",
+    async () => {
+        const response = await getReferralHierarchy();
+        return response;
+    }
+);
+
+
 
 export const userSlice = createSlice({
     name: "user",
     initialState: {
         user: {},
+        structure: {},
         loading: false,
         error: null,
     },
@@ -43,7 +53,19 @@ export const userSlice = createSlice({
             .addCase(fetchUserInformation.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.error.message;
-            });
+            })
+            .addCase(fetchReferralHierarchy.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(fetchReferralHierarchy.fulfilled, (state, action) => {
+                state.loading = false;
+                state.structure = action.payload?.data;
+            })
+            .addCase(fetchReferralHierarchy.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.error.message;
+            })
+            
     },
 });
 
