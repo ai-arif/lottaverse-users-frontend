@@ -1,33 +1,42 @@
 import { createSlice } from "@reduxjs/toolkit";
+import {getUserInformation} from './userAPI'
 
-const initialState = {
-    status: "idle",
-    message: "",
-    userInformation: {},
-    bazarList: [],
-    mealList: [],
-    mess:{}
-};
-
-const userSlice = createSlice({
-    name: "userInformation",
-    initialState,
-    reducers: {
-        setUserInformation: (state, action) => {
-            
-            state.userInformation = action.payload;
-        },
-        setBazarList: (state, action) => {
-            state.bazarList = action.payload;
-        },
-        setMealList: (state, action) => {
-            state.mealList = action.payload;
-        },
-        setMess:(state,action)=>{
-            state.mess=action.payload
-        }
+export const userSlice = createSlice({
+    name: "user",
+    initialState: {
+        user: {},
+        loading: false,
+        error: null,
     },
-});
+    reducers: {
+        getUserStart: (state) => {
+        state.loading = true;
+        },
+        getUserSuccess: (state, action) => {
+        state.user = action.payload;
+        state.loading = false;
+        state.error = null;
+        },
+        getUserFailure: (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+        },
+    },
+    extraReducers: (builder) => {
+        builder
+        .addCase(getUserInformation.pending, (state) => {
+            state.loading = true;
+        })
+        .addCase(getUserInformation.fulfilled, (state, action) => {
+            state.loading = false;
+            state.user = action.payload?.data;
+        })
+        .addCase(getUserInformation.rejected, (state, action) => {
+            state.loading = false;
+            state.error = action.error.message;
+        });
+    }
+    });
 
-export const { setUserInformation, setBazarList, setMealList } = userSlice.actions;
+export const {  } = userSlice.actions;
 export default userSlice.reducer;

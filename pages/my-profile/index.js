@@ -1,16 +1,8 @@
 import React from "react";
-import axiosInstance from "../../utils/axiosInstance";
 
-export const getServerSideProps = async (context) => {
-  const res = await axiosInstance.get("/api/user");
-  const data = res.data.data;
-  return {
-    props: { data },
-  };
-};
 
-const index = ({data}) => {
-  console.log(data)
+const index = () => {
+  
   return (
     <div class="container">
       <div class="row">

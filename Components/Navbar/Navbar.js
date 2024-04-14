@@ -165,7 +165,7 @@ const Navbar = () => {
 
                 <li className="message-item">
                   <a href="#">
-                    <img src="assets/img/messages-2.jpg" alt="" className="rounded-circle" />
+                    <img src="/assets/img/messages-2.jpg" alt="" className="rounded-circle" />
                     <div>
                       <h4>Anna Nelson</h4>
                       <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
@@ -179,9 +179,9 @@ const Navbar = () => {
 
                 <li className="message-item">
                   <a href="#">
-                    <img src="assets/img/messages-3.jpg" alt="" className="rounded-circle" />
+                    <img src="/assets/img/messages-3.jpg" alt="" className="rounded-circle" />
                     <div>
-                      <h4>David Muldon</h4>
+                      <h4>Address</h4>
                       <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
                       <p>8 hrs. ago</p>
                     </div>
@@ -216,10 +216,10 @@ const Navbar = () => {
                 </li>
 
                 <li>
-                  <a className="dropdown-item d-flex align-items-center" href="users-profile.html">
+                  <Link className="dropdown-item d-flex align-items-center" href="/my-profile">
                     <i className="bi bi-person"></i>
                     <span>My Profile</span>
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <hr className="dropdown-divider" />
@@ -349,21 +349,21 @@ const Navbar = () => {
               <i className="bi bi-journal-text"></i><span>Wallet</span><i className="bi bi-chevron-down ms-auto"></i>
             </Link>
             <ul id="forms-nav" className="nav-content collapse " data-bs-parent="#sidebar-nav">
-              <li>
+              {/* <li>
                 <Link href="/wallet/deposit">
                   <i className="bi bi-circle"></i><span>Deposit</span>
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link href="/wallet/withdraw">
                   <i className="bi bi-circle"></i><span>Withdraw</span>
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href="/wallet/p2p-transfer">
                   <i className="bi bi-circle"></i><span>P2p Transfer</span>
                 </Link>
-              </li>
+              </li> */}
               
             </ul>
           </li>

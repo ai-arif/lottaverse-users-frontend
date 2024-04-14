@@ -10,7 +10,7 @@ import store from "@/store/store";
 export default function App({ Component, pageProps }) {
   
   const router=useRouter()
-  const restictedRoutes=["/login","/register","/create-mess","/join-mess",'/']
+  const restictedRoutes=["/login","/register","/create-mess","/join-mess",'/','404','/forgot-password','/reset-password','/verify-email','/verify-phone']
   
   return (
   <Provider store={store}>

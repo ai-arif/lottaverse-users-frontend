@@ -1,6 +1,9 @@
 import {
 	_getRemainingTickets
 } from "../../utils/newUtils/getRemainingTickets";
+import {
+	_connectWallet
+} from "../../utils/newUtils/connectWallet";
 
 const LandingHero = () => {
 
@@ -21,8 +24,8 @@ const LandingHero = () => {
 								{/* <button className={"mybtn1 link1"} onClick={_setRandomNumber}>
 									set
 								</button> */}
-								<button className={"mybtn1 link1"} onClick={() => _getRemainingTickets(2)}>
-								get
+								<button className={"mybtn1 link1"} onClick={async() => console.log(await _connectWallet())}>
+								Connect
 								</button>
 
 								</div>
