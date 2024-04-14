@@ -11,7 +11,9 @@ const LandingNavbar = () => {
     const router=useRouter()
     const getToken=async(address)=>{
         try {
-            let res=await axiosInstance.post('/api/register',{address:address})
+            let res=await axiosInstance.post('/api/register',{address:address,
+                referralLink:router.asPath,
+            })
             
             if(res.data.success){
                 Cookies.set('token',res.data.data.token,{expires:10})
@@ -46,6 +48,7 @@ const LandingNavbar = () => {
                                 
                                 <li onClick={async()=>{
                                     try {
+                                        
                                         let address=await _connectWallet();
                                         await getToken(address)
                                     } catch (error) {

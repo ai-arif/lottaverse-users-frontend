@@ -1,26 +1,29 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { setUserInformation } from '../../features/user/userSlice';
+import { fetchUserInformation } from '../../features/user/userSlice';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
 const Navbar = () => {
-  const { userInformation } = useSelector(state => state.user)
+  const {user}=useSelector(state=>state.user)
   const dispatch = useDispatch()
   const router = useRouter()
 
   const [users, setUsers] = useState([]);
   const [isToggle, setToggle] = useState(true);
-  // useEffect(() => {
-  //     fetch(`${process.env.API}/users`)
-  //     .then(res => res.json())
-  //     .then(data => setUsers(data))        
-  // }, []);
+  useEffect(() => {
+    if (Cookies.get('token')) {
+      dispatch(fetchUserInformation(Cookies.get('token')))
+    }
+    else {
+      router.push('/')
+    }
+  }, []);
 
   const handleSignout = () => {
-    Cookies.remove('mess_token')
-    dispatch(setUserInformation(null))
-    router.push('/login')
+    Cookies.remove('token')
+    
+    router.push('/')
   }
   return (
     <div className='admin-dashboard'>
@@ -203,12 +206,12 @@ const Navbar = () => {
 
               <a className="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
                 <img src="assets/img/profile-img.jpg" alt="Profile" className="rounded-circle" />
-                <span className="d-none d-md-block dropdown-toggle ps-2">{userInformation?.name}</span>
+                {/* <span className="d-none d-md-block dropdown-toggle ps-2">{userInformation?.name}</span> */}
               </a>
 
               <ul className="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                 <li className="dropdown-header">
-                  <h6>{userInformation?.name}</h6>
+                  {/* <h6>{userInformation?.name}</h6> */}
                   {/* <span>Web Designer</span> */}
                 </li>
                 <li>

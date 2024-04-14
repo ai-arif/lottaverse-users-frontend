@@ -1,7 +1,28 @@
 import ProfileStructure from '@/Components/Structure/ProfileStructure';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axiosInstance from '../../../utils/axiosInstance';
 
 const IndexPage = () => {
+  const [structure, setStructure]=useState()
+  const [loading, setLoading]=useState(false)
+  // load the structure, api/referral-hierarchy
+
+  const loadStructure=async()=>{
+    try {
+      setLoading(true)
+      let res=await axiosInstance.get('/api/referral-hierarchy')
+      setStructure(res.data.data)
+      console.log(res.data.data)
+      setLoading(false)
+    } catch (error) {
+      console.log(error)
+      setLoading(false)
+    }
+  }
+  useEffect(()=>{
+    loadStructure()
+  },[])
+
   const familyData = {
     name: 'Parent',
     children: [
@@ -57,7 +78,7 @@ const IndexPage = () => {
     <div className="container">
       <div className="row">
         <div className="col">
-          {renderFamily(familyData, true)}
+          {renderFamily(structure, true)}
         </div>
       </div>
     </div>

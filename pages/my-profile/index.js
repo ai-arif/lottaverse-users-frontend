@@ -1,10 +1,14 @@
+import Head from "next/head";
 import React from "react";
-
+import { useSelector } from "react-redux";
 
 const index = () => {
-  
+  const {user}=useSelector(state=>state.user)
   return (
     <div class="container">
+      <Head>
+        <title>Profile Overview</title>
+      </Head>
       <div class="row">
         <div class="col-md-12">
           <div class="card">
@@ -13,7 +17,7 @@ const index = () => {
               <div className="mb-0 d-flex justify-content-between align-items-center">
                 <div className="d-flex  gap-1 align-items-end">
                   <div className="d-flex gap-2">
-                    <p className="mb-0">0000XXXXXXXXXXXX0000</p>
+                    <p className="mb-0">{user?.address}</p>
                     <img
                       src="/img/check.png"
                       alt="verified-icon"
@@ -32,7 +36,7 @@ const index = () => {
                   <b>Premium</b>
                 </p>
                 <p>
-                  <b>Expiry Date:</b>00/00/0000
+                  <b>Expiry Date: </b>{new Date(user?.expiryDate).toDateString()}
                 </p>
               </div>
               <div class="d-flex justify-content-between align-items-center gap-3">
@@ -46,7 +50,7 @@ const index = () => {
                 </div>
                 <div class="card profile-info-card p-0">
                   <div class="card-body py-3 px-4">
-                    <h5 class="card-title text-warning p-0 mb-3">$0.0000</h5>
+                    <h5 class="card-title text-warning p-0 mb-3">${user?.earnings}</h5>
                     <h6 class="card-subtitle mb-2 text-light">
                       Total Earnings
                     </h6>
@@ -54,7 +58,7 @@ const index = () => {
                 </div>
                 <div class="card profile-info-card p-0">
                   <div class="card-body py-3 px-4">
-                    <h5 class="card-title text-warning p-0 mb-3">$0.0000</h5>
+                    <h5 class="card-title text-warning p-0 mb-3">${user?.payout}</h5>
                     <h6 class="card-subtitle mb-2 text-light">Pay Out</h6>
                   </div>
                 </div>

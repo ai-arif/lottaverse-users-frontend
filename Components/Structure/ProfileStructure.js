@@ -10,8 +10,7 @@ const ProfileStructure = ({ name }) => {
     </div>
     <div className="border  border-1">
         <div className="text-center bg-secondary p-3">
-            <h5 className='text-white'>3232323323</h5>
-        
+            <h5 className='text-white'>{name}</h5>
         </div>
         
     </div>
