@@ -24,3 +24,13 @@ export const getReferralHierarchy = async () => {
         console.log(err)
     }
 }
+// let res = await axiosInstance.get('/api/referral-level-count')
+export const getReferralLevelCount = async () => {
+    try {
+        let res = await axiosInstance.get('/api/referral-level-count')
+        return res.data
+    }
+    catch (err) {
+        console.log(err)
+    }
+}

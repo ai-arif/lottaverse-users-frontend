@@ -10,7 +10,8 @@ const IndexPage = () => {
   const {structure} = useSelector(state=>state.user)
   
   useEffect(() => {
-    if (Object.keys(structure).length !== 0) {
+    
+    if (Object.keys(structure).length == 0) {
       dispatch(fetchReferralHierarchy());
     }
   }, [dispatch, structure]);

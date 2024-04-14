@@ -20,12 +20,12 @@ const LandingHero = () => {
                                 Play, Invest,Exchange and Join the Contest with high rewards at Lotaverse!
                                 </p>
                                 <div className="links">
-								<a href="#" className="mybtn1 link1">Get Started Now!</a>
+								{/* <a href="#" className="mybtn1 link1">Get Started Now!</a> */}
 								{/* <button className={"mybtn1 link1"} onClick={_setRandomNumber}>
 									set
 								</button> */}
 								<button className={"mybtn1 link1"} onClick={async() => console.log(await _connectWallet())}>
-								Connect
+								Get Started Now!
 								</button>
 
 								</div>

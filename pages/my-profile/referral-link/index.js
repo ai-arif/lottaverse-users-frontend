@@ -1,8 +1,22 @@
 import Head from 'next/head'
 import React from 'react'
+import toast from 'react-hot-toast'
 import { useSelector } from 'react-redux'
 const index = () => {
   const {user}=useSelector(state=>state.user)
+
+  const handleCopyText = (textToCopy) => {  
+    navigator.clipboard.writeText(textToCopy)
+      .then(() => {
+        
+        toast.success('Copied to clipboard');
+      })
+      .catch((error) => {
+        
+        toast.error('Failed to copy to clipboard');
+        // Handle error here
+      });
+  };
   return (
     <div>
       <Head>
@@ -17,7 +31,9 @@ const index = () => {
       <div className="input-group">
         <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value={user?.referralId} readOnly/>
         <div className="input-group-append">
-          <button style={{background:"#4328f9","color":"white","border":"none"}} className="btn btn-outline-secondary copy-btn" type="button">Copy</button>
+          <button onClick={()=>{
+            handleCopyText(user?.referralId)
+          }} style={{background:"#4328f9","color":"white","border":"none"}} className="btn btn-outline-secondary copy-btn" type="button">Copy</button>
         </div>
       </div>
     </div>
@@ -28,7 +44,10 @@ const index = () => {
       <div className="input-group">
         <input type="text" className="form-control" id="exampleInputPassword1" value={user?.referralLink} readOnly/>
         <div className="input-group-append">
-          <button style={{background:"#4328f9","color":"white","border":"none"}} className="btn btn-outline-secondary p-2 copy-btn" type="button">Copy</button>
+          <button onClick={()=>{
+            handleCopyText(user?.referralLink)
+          
+          }} style={{background:"#4328f9","color":"white","border":"none"}} className="btn btn-outline-secondary p-2 copy-btn" type="button">Copy</button>
         </div>
       </div>
     </div>

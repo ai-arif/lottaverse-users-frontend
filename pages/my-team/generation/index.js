@@ -1,6 +1,18 @@
-import React from 'react'
-
+import React, { useEffect, useState } from 'react'
+import axiosInstance from '../../../utils/axiosInstance';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchReferralLevelCount } from '@/features/user/userSlice';
 const index = () => {
+  const dispatch=useDispatch()
+  const {referralLevelCount}=useSelector(state=>state.user)
+  
+  useEffect(() => {
+    if(referralLevelCount?.length==0){
+      dispatch(fetchReferralLevelCount())
+    }
+  }, [])
+
+
   return (
     <div>
       {/* create table using bootstrap class, with fields Referral Level, Total user Active User, Inactive User, Referral Commission */}
@@ -16,27 +28,18 @@ const index = () => {
             </tr>
           </thead>
           <tbody className='text-center'>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>Mark</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-              <td>Mark</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
-              <td>Mark</td>
-            </tr>
+            {
+              referralLevelCount.map((item, index) => (
+                <tr key={index}>
+                  <th scope="row">{item.referralLevel}</th>
+                  <td>{item.totalUsers}</td>
+                  <td>{item.activeUsers}</td>
+                  <td>{item.inactiveUsers}</td>
+                  <td>{item.referralCommission}</td>
+                </tr>
+              ))
+            }
+            
           </tbody>
         </table>
       </div>

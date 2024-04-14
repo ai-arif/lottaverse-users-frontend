@@ -1,5 +1,5 @@
 import { createSlice,createAsyncThunk } from "@reduxjs/toolkit";
-import {getUserInformation,getReferralHierarchy} from './userAPI'
+import {getUserInformation,getReferralHierarchy,getReferralLevelCount} from './userAPI'
 
 export const fetchUserInformation = createAsyncThunk(
     "user/fetchUserInformation",
@@ -17,6 +17,14 @@ export const fetchReferralHierarchy = createAsyncThunk(
     }
 );
 
+export const fetchReferralLevelCount = createAsyncThunk(
+    "user/fetchReferralLevelCount",
+    async () => {
+        const response = await getReferralLevelCount();
+        return response;
+    }
+);
+
 
 
 export const userSlice = createSlice({
@@ -24,6 +32,7 @@ export const userSlice = createSlice({
     initialState: {
         user: {},
         structure: {},
+        referralLevelCount: [],
         loading: false,
         error: null,
     },
@@ -65,7 +74,19 @@ export const userSlice = createSlice({
                 state.loading = false;
                 state.error = action.error.message;
             })
+            .addCase(fetchReferralLevelCount.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(fetchReferralLevelCount.fulfilled, (state, action) => {
+                state.loading = false;
+                state.referralLevelCount = action.payload?.data;
+            })
+            .addCase(fetchReferralLevelCount.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.error.message;
+            });
             
+
     },
 });
 
