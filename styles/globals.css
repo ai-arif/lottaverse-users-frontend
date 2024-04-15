@@ -47,3 +47,21 @@
     margin: 0;
     padding: 0;
   } */
+
+  .roll-the-ball {
+    cursor: pointer;
+    animation: roll 1s infinite linear;
+  }
+  .roll-the-ball:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes roll {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
