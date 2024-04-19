@@ -10,8 +10,7 @@ export async function _createLottery(
     _ticketPrice,
     _maxTickets,
     _operatorCommissionPercentage,
-    _expiration,
-    _lotteryId) {
+    _expiration) {
     try {
     // A Web3Provider wraps a standard Web3 provider, which is
     // what MetaMask injects as window.ethereum into each page
@@ -33,8 +32,7 @@ export async function _createLottery(
         _ticketPrice,
         _maxTickets,
         _operatorCommissionPercentage,
-        _expiration,
-        _lotteryId);
+        _expiration);
     console.log(tx);
     } catch (error) {
       // Check if the error is specifically because the wallet is not detected
