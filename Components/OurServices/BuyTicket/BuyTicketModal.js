@@ -23,11 +23,12 @@ const BuyTicketModal = () => {
     setShowTicketSummary(false);
   };
 
-  const handleBuyTicket = () => {
-    // Implement buy ticket functionality here
-    // You can add any logic related to buying the ticket
-    // For example, send a request to a backend API
-    // Once the ticket is bought, you can close the modal or redirect the user
+  const handleBuyTicket = async() => {
+    if(randomNumbers.length === 0) return alert("Please add a ticket");
+    const response = await _BuyTickets(0,randomNumbers.length);
+    console.log(response)
+    setRandomNumbers([]);
+    setShowTicketSummary(false);
   };
 
   return (
