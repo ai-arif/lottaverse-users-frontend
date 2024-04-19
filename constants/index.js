@@ -231,15 +231,16 @@ export const LOTTERY_CONTRACT_ABI = [
 				"internalType": "uint256",
 				"name": "_expiration",
 				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_lotteryId",
-				"type": "uint256"
 			}
 		],
 		"name": "createLottery",
-		"outputs": [],
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
@@ -321,11 +322,6 @@ export const LOTTERY_CONTRACT_ABI = [
 				"type": "uint256"
 			},
 			{
-				"internalType": "uint256",
-				"name": "lotteryId",
-				"type": "uint256"
-			},
-			{
 				"internalType": "address",
 				"name": "lotteryWinner",
 				"type": "address"
@@ -402,4 +398,4 @@ export const LOTTERY_CONTRACT_ABI = [
 	}
 ]
 
-export const LOTTERY_CONTRACT_ADDRESS = "0x6dcd9b7253f596ae46354e85a08a67d0e88a30cf";
+export const LOTTERY_CONTRACT_ADDRESS = "0x16e380bd39eef11eac96c965c652fb2ee0161cfa";
