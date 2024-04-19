@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import TicketSummaryModal from './TicketSummaryModal';
+import { _BuyTickets } from '@/utils/newUtils/BuyTickets';
 
 const BuyTicketModal = () => {
   const [showTicketSummary, setShowTicketSummary] = useState(false);

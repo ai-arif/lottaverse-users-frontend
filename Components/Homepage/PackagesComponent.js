@@ -8,12 +8,10 @@ const PackagesComponent = ({data}) => {
   const [timer, setTimer] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   useEffect(() => {
     const calculateTimeLeft = () => {
-      // Check if data and data.expiration are not null before calculating
       if (data?.expiration) {
-        // Get the expiration time from data
-        const expirationTime = moment(data.expiration);
+        // Convert the Unix epoch time to a moment object
+        const expirationTime = moment.unix(data.expiration);
 
-        // Check if expiration time is in the past
         if (expirationTime.isBefore(moment())) {
           // If expiration time is in the past, set the timer to default values
           setTimer({ days: 0, hours: 0, minutes: 0, seconds: 0 });
@@ -44,6 +42,7 @@ const PackagesComponent = ({data}) => {
     // Clean up the interval on component unmount
     return () => clearInterval(interval);
   }, [data?.expiration]);
+
 
   const getPackgageName=(id)=>{
     if(id%3==0){
@@ -136,7 +135,7 @@ const PackagesComponent = ({data}) => {
             </thead>
             <tbody>
               <tr>
-                <td>1</td>
+                <td>{data?.round}</td>
                 <td>100</td>
                 <td>100</td>
               </tr>

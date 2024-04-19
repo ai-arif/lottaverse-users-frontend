@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUserInformation } from '../../features/user/userSlice';
+import { fetchPackages } from '@/features/homepage/homepageSlice';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
 const Navbar = () => {
@@ -14,6 +15,7 @@ const Navbar = () => {
   useEffect(() => {
     if (Cookies.get('token')) {
       dispatch(fetchUserInformation(Cookies.get('token')))
+      dispatch(fetchPackages())
     }
     else {
       router.push('/')
