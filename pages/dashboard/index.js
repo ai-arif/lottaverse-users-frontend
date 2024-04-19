@@ -3,8 +3,9 @@ import React, { useEffect } from 'react'
 import axios from '../../utils/axiosInstance'
 
 import Cookies from 'js-cookie'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { setUserInformation } from '@/features/user/userSlice'
+import { fetchPackages } from '@/features/homepage/homepageSlice'
 import Head from 'next/head'
 
 export const getServerSideProps = async (context) => {
@@ -43,12 +44,11 @@ export const getServerSideProps = async (context) => {
 
 
 const index = () => {
-  const dispatch=useDispatch()
+  
   useEffect(() => {
-    // add main id to main tag
     document.querySelector('main').setAttribute('id', 'main')
-    // add main class to main tag
     document.querySelector('main').setAttribute('class', 'main')
+          
   }, [])
   
   return (

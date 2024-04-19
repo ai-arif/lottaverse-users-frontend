@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PackagesComponent from "./PackagesComponent";
 import ResultsComponent from "./ResultsComponent";
 import Leaderboard from "./Leaderboard";
+import { fetchPackages } from "@/features/homepage/homepageSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const Homepage = () => {
+  const dispatch=useDispatch()
+  const {packages}=useSelector(state=>state.homepage)
+  useEffect(() => {
+    dispatch(fetchPackages())
+  }, [])
   return (
     <div>
       <div className="pagetitle">
@@ -20,15 +27,19 @@ const Homepage = () => {
 
       <section className="section dashboard">
         <div className="row">
-          <div className="col-xxl-4 col-md-4">
+          {
+            packages.map((item,index)=>(
+              <div className="col-xxl-4 col-md-4">
+            <PackagesComponent data={item} />
+          </div>
+            ))
+          }
+          {/* <div className="col-xxl-4 col-md-4">
             <PackagesComponent />
           </div>
           <div className="col-xxl-4 col-md-4">
             <PackagesComponent />
-          </div>
-          <div className="col-xxl-4 col-md-4">
-            <PackagesComponent />
-          </div>
+          </div> */}
         </div>
       </section>
       <div className="pagetitle">

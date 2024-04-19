@@ -1,30 +1,59 @@
 import React, { useEffect, useState } from "react";
 import CountdownTimer from "./CountdownTimer";
 import { useRouter } from "next/router";
+import moment from "moment";
 
-const PackagesComponent = () => {
+const PackagesComponent = ({data}) => {
   const router=useRouter()
   const [timer, setTimer] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-
   useEffect(() => {
     const calculateTimeLeft = () => {
-      const nextDay = new Date();
-      nextDay.setDate(nextDay.getDate() + 1);
-      nextDay.setHours(0, 0, 0, 0);
-      const now = new Date();
-      const diff = nextDay - now;
-      const hours = Math.floor(diff / 1000 / 60 / 60);
-      const minutes = Math.floor(diff / 1000 / 60) % 60;
-      const seconds = Math.floor(diff / 1000) % 60;
-      const days = Math.floor(diff / 1000 / 60 / 60 / 24);
-      setTimer({ days, hours, minutes, seconds });
+      // Check if data and data.expiration are not null before calculating
+      if (data?.expiration) {
+        // Get the expiration time from data
+        const expirationTime = moment(data.expiration);
+
+        // Check if expiration time is in the past
+        if (expirationTime.isBefore(moment())) {
+          // If expiration time is in the past, set the timer to default values
+          setTimer({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+        } else {
+          // Calculate the difference between now and the expiration time
+          const diff = expirationTime.diff(moment(), 'milliseconds');
+
+          // Calculate days, hours, minutes, and seconds from the difference
+          const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+          setTimer({ days, hours, minutes, seconds });
+        }
+      } else {
+        // If expiration is null, set the timer to default values
+        setTimer({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+      }
     };
 
+    // Call calculateTimeLeft immediately to set the initial timer values
+    calculateTimeLeft();
+
+    // Set up an interval to update the timer every second
     const interval = setInterval(calculateTimeLeft, 1000);
 
-    // Cleanup function to clear the interval
+    // Clean up the interval on component unmount
     return () => clearInterval(interval);
-  }, []);
+  }, [data?.expiration]);
+
+  const getPackgageName=(id)=>{
+    if(id%3==0){
+      return "EASY"
+    }else if(id%3==1){
+      return "SUPER"
+    }else if(id%3==2){
+      return "SUPER-X"
+    }
+  }
 
   return (
     <div className="">
@@ -43,12 +72,12 @@ const PackagesComponent = () => {
         </h5> */}
         <div className="d-flex justify-content-between  my-3">
           <p>
-            <b>EASY</b>
+            <b>{getPackgageName(data?.lotteryId)}</b>
           </p>
           <div className="ps-3">
             <p className="small">
               Per Ticket <br />
-              <span className="text-color small fw-bold">$3</span>
+              <span className="text-color small fw-bold">${data?.ticketPrice}</span>
             </p>
           </div>
         </div>
@@ -60,7 +89,7 @@ const PackagesComponent = () => {
             </div>
           </div>
           <div className="ps-3">
-            <span className="text-color small fw-bold">$3000</span>
+            <span className="text-color small fw-bold">${data?.prizes?.firstPrize}</span>
           </div>
         </div>
         <div className="d-flex justify-content-between">
@@ -71,7 +100,7 @@ const PackagesComponent = () => {
             </div>
           </div>
           <div className="ps-3">
-            <span className="text-color small fw-bold">$3000</span>
+            <span className="text-color small fw-bold">${data?.prizes?.secondPrize}</span>
           </div>
         </div>
         <div className="d-flex justify-content-between">
@@ -82,7 +111,7 @@ const PackagesComponent = () => {
             </div>
           </div>
           <div className="ps-3">
-            <span className="text-color small fw-bold">$3000</span>
+            <span className="text-color small fw-bold">${data?.prizes?.thirdPrize}</span>
           </div>
         </div>
         <div className="d-flex justify-content-between">
@@ -93,7 +122,7 @@ const PackagesComponent = () => {
             </div>
           </div>
           <div className="ps-3">
-            <span className="text-color small fw-bold">$10</span>
+            <span className="text-color small fw-bold">${data?.prizes?.fourthPrize}</span>
           </div>
         </div>
         
