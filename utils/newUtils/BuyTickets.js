@@ -26,7 +26,7 @@ export async function _BuyTickets(
     const LOTTERYContract = new ethers.Contract(LOTTERY_CONTRACT_ADDRESS, LOTTERY_CONTRACT_ABI, provider);
     console.log(LOTTERYContract);
     const weiAmount = ethers.utils.parseUnits(_priceInEth,"ether");
-    const LotteryWithSigner = await LOTTERYContract.connect(signer).deposit(Please pay to buy the package, { value: weiAmount });
+    const LotteryWithSigner = await LOTTERYContract.connect(signer).deposit("Please pay to buy the package", { value: weiAmount });
     const tx = await LotteryWithSigner.BuyTickets(_lotteryId, _tickets);
     console.log(tx);
     } catch (error) {
