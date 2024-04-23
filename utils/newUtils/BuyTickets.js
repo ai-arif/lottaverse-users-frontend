@@ -9,7 +9,7 @@ import {
 export async function _BuyTickets(
     _lotteryId, 
     _tickets,
-    _priceInEth) {
+    weiAmount) {
     try {
     // A Web3Provider wraps a standard Web3 provider, which is
     // what MetaMask injects as window.ethereum into each page
@@ -25,8 +25,8 @@ export async function _BuyTickets(
     const signer = provider.getSigner()
     const LOTTERYContract = new ethers.Contract(LOTTERY_CONTRACT_ADDRESS, LOTTERY_CONTRACT_ABI, provider);
     console.log(LOTTERYContract);
-    const weiAmount = ethers.utils.parseUnits(`${_priceInEth}`,"ether");
-    const tx = await LOTTERYContract.BuyTickets(_lotteryId, _tickets, { value: weiAmount });
+    const LotteryWithSigner = LOTTERYContract.connect(signer);
+    const tx = await LotteryWithSigner.BuyTickets(_lotteryId, _tickets, { value: weiAmount });
     console.log(tx);
     } catch (error) {
       // Check if the error is specifically because the wallet is not detected
