@@ -71,7 +71,8 @@ const PackagesComponent = ({data}) => {
         </h5> */}
         <div className="d-flex justify-content-between  my-3">
           <p>
-            <b>{getPackgageName(data?.lotteryId)}</b>
+            
+            <b>{data?.lotteryType?.toUpperCase()}</b>
           </p>
           <div className="ps-3">
             <p className="small">

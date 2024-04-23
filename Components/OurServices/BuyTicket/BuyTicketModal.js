@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import TicketSummaryModal from './TicketSummaryModal';
 import { _BuyTickets } from '@/utils/newUtils/BuyTickets';
+import axiosInstance from '../../../utils/axiosInstance'
 
-const BuyTicketModal = () => {
+const BuyTicketModal = ({lotteryId,ticketPrice}) => {
   const [showTicketSummary, setShowTicketSummary] = useState(false);
   const [randomNumbers, setRandomNumbers] = useState([]);
 
@@ -25,8 +26,20 @@ const BuyTicketModal = () => {
 
   const handleBuyTicket = async() => {
     if(randomNumbers.length === 0) return alert("Please add a ticket");
-    const response = await _BuyTickets(0,randomNumbers.length);
-    console.log(response)
+    console.log("Number of tickets: ", randomNumbers.length)
+    const res= await axiosInstance.post('/api/createpurchasehistory',{
+      lotteryId: lotteryId,
+      ticketIds: randomNumbers,
+      
+    })
+    if(res.status===200){
+      alert("Ticket bought successfully")
+      // close the modal
+      handleCloseTicketSummary();
+
+    }
+    // const response = await _BuyTickets(19,randomNumbers.length, "10000000000000000" );
+    // console.log(response)
     setRandomNumbers([]);
     setShowTicketSummary(false);
   };
@@ -92,7 +105,7 @@ const BuyTicketModal = () => {
         onClose={handleCloseTicketSummary}
         onBuyTicket={handleBuyTicket}
         onDelete={handleDelete}
-        
+        ticketPrice={ticketPrice}
       />
     </div>
   );

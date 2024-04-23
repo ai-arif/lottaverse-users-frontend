@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TicketSummaryModal = ({ randomNumbers, onClose, onBuyTicket, onDelete }) => {
+const TicketSummaryModal = ({ randomNumbers, onClose, onBuyTicket, onDelete,ticketPrice }) => {
   return (
     <div className="modal fade" id="ticketSummaryModal" tabIndex="-1" aria-labelledby="ticketSummaryModalLabel" aria-hidden="true">
       <div className="modal-dialog modal-dialog-centered modal-lg">
@@ -47,7 +47,7 @@ const TicketSummaryModal = ({ randomNumbers, onClose, onBuyTicket, onDelete }) =
                 <hr className="text-white" />
                 <div className="d-flex justify-content-between">
                 <span className="text-white small">Total Price</span>
-                <span className="text-white fw-bold">${randomNumbers.length * 2}</span>
+                <span className="text-white fw-bold">${randomNumbers.length * ticketPrice}</span>
                 </div>
             </div>
           <div className="modal-footer">

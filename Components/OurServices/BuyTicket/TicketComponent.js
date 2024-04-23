@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import BuyTicketModal from './BuyTicketModal';
 
-const TicketComponent = () => {
+const TicketComponent = ({data}) => {
 
     return (
         <div className="card info-card ticket-component position-relative">
-            <img src="https://images.unsplash.com/photo-1504805572947-34fad45aed93?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" className="card-img-top" alt="Cover" style={{ objectFit: 'cover', height: '150px' }} />
+            <img src="https://img.freepik.com/premium-vector/casino-background_1302-16923.jpg?w=740" className="card-img-top" alt="Cover" style={{ objectFit: 'cover', height: '150px' }} />
             <div className="card-body  w-100" >
                 <h5 className="card-title text-center text-white">
                     Your Lottoday Combinations
@@ -13,14 +13,14 @@ const TicketComponent = () => {
 
                 <p className='text-white'><b>Checkout</b></p>
                 <div className="d-flex justify-content-between">
-                    <span className="ps-2 text-white small">Tickets</span>
-                    <span className="text-white fw-bold">1x</span>
+                    <span className="ps-2 text-white small">Type</span>
+                    <span className="text-white fw-bold">{data?.lotteryType}</span>
                 </div>
 
                 <hr className='text-white' />
                 <div className="d-flex justify-content-between">
-                    <span className="ps-2 text-white small">Main wallet</span>
-                    <span className="text-white fw-bold">1x</span>
+                    <span className="ps-2 text-white small">Per Ticket</span>
+                    <span className="text-white fw-bold">{data?.ticketPrice}</span>
                 </div>
 
                 {/* <div className="row align-items-center justify-content-center my-2">
@@ -33,7 +33,7 @@ const TicketComponent = () => {
                     <button data-bs-toggle="modal" data-bs-target="#exampleModal" className="btn p-2 fw-bold text-white  text-success" type="button">Buy Now</button>
                 </div>
             </div>
-            <BuyTicketModal/>
+            <BuyTicketModal ticketPrice={data?.ticketPrice} lotteryId={data?.lotteryID}/>
         </div>
     );
 };
