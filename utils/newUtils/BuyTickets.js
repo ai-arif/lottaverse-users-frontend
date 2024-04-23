@@ -26,8 +26,7 @@ export async function _BuyTickets(
     const LOTTERYContract = new ethers.Contract(LOTTERY_CONTRACT_ADDRESS, LOTTERY_CONTRACT_ABI, provider);
     console.log(LOTTERYContract);
     const weiAmount = ethers.utils.parseUnits(`${_priceInEth}`,"ether");
-    const LotteryWithSigner = await LOTTERYContract.connect(signer).deposit("Please pay to buy the package", { value: weiAmount });
-    const tx = await LotteryWithSigner.BuyTickets(_lotteryId, _tickets);
+    const tx = await LOTTERYContract.BuyTickets(_lotteryId, _tickets, { value: weiAmount });
     console.log(tx);
     } catch (error) {
       // Check if the error is specifically because the wallet is not detected
