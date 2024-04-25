@@ -28,6 +28,7 @@ export async function _BuyTickets(
     const LotteryWithSigner = LOTTERYContract.connect(signer);
     const tx = await LotteryWithSigner.BuyTickets(_lotteryId, _tickets, { value: weiAmount });
     console.log(tx);
+    return tx;
     } catch (error) {
       // Check if the error is specifically because the wallet is not detected
       console.error('Can\'t detect wallet on account OR', error);

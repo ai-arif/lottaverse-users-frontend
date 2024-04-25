@@ -27,19 +27,28 @@ const BuyTicketModal = ({lotteryId,ticketPrice}) => {
   const handleBuyTicket = async() => {
     if(randomNumbers.length === 0) return alert("Please add a ticket");
     console.log("Number of tickets: ", randomNumbers.length)
-    const res= await axiosInstance.post('/api/createpurchasehistory',{
+    console.log("Lottery ID: ", lotteryId)
+    console.log("Ticket Price: ", ticketPrice)
+    const price= ticketPrice*randomNumbers.length;
+    console.log("Total Price: ", price)
+    const response = await _BuyTickets(lotteryId,randomNumbers.length, price.toString() );
+    console.log(response)
+    console.log(response.hash)
+    if(response?.hash){
+      const res= await axiosInstance.post('/api/createpurchasehistory',{
       lotteryId: lotteryId,
       ticketIds: randomNumbers,
-      
+      transactionHash: response.hash
     })
     if(res.status===200){
       alert("Ticket bought successfully")
-      // close the modal
       handleCloseTicketSummary();
-
     }
-    // const response = await _BuyTickets(19,randomNumbers.length, "10000000000000000" );
-    // console.log(response)
+    }
+    else{
+      alert("Something went wrong")
+    }
+    
     setRandomNumbers([]);
     setShowTicketSummary(false);
   };
@@ -56,7 +65,7 @@ const BuyTicketModal = ({lotteryId,ticketPrice}) => {
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content" style={{ background: "#0a1223", color: "white" }}>
             <div className="modal-header">
-              <h1 className="modal-title fs-5" id="exampleModalLabel">Roll the ball</h1>
+              <h1 className="modal-title fs-5" id="exampleModalLabel">Roll the ball - lotteryId {lotteryId}</h1>
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">
