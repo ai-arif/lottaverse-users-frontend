@@ -1,5 +1,6 @@
 import { createSlice,createAsyncThunk } from "@reduxjs/toolkit";
-import {getUserInformation,getReferralHierarchy,getReferralLevelCount} from './userAPI'
+import {getUserInformation,getReferralHierarchy,
+    getReferralLevelCount,getCommissionHistories} from './userAPI'
 
 export const fetchUserInformation = createAsyncThunk(
     "user/fetchUserInformation",
@@ -13,6 +14,14 @@ export const fetchReferralHierarchy = createAsyncThunk(
     "user/fetchReferralHierarchy",
     async () => {
         const response = await getReferralHierarchy();
+        return response;
+    }
+);
+
+export const fetchCommissionHistories = createAsyncThunk(
+    "user/fetchCommissionHistories",
+    async () => {
+        const response = await getCommissionHistories();
         return response;
     }
 );
@@ -33,6 +42,7 @@ export const userSlice = createSlice({
         user: {},
         structure: {},
         referralLevelCount: [],
+        commissionHistories: [],
         loading: false,
         error: null,
     },
@@ -82,6 +92,17 @@ export const userSlice = createSlice({
                 state.referralLevelCount = action.payload?.data;
             })
             .addCase(fetchReferralLevelCount.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.error.message;
+            })
+            .addCase(fetchCommissionHistories.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(fetchCommissionHistories.fulfilled, (state, action) => {
+                state.loading = false;
+                state.commissionHistories = action.payload?.data;
+            })
+            .addCase(fetchCommissionHistories.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.error.message;
             });

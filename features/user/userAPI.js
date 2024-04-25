@@ -34,3 +34,14 @@ export const getReferralLevelCount = async () => {
         console.log(err)
     }
 }
+
+// /api/commissionhistory
+export const getCommissionHistories = async () => {
+    try {
+        let res = await axiosInstance.get('/api/commissionhistory')
+        return res.data
+    }
+    catch (err) {
+        console.log(err)
+    }
+}

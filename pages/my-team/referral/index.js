@@ -1,6 +1,12 @@
-import React from 'react'
-
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchCommissionHistories } from '@/features/user/userSlice'
 const index = () => {
+  const dispatch=useDispatch()
+  const {commissionHistories}=useSelector(state=>state.user)
+  useEffect(() => {
+    dispatch(fetchCommissionHistories())
+  }, [])
   return (
     <div>
       {/* create table using bootstrap class, with fields Referral Level, Total user Active User, Inactive User, Referral Commission */}
@@ -16,13 +22,17 @@ const index = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">678935899</th>
-              <td>Markus_Harris</td>
-              <td>$2,024</td>
-              <td>Active</td>
-              <td>20 June, 2024</td>
-            </tr>
+            {
+              commissionHistories.map((history,index)=>(
+                <tr>
+                  <th scope="row">{index+1}</th>
+                  <td>{history.fromAddress}</td>
+                  <td>{history.amount}</td>
+                  <td>{history.account_status}</td>
+                  <td>{history.joined}</td>
+                </tr>
+              ))
+            }
             
           </tbody>
         </table>
