@@ -45,3 +45,13 @@ export const getCommissionHistories = async () => {
         console.log(err)
     }
 }
+// /api/purchasehistory
+export const getPurchaseHistories = async () => {
+    try {
+        let res = await axiosInstance.get('/api/purchasehistory')
+        return res.data
+    }
+    catch (err) {
+        console.log(err)
+    }
+}

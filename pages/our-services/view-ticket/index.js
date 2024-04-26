@@ -1,7 +1,14 @@
+import { fetchPurchaseHistories } from '@/features/user/userSlice'
 import Head from 'next/head'
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 const index = () => {
+  const dispatch=useDispatch()
+  const {purchaseHistories}=useSelector(state=>state.user)
+  useEffect(() => {
+    dispatch(fetchPurchaseHistories())
+  }, [])
   return (
     
       <div class="container-fluid">
@@ -21,27 +28,17 @@ const index = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>Mark</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-              <td>Mark</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
-              <td>Mark</td>
-            </tr>
+            {
+              purchaseHistories.map((history,index)=>(
+                <tr>
+                  <td>{history.lotteryPackage}</td>
+                  <td>{history.ticketId}</td>
+                  <td>{history.amount}</td>
+                  <td>{new Date(history.createdAt).toLocaleDateString()}</td>
+                  <td>{history.result}</td>
+                </tr>
+              ))
+            }
           </tbody>
         </table>
         </div>

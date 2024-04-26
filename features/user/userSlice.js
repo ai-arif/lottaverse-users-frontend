@@ -1,6 +1,14 @@
 import { createSlice,createAsyncThunk } from "@reduxjs/toolkit";
 import {getUserInformation,getReferralHierarchy,
-    getReferralLevelCount,getCommissionHistories} from './userAPI'
+    getReferralLevelCount,getCommissionHistories,getPurchaseHistories} from './userAPI'
+
+export const fetchPurchaseHistories = createAsyncThunk(
+    "user/fetchPurchaseHistories",
+    async () => {
+        const response = await getPurchaseHistories();
+        return response;
+    }
+);
 
 export const fetchUserInformation = createAsyncThunk(
     "user/fetchUserInformation",
@@ -43,6 +51,7 @@ export const userSlice = createSlice({
         structure: {},
         referralLevelCount: [],
         commissionHistories: [],
+        purchaseHistories: [],
         loading: false,
         error: null,
     },
@@ -105,7 +114,19 @@ export const userSlice = createSlice({
             .addCase(fetchCommissionHistories.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.error.message;
+            })
+            .addCase(fetchPurchaseHistories.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(fetchPurchaseHistories.fulfilled, (state, action) => {
+                state.loading = false;
+                state.purchaseHistories = action.payload?.data;
+            })
+            .addCase(fetchPurchaseHistories.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.error.message;
             });
+
             
 
     },
