@@ -6,6 +6,7 @@ import {
 	_connectWallet
 } from "../../utils/newUtils/connectWallet";
 import { useRouter } from 'next/router';
+import ConnectWalletModal from './ConnectWalletModal';
 
 const LandingNavbar = () => {
     const router=useRouter()
@@ -22,6 +23,15 @@ const LandingNavbar = () => {
         }
         catch(err){
             console.log(err)
+        }
+    }
+    
+    const connectWallet=async()=>{
+        try {
+            let address=await _connectWallet();
+            await getToken(address)
+        } catch (error) {
+            alert('Please connect your wallet')
         }
     }
 
@@ -46,15 +56,7 @@ const LandingNavbar = () => {
                             <ul>
                                 <li className="active"><Link href="/">Home</Link></li>
                                 
-                                <li onClick={async()=>{
-                                    try {
-                                        
-                                        let address=await _connectWallet();
-                                        await getToken(address)
-                                    } catch (error) {
-                                        alert('Please connect your wallet')
-                                    }
-                                }} className="mybtn1 link1" style={{cursor:'pointer'}}><span >Connect Wallet</span></li>
+                                <li data-bs-toggle="modal" data-bs-target="#exampleModal"  className="mybtn1 link1" style={{cursor:'pointer'}}><span >Connect Wallet</span></li>
                             </ul>
                         </nav>
                         <div className="header__nav__social">
@@ -70,6 +72,7 @@ const LandingNavbar = () => {
             <div id="mobile-menu-wrap"></div>
         </div>
     </header>
+    <ConnectWalletModal connectWallet={connectWallet}/>
     </div>
   )
 }

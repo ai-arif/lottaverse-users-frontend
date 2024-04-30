@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TicketSummaryModal = ({ randomNumbers, onClose, onBuyTicket, onDelete,ticketPrice }) => {
+const TicketSummaryModal = ({ randomNumbers, onClose, onBuyTicket, onDelete,ticketPrice,loading }) => {
   return (
     <div className="modal fade" id="ticketSummaryModal" tabIndex="-1" aria-labelledby="ticketSummaryModalLabel" aria-hidden="true">
       <div className="modal-dialog modal-dialog-centered modal-lg">
@@ -52,7 +52,16 @@ const TicketSummaryModal = ({ randomNumbers, onClose, onBuyTicket, onDelete,tick
             </div>
           <div className="modal-footer">
             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" className="btn btn-primary" onClick={onBuyTicket}>Buy Ticket</button>
+            {
+              loading ? (
+                <button className="btn btn-primary" type="button" disabled>
+                  <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                  Loading...
+                </button>
+              ) : (
+                <button onClick={onBuyTicket} type="button" className="btn btn-primary">Buy Ticket</button>
+              )
+            }
           </div>
         </div>
       </div>

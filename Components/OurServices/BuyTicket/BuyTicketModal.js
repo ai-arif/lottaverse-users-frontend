@@ -5,6 +5,7 @@ import axiosInstance from '../../../utils/axiosInstance'
 
 const BuyTicketModal = ({lotteryId,ticketPrice}) => {
   const [showTicketSummary, setShowTicketSummary] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [randomNumbers, setRandomNumbers] = useState([]);
 
   const generateRandomNumbers = () => {
@@ -26,6 +27,7 @@ const BuyTicketModal = ({lotteryId,ticketPrice}) => {
 
   const handleBuyTicket = async() => {
     if(randomNumbers.length === 0) return alert("Please add a ticket");
+    setLoading(true);
     console.log("Number of tickets: ", randomNumbers.length)
     console.log("Lottery ID: ", lotteryId)
     console.log("Ticket Price: ", ticketPrice)
@@ -33,7 +35,7 @@ const BuyTicketModal = ({lotteryId,ticketPrice}) => {
     console.log("Total Price: ", price)
     const response = await _BuyTickets(lotteryId,randomNumbers.length, price.toString() );
     console.log(response)
-    console.log(response.hash)
+    console.log(response?.hash)
     if(response?.hash){
       const res= await axiosInstance.post('/api/createpurchasehistory',{
       lotteryId: lotteryId,
@@ -43,14 +45,17 @@ const BuyTicketModal = ({lotteryId,ticketPrice}) => {
     if(res.status===200){
       alert("Ticket bought successfully")
       handleCloseTicketSummary();
+      setLoading(false);
     }
     }
     else{
+      setLoading(false);
       alert("Something went wrong")
     }
     
     setRandomNumbers([]);
     setShowTicketSummary(false);
+    setLoading(false);
   };
 
   return (
@@ -115,6 +120,7 @@ const BuyTicketModal = ({lotteryId,ticketPrice}) => {
         onBuyTicket={handleBuyTicket}
         onDelete={handleDelete}
         ticketPrice={ticketPrice}
+        loading={loading}
       />
     </div>
   );

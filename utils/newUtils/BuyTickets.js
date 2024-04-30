@@ -32,6 +32,7 @@ export async function _BuyTickets(
     } catch (error) {
       // Check if the error is specifically because the wallet is not detected
       console.error('Can\'t detect wallet on account OR', error);
+      alert(error?.data?.message)
     }
   }
 
