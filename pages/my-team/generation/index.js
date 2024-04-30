@@ -20,6 +20,7 @@ const index = () => {
         <table class="table table-dark p-2">
           <thead>
             <tr className='text-center p-3'>
+            <th scope="col">SL</th>
               <th scope="col">Referral Level</th>
               <th scope="col">Total User</th>
               <th scope="col">Active User</th>
@@ -31,6 +32,7 @@ const index = () => {
             {
               referralLevelCount.map((item, index) => (
                 <tr key={index}>
+                  <th scope="row">{index+1}</th>
                   <th scope="row">{item.referralLevel}</th>
                   <td>{item.totalUsers}</td>
                   <td>{item.activeUsers}</td>

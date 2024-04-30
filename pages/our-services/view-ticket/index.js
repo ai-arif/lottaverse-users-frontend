@@ -20,6 +20,7 @@ const index = () => {
         <table class="table table-dark p-2">
           <thead>
             <tr>
+            <th scope="col">Sl.</th>
               <th scope="col">Package</th>
               <th scope="col">Ticket number</th>
               <th scope="col">Ticket Price</th>
@@ -31,6 +32,7 @@ const index = () => {
             {
               purchaseHistories.map((history,index)=>(
                 <tr>
+                  <td>{index+1}</td>
                   <td>{history.lotteryPackage}</td>
                   <td>{history.ticketId}</td>
                   <td>{history.amount}</td>

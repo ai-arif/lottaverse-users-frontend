@@ -17,6 +17,7 @@ const index = ({data}) => {
                 <table className="table text-center table-dark p-2" style={{background:"#1c2642"}}>
                     <thead>
                         <tr>
+                        <th scope="col">Sl.</th>
                             <th scope="col">Id</th>
                             <th scope="col">User</th>
                             <th scope="col">Date</th>
@@ -28,6 +29,7 @@ const index = ({data}) => {
                         {
                           data.map((item, index) => (
                             <tr key={index}>
+                              <td>{index+1}</td>
                                 <td>{item?.referralId}</td>
                                 <td>{item.address}</td>
                                 <td>{new Date(item.createdAt).toDateString()}</td>

@@ -16,7 +16,7 @@ const LandingFeatures = () => {
 											</div>
 											<div className="content">
 												<h4 className="title">
-													Exclusive Offer
+													Easy
 												</h4>
 												<a href="#" className="link">read more <i class="bi bi-arrow-right-short"></i></a>
 											</div>
@@ -29,7 +29,7 @@ const LandingFeatures = () => {
 											</div>
 											<div className="content">
 												<h4 className="title">
-													Provably Fair
+													Super
 												</h4>
 												<a href="#" className="link">read more <i class="bi bi-arrow-right-short"></i></a>
 											</div>
@@ -42,7 +42,7 @@ const LandingFeatures = () => {
 											</div>
 											<div className="content">
 												<h4 className="title">
-													24/7 Support
+													Super-X
 												</h4>
 												<a href="#" className="link">read more <i class="bi bi-arrow-right-short"></i></a>
 											</div>

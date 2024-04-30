@@ -31,10 +31,10 @@ const index = () => {
       <LandingNavbar/>
       <LandingHero/>
       <LandingFeatures/>
-      <LandingFeaturedGames/>
+      {/* <LandingFeaturedGames/> */}
       <LandingActivities/>
       <LandingFunFact/>
-      <LandingRecentWinners/>
+      {/* <LandingRecentWinners/> */}
       <br />
     <LandingFooter/>
     </div>
