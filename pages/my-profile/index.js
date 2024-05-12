@@ -40,14 +40,14 @@ const index = () => {
                 </p>
               </div>
               <div class="d-flex justify-content-between align-items-center gap-3">
-                <div class="card profile-info-card p-0">
+                {/* <div class="card profile-info-card p-0">
                   <div class="card-body py-3 px-4">
                     <h5 class="card-title text-warning p-0 mb-3">$0.000</h5>
                     <h6 class="card-subtitle mb-2 text-light">
                       Available Balance
                     </h6>
                   </div>
-                </div>
+                </div> */}
                 <div class="card profile-info-card p-0">
                   <div class="card-body py-3 px-4">
                     <h5 class="card-title text-warning p-0 mb-3">${user?.earnings}</h5>

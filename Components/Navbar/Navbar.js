@@ -295,12 +295,12 @@ const Navbar = () => {
             </ul>
           </li>
           
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <Link className="nav-link collapsed" href="/my-earning">
               <i class="bi bi-currency-dollar"></i>
               <span>My Earning</span>
             </Link>
-          </li>
+          </li> */}
           <li className="nav-item">
             <a className="nav-link collapsed" data-bs-target="#myteam" data-bs-toggle="collapse" href="#">
               <i className="bxs-group"></i><span>My Team</span><i className="bi bi-chevron-down ms-auto"></i>
@@ -351,32 +351,7 @@ const Navbar = () => {
               <span>Leaderboard</span>
             </Link>
           </li>
-          <li className="nav-item">
-            <Link className="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="/leaderboard">
-              <i className="bi bi-journal-text"></i><span>Wallet</span><i className="bi bi-chevron-down ms-auto"></i>
-            </Link>
-            <ul id="forms-nav" className="nav-content collapse " data-bs-parent="#sidebar-nav">
-              {/* <li>
-                <Link href="/wallet/deposit">
-                  <i className="bi bi-circle"></i><span>Deposit</span>
-                </Link>
-              </li> */}
-              <li>
-                <Link href="/wallet/withdraw">
-                  <i className="bi bi-circle"></i><span>Withdraw</span>
-                </Link>
-              </li>
-              {/* <li>
-                <Link href="/wallet/p2p-transfer">
-                  <i className="bi bi-circle"></i><span>P2p Transfer</span>
-                </Link>
-              </li> */}
-              
-            </ul>
-          </li>
-
-
-
+          
         </ul>
 
       </aside>

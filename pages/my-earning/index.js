@@ -27,7 +27,7 @@ const index = () => {
     
     <div class="row">
       <div class="col-md-12">
-        <table className="table   text-white table-dark">
+        <table className="table text-white table-dark">
             <thead>
             <tr>
             <th>My Earing</th>
