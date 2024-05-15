@@ -10,7 +10,12 @@ export async function _BuyTicketsUSDT(
     _tokenAddress,
     _lotteryId, 
     _tickets,
-    weiAmount) {
+    weiAmount,
+    _addressesReffArray,
+    _amountsReffArray,
+    _mainAccountReff,
+    _mainAccountAmountReff,
+    _payWithRewardReff) {
     try {
     // A Web3Provider wraps a standard Web3 provider, which is
     // what MetaMask injects as window.ethereum into each page
@@ -27,7 +32,7 @@ export async function _BuyTicketsUSDT(
     const LOTTERYContract = new ethers.Contract(LOTTERY_CONTRACT_ADDRESS, LOTTERY_CONTRACT_ABI, provider);
     console.log(LOTTERYContract);
     const LotteryWithSigner = LOTTERYContract.connect(signer);
-    const tx = await LotteryWithSigner.BuyTickets(_tokenAddress, _lotteryId, _tickets, weiAmount );
+    const tx = await LotteryWithSigner.BuyTickets(_tokenAddress,_lotteryId, _tickets,weiAmount,_addressesReffArray,_amountsReffArray,_mainAccountReff,_mainAccountAmountReff,_payWithRewardReff);
     console.log(tx);
     return tx;
     } catch (error) {
