@@ -32,7 +32,7 @@ export async function _BuyTicketsUSDT(
     const LOTTERYContract = new ethers.Contract(LOTTERY_CONTRACT_ADDRESS, LOTTERY_CONTRACT_ABI, provider);
     console.log(LOTTERYContract);
     const LotteryWithSigner = LOTTERYContract.connect(signer);
-    const tx = await LotteryWithSigner.BuyTickets(_tokenAddress,_lotteryId, _tickets,weiAmount,_addressesReffArray,_amountsReffArray,_mainAccountReff,_mainAccountAmountReff,_payWithRewardReff);
+    const tx = await LotteryWithSigner.BuyTicket(_tokenAddress,_lotteryId, _tickets,weiAmount,_addressesReffArray,_amountsReffArray,_mainAccountReff,_mainAccountAmountReff,_payWithRewardReff);
     console.log(tx);
     return tx;
     } catch (error) {
