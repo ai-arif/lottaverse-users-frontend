@@ -351,6 +351,13 @@ const Navbar = () => {
               <span>Leaderboard</span>
             </Link>
           </li>
+
+          <li class="nav-item">
+            <Link class="nav-link collapsed" href="/wallet/withdraw">
+            <i class="bi bi-award"></i>
+              <span>Withdraw</span>
+            </Link>
+          </li>
           
         </ul>
 

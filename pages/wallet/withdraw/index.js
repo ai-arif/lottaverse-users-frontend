@@ -1,7 +1,24 @@
 import Head from 'next/head'
-import React from 'react'
-
+import React, { useEffect } from 'react'
+import { _getRewardAmount } from '@/utils/newUtils/getRewardAmount'
+import { _connectWallet } from '@/utils/newUtils/connectWallet'
 const index = () => {
+    useEffect(() => {
+        connectWallet();
+    }, [])
+
+    const connectWallet=async()=>{
+        try {
+            let address=await _connectWallet();
+            console.log(address)
+            const rewardAmount=await _getRewardAmount("0x42ee5A701cACC08495926B593c9cc41527502460");
+            console.log(rewardAmount)
+            
+        } catch (error) {
+            console.log(error)
+            // alert('Please connect your wallet')
+        }
+    }
     return (
         <div>
             <Head>
@@ -9,6 +26,14 @@ const index = () => {
                 <meta name="description" content="" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
+            <div className="container text-center">
+                <h1 className='text-white'>Withdraw</h1>
+                {/* your current availble reward amount is */}
+                <div className="container text-center">
+                    <h3 className='text-white'>Your current available reward amount is</h3>
+                    <h2 className='text-white'>0.00000000</h2>
+                </div>
+            </div>
             <div className="form-group">
                 <label className='text-white' htmlFor="exampleInputEmail1">Amount</label>
                 <input type="email" className="form-control bg-dark text-white" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Amount" />
