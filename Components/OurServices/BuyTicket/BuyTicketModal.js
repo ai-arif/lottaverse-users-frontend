@@ -9,10 +9,19 @@ const BuyTicketModal = ({ lotteryId, ticketPrice }) => {
   const [loading, setLoading] = useState(false);
   const [randomNumbers, setRandomNumbers] = useState([]);
 
+  // const generateRandomNumbers = () => {
+  //   const newRandomNumbers = Array.from({ length: 6 }, () => Math.floor(Math.random() * 100));
+  //   setRandomNumbers([...randomNumbers, newRandomNumbers]);
+  // };
   const generateRandomNumbers = () => {
-    const newRandomNumbers = Array.from({ length: 6 }, () => Math.floor(Math.random() * 100));
+    const newRandomNumbers = Array.from({ length: 6 }, () => {
+        const now = new Date();
+        const uniqueSeed = now.getTime() + now.getMilliseconds();
+        return Math.floor((uniqueSeed % 100) + Math.random() * 100) % 100;
+    });
     setRandomNumbers([...randomNumbers, newRandomNumbers]);
-  };
+};
+
   const handleAddTicket = () => {
     setShowTicketSummary(true);
   };

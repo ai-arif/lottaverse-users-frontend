@@ -26,6 +26,7 @@ export async function _getRewardAmount(_claimer, _lotteryID) {
     const tx =await LotteryWithSigner.getRewardAmount(_claimer, _lotteryID);
     const tx1 = tx.toString();
     console.log(tx1);
+    return tx1;
     } catch (error) {
       // Check if the error is specifically because the wallet is not detected
       console.error('Can\'t detect wallet on account OR', error);
