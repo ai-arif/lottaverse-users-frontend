@@ -19,6 +19,9 @@ const LandingNavbar = () => {
             if(res.data.success){
                 Cookies.set('token',res.data.data.token,{expires:10})
                 router.push('/dashboard')
+                setTimeout(() => {
+                    document.getElementsByClassName("modal-backdrop")[0].remove()
+                }, 300);
             }
         }
         catch(err){

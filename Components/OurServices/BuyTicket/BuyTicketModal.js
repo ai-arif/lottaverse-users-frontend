@@ -54,24 +54,25 @@ const BuyTicketModal = ({ lotteryId, ticketPrice }) => {
     // 0x089BB7064d27C0b82D935A35ad46b29d943c8D4D
     
     // const response2 = await _BuyTickets(lotteryId,randomNumbers.length, price.toString() );
-    const response = await _BuyTicketsUSDT("0x9de06D9118D4Dc2BBef59b3FA0B0C163d222815A",
-      lotteryId,
-      randomNumbers.length,
-      price.toString(),
-      addresses,
-      amounts,
-      "0xeB3869727865F51E07c3Efe6D4824bE3E2BC7C80",
-      "10000000",
-      false
-    )
+    // const response = await _BuyTicketsUSDT("0x9de06D9118D4Dc2BBef59b3FA0B0C163d222815A",
+    //   lotteryId,
+    //   randomNumbers.length,
+    //   price.toString(),
+    //   addresses,
+    //   amounts,
+    //   "0xeB3869727865F51E07c3Efe6D4824bE3E2BC7C80",
+    //   "10000000",
+    //   false
+    // )
 
-    console.log(response)
-    console.log(response?.hash)
-    if (response?.hash) {
+    // console.log(response)
+    // console.log(response?.hash)
+    // response?.hash
+    if ( 1==1) {
       const res = await axiosInstance.post('/api/createpurchasehistory', {
         lotteryId: lotteryId,
         ticketIds: randomNumbers,
-        transactionHash: response.hash
+        transactionHash:  "123"
       })
       if (res.status === 200) {
         alert("Ticket bought successfully")
