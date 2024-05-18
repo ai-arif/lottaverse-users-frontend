@@ -49,8 +49,8 @@ const BuyTicketModal = () => {
       ticketIds: randomNumbers,
     })
     const owner=await _getOwner(lotteryId);
-    // calculate 13% of the ticket price
-    const percentageAmount = (ticketPrice * 1300) / 10000;
+    // calculate 18% of the ticket price
+    const percentageAmount = (ticketPrice * 13) / 100;
     const addresses = res.data.data.referAddress;
     const amounts = res.data.data.amount;
     console.log(addresses)
