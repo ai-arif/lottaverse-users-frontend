@@ -49,32 +49,30 @@ const BuyTicketModal = () => {
       ticketIds: randomNumbers,
     })
     const owner=await _getOwner(lotteryId);
-    // calculate 18% of the ticket price
-    const percentageAmount = (ticketPrice * 18) / 100;
-    // const addresses = res.data.data.referAddress;
-    // const amounts = res.data.data.amount;
-    const addresses = [...res.data.data.referAddress, owner];
-    const amounts = [...res.data.data.amount, percentageAmount];
+    // calculate 13% of the ticket price
+    const percentageAmount = (ticketPrice * 1300) / 10000;
+    const addresses = res.data.data.referAddress;
+    const amounts = res.data.data.amount;
     console.log(addresses)
     console.log(amounts)
     // 0x089BB7064d27C0b82D935A35ad46b29d943c8D4D
     
     // const response2 = await _BuyTickets(lotteryId,randomNumbers.length, price.toString() );
-    const response = await _BuyTicketsUSDT("0x9de06D9118D4Dc2BBef59b3FA0B0C163d222815A",
+    const response = await _BuyTicketsUSDT(process.env.TOKEN_ADDRESS,
       lotteryId,
       randomNumbers.length,
       price.toString(),
       addresses,
       amounts,
-      "0xeB3869727865F51E07c3Efe6D4824bE3E2BC7C80",
-      "10000000",
+      owner,
+      percentageAmount,
       false
     )
 
     // console.log(response)
     // console.log(response?.hash)
     // response?.hash
-    if ( 1==1) {
+    if (response?.hash) {
       const res = await axiosInstance.post('/api/createpurchasehistory', {
         lotteryId: lotteryId,
         ticketIds: randomNumbers,
