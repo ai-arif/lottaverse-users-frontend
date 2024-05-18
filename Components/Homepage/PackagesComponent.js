@@ -2,11 +2,18 @@ import React, { useEffect, useState } from "react";
 import CountdownTimer from "./CountdownTimer";
 import { useRouter } from "next/router";
 import moment from "moment";
+import { setLotteryId,setTicketPrice } from "@/features/user/userSlice";
+import { useDispatch } from "react-redux";
+
+import { _getLotteryTicektCount } from "@/utils/newUtils/getLotteryTicektCount";
 
 const PackagesComponent = ({data}) => {
+  const dispatch=useDispatch()
   const router=useRouter()
+  const [ticketPurchased, setTicketPurchased] = useState(0);
   const [timer, setTimer] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   useEffect(() => {
+    getTicketPurchased(data.lotteryID)
     const calculateTimeLeft = () => {
       if (data?.expiration) {
         // Convert the Unix epoch time to a moment object
@@ -52,6 +59,12 @@ const PackagesComponent = ({data}) => {
     }else if(id%3==2){
       return "SUPER-X"
     }
+  }
+  const getTicketPurchased=async(id)=>{
+    console.log("id",id)
+    const ticket=await _getLotteryTicektCount(id)
+    console.log("ticket",ticket)
+    setTicketPurchased(ticket)
   }
 
   return (
@@ -137,7 +150,7 @@ const PackagesComponent = ({data}) => {
             <tbody>
               <tr>
                 <td>{data?.round}</td>
-                <td>100</td>
+                <td>{ticketPurchased}</td>
                 <td>100</td>
               </tr>
             </tbody>
@@ -145,7 +158,9 @@ const PackagesComponent = ({data}) => {
         
         <div className="text-center gap-2 my-4">
           <button onClick={()=>{
-            router.push('/our-services/buy-ticket')
+            dispatch(setLotteryId(data.lotteryID))
+            dispatch(setTicketPrice(data.ticketPrice))
+            router.push('/our-services/buy-ticket#buy')
           }} className="btn btn-warning " type="button">
             Buy Ticket
           </button>

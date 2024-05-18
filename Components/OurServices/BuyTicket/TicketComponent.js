@@ -58,8 +58,8 @@ const TicketComponent = ({data}) => {
                         handleSetLotteryId(data?.lotteryID, data?.ticketPrice)
                         
                         // console.log(data?.lotteryID)
-                        // const ticketCount=await _getLotteryTicektCount(data?.lotteryID)
-                        // console.log("ticketCount",ticketCount)
+                        const ticketCount=await _getLotteryTicektCount(data?.lotteryID)
+                        console.log("ticketCount",ticketCount)
                         // const getLotteryDetails =await _getLotteryDetails(data?.lotteryID)
                         // console.log(getLotteryDetails)
                         // const remainingTickets=await _getRemainingTickets(data?.lotteryID)
