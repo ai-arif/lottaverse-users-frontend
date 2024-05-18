@@ -1,7 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import BuyTicketModal from './BuyTicketModal';
+import { _getLotteryTicektCount } from '@/utils/newUtils/getLotteryTicektCount';
+import { _getLotteryDetails } from '@/utils/newUtils/getLotteryDetails';
+import { _getPercentageAmount } from '@/utils/newUtils/getPercentageAmount';
+import { _getRemainingTickets } from '@/utils/newUtils/getRemainingTickets';
 
 const TicketComponent = ({data}) => {
+    const [lotteryID, setLotteryID] = useState('');
 
     return (
         <div className="card info-card ticket-component position-relative">
@@ -11,7 +16,7 @@ const TicketComponent = ({data}) => {
                     Your Lottoday Combinations
                 </h5>
 
-                <p className='text-white'><b>Checkout</b></p>
+                <p className='text-white'><b>Checkout</b>{data?.lotteryID}</p>
                 <div className="d-flex justify-content-between">
                     <span className="ps-2 text-white small">Type</span>
                     <span className="text-white fw-bold">{data?.lotteryType}</span>
@@ -30,7 +35,17 @@ const TicketComponent = ({data}) => {
 
                 {/* buy ticket button full width */}
                 <div className="d-grid buy-now-container bg-primary  gap-2 my-4">
-                    <button data-bs-toggle="modal" data-bs-target="#exampleModal" className="btn p-2 fw-bold text-white  text-success" type="button">Buy Now</button>
+                    <button onClick={async()=>{
+                        console.log(data?.lotteryID)
+                        const ticketCount=await _getLotteryTicektCount(data?.lotteryID)
+                        console.log("ticketCount",ticketCount)
+                        const getLotteryDetails =await _getLotteryDetails(data?.lotteryID)
+                        console.log(getLotteryDetails)
+                        const remainingTickets=await _getRemainingTickets(data?.lotteryID)
+                        console.log("remaining tickets",remainingTickets)
+                        const percentage = await _getPercentageAmount(data?.lotteryID,5)
+                        console.log(percentage)
+                    }} data-bs-toggle="modal" data-bs-target="#exampleModal" className="btn p-2 fw-bold text-white  text-success" type="button">Buy Now{data?.lotteryID}</button>
                 </div>
             </div>
             <BuyTicketModal ticketPrice={data?.ticketPrice} lotteryId={data?.lotteryID}/>

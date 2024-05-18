@@ -25,7 +25,7 @@ export async function _getRemainingTickets(_lotteryId) {
     const LotteryWithSigner = LOTTERYContract.connect(signer);
     const tx =await LotteryWithSigner.getRemainingTickets(_lotteryId);
     const tx1 = tx.toString();
-    console.log(tx1);
+    return tx1;
     } catch (error) {
       // Check if the error is specifically because the wallet is not detected
       console.error('Can\'t detect wallet on account OR', error);
