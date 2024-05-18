@@ -4,16 +4,26 @@ import { _getLotteryTicektCount } from '@/utils/newUtils/getLotteryTicektCount';
 import { _getLotteryDetails } from '@/utils/newUtils/getLotteryDetails';
 import { _getPercentageAmount } from '@/utils/newUtils/getPercentageAmount';
 import { _getRemainingTickets } from '@/utils/newUtils/getRemainingTickets';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setLotteryId,setTicketPrice } from '@/features/user/userSlice';
+import { useRouter } from 'next/router';
 
 const TicketComponent = ({data}) => {
     const dispatch=useDispatch()
+    const {lotteryId, ticketPrice} = useSelector(state=>state.user)
+    const router=useRouter()
 
     const handleSetLotteryId=(id, price)=>{
         dispatch(setLotteryId(id))
         dispatch(setTicketPrice(price))
     }
+
+    useEffect(() => {
+        if(router.asPath.includes('#') && lotteryId!=="" && ticketPrice!==""){
+            document.getElementById('openModal').click()
+        }
+        
+    }, [])
 
 
     return (
@@ -43,19 +53,20 @@ const TicketComponent = ({data}) => {
 
                 {/* buy ticket button full width */}
                 <div className="d-grid buy-now-container bg-primary  gap-2 my-4">
+                <button id='openModal' className='d-none' data-bs-toggle="modal" data-bs-target="#exampleModal">Click</button>
                     <button onClick={async()=>{
                         handleSetLotteryId(data?.lotteryID, data?.ticketPrice)
                         
-                        console.log(data?.lotteryID)
-                        const ticketCount=await _getLotteryTicektCount(data?.lotteryID)
-                        console.log("ticketCount",ticketCount)
-                        const getLotteryDetails =await _getLotteryDetails(data?.lotteryID)
-                        console.log(getLotteryDetails)
-                        const remainingTickets=await _getRemainingTickets(data?.lotteryID)
-                        console.log("remaining tickets",remainingTickets)
-                        const percentage = await _getPercentageAmount(data?.lotteryID,5)
-                        console.log(percentage)
-                    }} data-bs-toggle="modal" data-bs-target="#exampleModal" className="btn p-2 fw-bold text-white  text-success" type="button">Buy Now{data?.lotteryID}</button>
+                        // console.log(data?.lotteryID)
+                        // const ticketCount=await _getLotteryTicektCount(data?.lotteryID)
+                        // console.log("ticketCount",ticketCount)
+                        // const getLotteryDetails =await _getLotteryDetails(data?.lotteryID)
+                        // console.log(getLotteryDetails)
+                        // const remainingTickets=await _getRemainingTickets(data?.lotteryID)
+                        // console.log("remaining tickets",remainingTickets)
+                        // const percentage = await _getPercentageAmount(data?.lotteryID,5)
+                        // console.log(percentage)
+                    }} data-bs-toggle="modal" data-bs-target="#exampleModal" className="btn p-2 fw-bold text-white  text-success" type="button">Buy Now</button>
                 </div>
             </div>
             <BuyTicketModal/>

@@ -2,6 +2,8 @@ import Head from 'next/head'
 import React, { useEffect, useState } from 'react'
 import { _getRewardAmount } from '@/utils/newUtils/getRewardAmount'
 import { _connectWallet } from '@/utils/newUtils/connectWallet'
+import { _claimReward } from '@/utils/newUtils/claimReward'
+import { _getOwner } from '@/utils/newUtils/getOwner'
 const index = () => {
     const [rewardAmount, setRewardAmount] = useState(0);
     useEffect(() => {
@@ -13,6 +15,21 @@ const index = () => {
             let address=await _connectWallet();
             const rewardAmount=await _getRewardAmount(address,1);
             setRewardAmount(rewardAmount);
+        } catch (error) {
+            console.log(error)
+            alert('Please connect your wallet')
+        }
+    }
+    const claimReward=async()=>{
+        try {
+            const owner=await _getOwner();
+            console.log("owner",owner)
+            let address=await _connectWallet();
+            const tokenAddress=process.env.TOKEN_ADDRESS
+            console.log("tokenAddress",tokenAddress)
+            const rewardAmount=await _claimReward(1,tokenAddress,address,owner);
+            console.log("rewardAmount",rewardAmount)
+            
         } catch (error) {
             console.log(error)
             alert('Please connect your wallet')
@@ -35,7 +52,7 @@ const index = () => {
             </div>
             
             <div className='my-2 me-auto'>
-                <button className="btn btn-primary btn-sm">Withdraw</button>
+                <button onClick={claimReward} className="btn btn-primary btn-sm">Withdraw</button>
             </div>
             {/* create a table of ID, Date, Amount */}
             <div className="container-fluid my-4">
