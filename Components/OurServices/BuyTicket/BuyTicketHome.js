@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import TicketComponent from './TicketComponent'
 import { useSelector } from 'react-redux'
 
 const BuyTicketHome = () => {
   const {packages}=useSelector(state=>state.homepage)
+  
   return (
     <div>
         <div className="pagetitle">
@@ -22,7 +23,7 @@ const BuyTicketHome = () => {
             {
               packages.map((item,index)=>(
                 <div className="col-xxl-4 col-md-4">
-              <TicketComponent data={item}/>
+              <TicketComponent data={item} />
             </div>
               ))
             }

@@ -1,5 +1,6 @@
 import React from 'react'
 import axiosInstance from '../../utils/axiosInstance'
+import Head from 'next/head'
 
 export const getServerSideProps = async (context) => {
   const res = await axiosInstance.get('/api/leaderboard')
@@ -13,6 +14,9 @@ const index = ({data}) => {
   
   return (
     <div>
+      <Head>
+          <title>Lottaverse - Leaderboard</title>
+      </Head>
       <div className="container-fluid my-4">
                 <table className="table text-center table-dark p-2" style={{background:"#1c2642"}}>
                     <thead>

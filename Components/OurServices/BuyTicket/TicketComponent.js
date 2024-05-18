@@ -4,19 +4,27 @@ import { _getLotteryTicektCount } from '@/utils/newUtils/getLotteryTicektCount';
 import { _getLotteryDetails } from '@/utils/newUtils/getLotteryDetails';
 import { _getPercentageAmount } from '@/utils/newUtils/getPercentageAmount';
 import { _getRemainingTickets } from '@/utils/newUtils/getRemainingTickets';
+import { useDispatch } from 'react-redux';
+import { setLotteryId,setTicketPrice } from '@/features/user/userSlice';
 
 const TicketComponent = ({data}) => {
-    const [lotteryID, setLotteryID] = useState('');
+    const dispatch=useDispatch()
+
+    const handleSetLotteryId=(id, price)=>{
+        dispatch(setLotteryId(id))
+        dispatch(setTicketPrice(price))
+    }
+
 
     return (
         <div className="card info-card ticket-component position-relative">
             <img src="https://img.freepik.com/premium-vector/casino-background_1302-16923.jpg?w=740" className="card-img-top" alt="Cover" style={{ objectFit: 'cover', height: '150px' }} />
             <div className="card-body  w-100" >
                 <h5 className="card-title text-center text-white">
-                    Your Lottoday Combinations
+                    Your Lottoday Combinations 
                 </h5>
 
-                <p className='text-white'><b>Checkout</b>{data?.lotteryID}</p>
+                <p className='text-white'><b>Checkout</b></p>
                 <div className="d-flex justify-content-between">
                     <span className="ps-2 text-white small">Type</span>
                     <span className="text-white fw-bold">{data?.lotteryType}</span>
@@ -36,6 +44,8 @@ const TicketComponent = ({data}) => {
                 {/* buy ticket button full width */}
                 <div className="d-grid buy-now-container bg-primary  gap-2 my-4">
                     <button onClick={async()=>{
+                        handleSetLotteryId(data?.lotteryID, data?.ticketPrice)
+                        
                         console.log(data?.lotteryID)
                         const ticketCount=await _getLotteryTicektCount(data?.lotteryID)
                         console.log("ticketCount",ticketCount)
@@ -48,7 +58,7 @@ const TicketComponent = ({data}) => {
                     }} data-bs-toggle="modal" data-bs-target="#exampleModal" className="btn p-2 fw-bold text-white  text-success" type="button">Buy Now{data?.lotteryID}</button>
                 </div>
             </div>
-            <BuyTicketModal ticketPrice={data?.ticketPrice} lotteryId={data?.lotteryID}/>
+            <BuyTicketModal/>
         </div>
     );
 };

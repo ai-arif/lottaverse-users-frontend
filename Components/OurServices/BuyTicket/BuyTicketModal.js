@@ -3,18 +3,16 @@ import TicketSummaryModal from './TicketSummaryModal';
 import { _BuyTickets } from '@/utils/newUtils/BuyTickets';
 import { _BuyTicketsUSDT } from '@/utils/newUtils/BuyTicketUSDT';
 import axiosInstance from '../../../utils/axiosInstance'
+import { useSelector } from 'react-redux';
 
-const BuyTicketModal = ({ lotteryId, ticketPrice }) => {
+const BuyTicketModal = () => {
+  const {lotteryId, ticketPrice} = useSelector(state=>state.user)
   const [showTicketSummary, setShowTicketSummary] = useState(false);
-  const [lottery, setLottery] = useState(lotteryId);
+  
   
   const [loading, setLoading] = useState(false);
   const [randomNumbers, setRandomNumbers] = useState([]);
-  console.log("from buy ticket modal", lotteryId)
-  useEffect(() => {
-    console.log("Lottery ID: ", lotteryId)
-    setLottery(lotteryId)
-  }, [lotteryId])
+  
   const generateRandomNumbers = () => {
     const newRandomNumbers = Array.from({ length: 6 }, () => {
         const now = new Date();
@@ -104,7 +102,7 @@ const BuyTicketModal = ({ lotteryId, ticketPrice }) => {
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content" style={{ background: "#0a1223", color: "white" }}>
             <div className="modal-header">
-              <h1 className="modal-title fs-5" id="exampleModalLabel">Roll the ball {lottery}- lotteryId {lottery}</h1>
+              <h1 className="modal-title fs-5" id="exampleModalLabel">Roll the ball lotteryId {lotteryId}</h1>
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">

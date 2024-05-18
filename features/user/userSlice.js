@@ -52,10 +52,18 @@ export const userSlice = createSlice({
         referralLevelCount: [],
         commissionHistories: [],
         purchaseHistories: [],
+        lotteryId: "",
+        ticketPrice: "",
         loading: false,
         error: null,
     },
     reducers: {
+        setLotteryId: (state, action) => {
+            state.lotteryId = action.payload;
+        },
+        setTicketPrice: (state, action) => {
+            state.ticketPrice = action.payload;
+        },
         getUserStart: (state) => {
         state.loading = true;
         },
@@ -132,5 +140,5 @@ export const userSlice = createSlice({
     },
 });
 
-export const { getUserStart } = userSlice.actions;
+export const { getUserStart,setLotteryId,setTicketPrice } = userSlice.actions;
 export default userSlice.reducer;
