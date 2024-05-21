@@ -137,6 +137,7 @@ function Leaderboard() {
     
     </div>
     
+          <div className="d-flex">
           <div
             className="card px-4 py-4 my-4 mb-0  leaderboard-card d-flex flex-column align-items-center"
             style={{ borderRadius: "100px" }}
@@ -156,6 +157,28 @@ function Leaderboard() {
             </div>
           </div>
         </div>
+
+        <div
+            className="card px-4 py-4 my-4 mb-0  leaderboard-card d-flex flex-column align-items-center"
+            style={{ borderRadius: "100px" }}
+          >
+            <div className="card-title">Unlocked</div>
+            <div className="card-body">
+              <i className="far fa-circle text-warning"></i>
+              <div className="d-flex gap-2">
+                <img
+                  src="img/check-icon.png"
+                  alt="check-icon"
+                  width="25"
+                  height="25"
+                />
+                <p className="text-warning">$0.000</p>
+              </div>
+            </div>
+          </div>
+
+
+          </div>
       </div>
     </div>
   );

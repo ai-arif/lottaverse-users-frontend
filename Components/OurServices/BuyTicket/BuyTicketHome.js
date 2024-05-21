@@ -22,7 +22,7 @@ const BuyTicketHome = () => {
           <div className="row">
             {
               packages.map((item,index)=>(
-                <div className="col-xxl-4 col-md-4">
+                <div className="col-xxl-6 col-md-6">
               <TicketComponent data={item} />
             </div>
               ))
