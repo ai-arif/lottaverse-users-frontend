@@ -25,21 +25,15 @@ const index = () => {
                     <div className="form-group col-3">
                         <label className='text-white' htmlFor="exampleFormControlSelect1">Package</label>
                         <select className="form-control" id="exampleFormControlSelect1">
-                            <option>Package 1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                            <option>Easy</option>
+                            <option>Super-X</option>
                         </select>
                     </div>
                     <div className="form-group col-3 mx-1">
                         <label className='text-white' htmlFor="exampleFormControlSelect1">Round</label>
                         <select className="form-control" id="exampleFormControlSelect1">
                             <option>Round 1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                            <option>Round 2</option>                            
                         </select>
                     </div>
 

@@ -137,9 +137,9 @@ function Leaderboard() {
     
     </div>
     
-          <div className="d-flex">
+          <div className="d-flex align-items-center">
           <div
-            className="card px-4 py-4 my-4 mb-0  leaderboard-card d-flex flex-column align-items-center"
+            className="card mx-4 px-4 py-4 my-4 mb-0  leaderboard-card d-flex flex-column align-items-center"
             style={{ borderRadius: "100px" }}
           >
             <div className="card-title">Unlocked</div>
