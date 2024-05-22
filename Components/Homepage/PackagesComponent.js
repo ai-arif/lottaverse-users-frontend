@@ -149,7 +149,7 @@ const PackagesComponent = ({data}) => {
             </thead>
             <tbody>
               <tr>
-                <td>{data?.round+1}</td>
+                <td>{data?.roundCount}</td>
                 <td>{ticketPurchased}</td>
                 {/* <td>100</td> */}
               </tr>

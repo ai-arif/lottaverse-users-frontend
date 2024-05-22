@@ -48,12 +48,16 @@ const Homepage = () => {
       </div>
       <section className="section results">
         <div className="row">
-          <div className="col-xxl-6 col-md-6">
-            <ResultsComponent />
+          {
+            packages.map((item,index)=>(
+              <div className="col-xxl-6 col-md-6">
+            <ResultsComponent data={item} />
           </div>
-          <div className="col-xxl-6 col-md-6">
+            ))
+          }
+          {/* <div className="col-xxl-6 col-md-6">
             <ResultsComponent />
-          </div>
+          </div> */}
           {/* <div className="col-xxl-6 col-md-6">
             <ResultsComponent />
           </div> */}
