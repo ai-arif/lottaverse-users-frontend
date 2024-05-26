@@ -25,7 +25,7 @@ const index = () => {
       <div className="container-fluid p-4 bg-dark">
         {/* create two input fields read only, Your Referral Id, Your Referral Link */}
         <div className="row p-4">
-  <div className="col-md-6">
+  {/* <div className="col-md-6">
     <div className="form-group">
       <label htmlFor="exampleInputEmail1" className="text-white">Your Referral Id</label>
       <div className="input-group">
@@ -37,8 +37,8 @@ const index = () => {
         </div>
       </div>
     </div>
-  </div>
-  <div className="col-md-6">
+  </div> */}
+  <div className="col-md-10">
     <div className="form-group">
       <label htmlFor="exampleInputPassword1" className="text-white">Your Referral Link</label>
       <div className="input-group">

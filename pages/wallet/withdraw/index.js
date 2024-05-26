@@ -29,7 +29,9 @@ const index = () => {
             console.log("tokenAddress",tokenAddress)
             const rewardAmount=await _claimReward(1,tokenAddress,address,owner);
             console.log("rewardAmount",rewardAmount)
-            await connectWallet()
+            setTimeout(() => {
+                connectWallet();
+            }, 1000);
             
         } catch (error) {
             console.log(error)

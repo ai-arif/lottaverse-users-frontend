@@ -45,7 +45,7 @@ function Leaderboard() {
                     {item?.lotteryType?.toUpperCase()}
                   </div>
                   <div>
-                    $10
+                    ${item?.lotteryType?.toUpperCase() === "EASY" ? 3:10}
                   </div>
                   <div>
                     <div style={{ width: 30, height: 30 }}>
@@ -66,9 +66,7 @@ function Leaderboard() {
                   </div>
                 </div>
               ))
-            }
-
-            
+            }          
 
           </div>
         </div>

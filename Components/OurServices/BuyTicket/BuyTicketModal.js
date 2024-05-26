@@ -109,7 +109,7 @@ const BuyTicketModal = () => {
               <h1 className="modal-title fs-5" id="exampleModalLabel">Roll the ball lotteryId {lotteryId}</h1>
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div className="modal-body">
+            <div className="modal-body" style={{maxHeight:"400px", overflowY:"auto"}}>
               <div style={{ display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center", marginBottom: "20px" }}>
                 <img onClick={generateRandomNumbers} className='rounded rounded-circle roll-the-ball' width={"100px"} height={"100px"} src="https://previews.123rf.com/images/djvstock/djvstock1705/djvstock170508533/78309597-refresh-arrows-in-circular-direction-icon-over-white-background-vector-illustration.jpg" alt="" />
                 <br />
