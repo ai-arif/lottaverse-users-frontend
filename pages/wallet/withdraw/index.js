@@ -54,11 +54,11 @@ const index = () => {
                 </div>
             </div>
             
-            <div className='my-2 me-auto'>
-                <button onClick={claimReward} className="btn btn-primary btn-sm">Withdraw</button>
+            <div className='my-2 d-flex justify-content-center me-auto'>
+                <button onClick={claimReward} className="btn btn-block btn-primary btn-sm">Withdraw</button>
             </div>
             {/* create a table of ID, Date, Amount */}
-            <div className="container-fluid my-4">
+            {/* <div className="container-fluid my-4">
                 <table className="table text-center table-dark p-2">
                     <thead>
                         <tr>
@@ -80,7 +80,7 @@ const index = () => {
                         
                     </tbody>
                 </table>
-                </div>
+                </div> */}
         </div>
     )
 }

@@ -17,6 +17,7 @@ const index = () => {
               <th scope="col">SL</th>
               <th scope="col">User ID</th>
               <th scope="col">Balance</th>
+              <th scope="col">Account Type</th>
               <th scope="col">Account Status</th>
               <th scope="col">Joined</th>
             </tr>
@@ -28,8 +29,13 @@ const index = () => {
                   <th scope="row">{index+1}</th>
                   <td>{history.fromAddress}</td>
                   <td>{history.amount}</td>
-                  <td>{history.account_status}</td>
-                  <td>{history.joined}</td>
+                  <td>{history?.from?.userType}</td>
+                  <td>{new Date(history?.from?.expiryDate) > new Date() ?  
+                  <span className="badge badge-success">Active</span>
+                  :
+                  <span className="badge badge-danger">Expired</span>
+                  }</td>
+                  <td>{new Date(history?.from?.createdAt).toDateString()}</td>
                 </tr>
               ))
             }

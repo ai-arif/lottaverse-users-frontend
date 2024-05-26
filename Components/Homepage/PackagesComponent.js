@@ -144,14 +144,14 @@ const PackagesComponent = ({data}) => {
               <tr>
                 <th scope="col">Round</th>
                 <th scope="col">Ticket Purchased</th>
-                {/* <th scope="col">Players</th> */}
+                <th scope="col">Players</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>{data?.roundCount}</td>
                 <td>{ticketPurchased}</td>
-                {/* <td>100</td> */}
+                <td>{data?.userCount}</td>
               </tr>
             </tbody>
           </table>
