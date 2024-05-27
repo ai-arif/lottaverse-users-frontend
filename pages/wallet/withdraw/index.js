@@ -4,11 +4,28 @@ import { _getRewardAmount } from '@/utils/newUtils/getRewardAmount'
 import { _connectWallet } from '@/utils/newUtils/connectWallet'
 import { _claimReward } from '@/utils/newUtils/claimReward'
 import { _getOwner } from '@/utils/newUtils/getOwner'
+import axiosInstance from '@/utils/axiosInstance'
 const index = () => {
     const [rewardAmount, setRewardAmount] = useState(0);
+    const [withdrawhistory, setWithdrawHistory] = useState([]);
     useEffect(() => {
         connectWallet();
+        loadWithdrawHistory();
     }, [])
+
+// /api/withdrawhistory
+    const loadWithdrawHistory=async()=>{
+        const res=await axiosInstance.get('/api/withdrawhistory')
+        setWithdrawHistory(res.data.data)
+    }
+    const handleSubmitWithdraw=async()=>{
+        const res=await axiosInstance.post('/api/withdraw',{
+            amount:rewardAmount
+        })
+        await loadWithdrawHistory();
+    }
+
+
 
     const connectWallet=async()=>{
         try {
@@ -32,6 +49,7 @@ const index = () => {
             setTimeout(() => {
                 connectWallet();
             }, 1000);
+            await handleSubmitWithdraw();
             
         } catch (error) {
             console.log(error)

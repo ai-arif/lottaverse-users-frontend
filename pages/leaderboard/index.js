@@ -36,7 +36,7 @@ const index = ({data}) => {
                               <td>{index+1}</td>
                                 <td>{item?.referralId}</td>
                                 <td>{item.address}</td>
-                                <td>{new Date(item.createdAt).toDateString()}</td>
+                                <td>{new Date(item.lastPurchaseDate).toDateString()}</td>
                                 <td>{item.totalTickets}</td>
                                 <td>{item.payout}</td>
                             </tr>
