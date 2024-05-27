@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import moment from "moment";
 import { setLotteryId,setTicketPrice } from "@/features/user/userSlice";
 import { useDispatch } from "react-redux";
+import priceConverter from "@/utils/priceConverter";
 
 import { _getLotteryTicektCount } from "@/utils/newUtils/getLotteryTicektCount";
 
@@ -61,9 +62,7 @@ const PackagesComponent = ({data}) => {
     }
   }
   const getTicketPurchased=async(id)=>{
-    console.log("id",id)
     const ticket=await _getLotteryTicektCount(id)
-    console.log("ticket",ticket)
     setTicketPurchased(ticket)
   }
 
@@ -90,7 +89,7 @@ const PackagesComponent = ({data}) => {
           <div className="ps-3">
             <p className="small">
               Per Ticket <br />
-              <span className="text-color small fw-bold">${data?.ticketPrice}</span>
+              <span className="text-color small fw-bold">${priceConverter(data?.ticketPrice)}</span>
             </p>
           </div>
         </div>
@@ -102,32 +101,32 @@ const PackagesComponent = ({data}) => {
             </div>
           </div>
           <div className="ps-3">
-            <span className="text-color small fw-bold">${data?.prizes?.firstPrize}</span>
+            <span className="text-color small fw-bold">${priceConverter(data?.prizes?.firstPrize)}</span>
           </div>
         </div>
         <div className="d-flex justify-content-between">
           <div>
             <div className="d-flex align-items-center">
               <i class="bi bi-gift text-warning"></i>
-              <span className="ps-2">1st Prize</span>
+              <span className="ps-2">2nd Prize</span>
             </div>
           </div>
           <div className="ps-3">
-            <span className="text-color small fw-bold">${data?.prizes?.secondPrize}</span>
+            <span className="text-color small fw-bold">${priceConverter(data?.prizes?.secondPrize)}</span>
           </div>
         </div>
         <div className="d-flex justify-content-between">
           <div>
             <div className="d-flex align-items-center">
               <i class="bi bi-gift text-warning"></i>
-              <span className="ps-2">1st Prize</span>
+              <span className="ps-2">3rd Prize</span>
             </div>
           </div>
           <div className="ps-3">
-            <span className="text-color small fw-bold">${data?.prizes?.thirdPrize}</span>
+            <span className="text-color small fw-bold">${priceConverter(data?.prizes?.thirdPrize)}</span>
           </div>
         </div>
-        <div className="d-flex justify-content-between">
+        {/* <div className="d-flex justify-content-between">
           <div>
             <div className="d-flex align-items-center">
               <i class="bi bi-gift text-warning"></i>
@@ -138,7 +137,7 @@ const PackagesComponent = ({data}) => {
             <span className="text-color small fw-bold">${data?.prizes?.fourthPrize}</span>
           </div>
         </div>
-        
+         */}
           <table className="table table-dark my-4">
             <thead>
               <tr>

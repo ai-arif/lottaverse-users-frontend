@@ -9,8 +9,17 @@ function ResultsComponent({data}) {
     const getWinner = async () => {
       const winner = await _LotteryWinner(data?.lotteryID);
       console.log("winner",winner)
+      // if the winner value is greater than 6, then show first 3 and last 3 characters, put * in between
+      if(winner.length > 6){
+        const first = winner.slice(0,3);
+        const last = winner.slice(-3);
+        const middle = '*****';
+        setWinner(first + middle + last);
+      }
+      else{
+        setWinner(winner);
+      }
       
-      setWinner(winner);
     }
     if(data?.lotteryID){
       getWinner()
@@ -18,7 +27,7 @@ function ResultsComponent({data}) {
   } , [data])
   
   return (
-    <div className="card info-card shadow-lg">
+    <div className="card info-card shadow-lg"  style={{ backgroundColor: 'transparent' }}>
       <div className="card-body">
         <div className="card-title d-flex justify-content-between">
         <h5>
@@ -28,16 +37,38 @@ function ResultsComponent({data}) {
           Round #{data?.roundCount}
         </h5>
         </div>
-        <div className="d-flex justify-content-between">
-            <p className="fw-semibold">Winner</p>
-            {/* <p className="fw-semibold">Name</p> */}
-            {/* <p className="fw-semibold">Ticket No.</p> */}
-        </div>
-        <div className="d-flex justify-content-between">
-            <p className="fw-semibold">{winner==undefined ? 'No winner yet': winner}</p>
-            
-            {/* <p className="fw-semibold">Ticket No.</p> */}
-        </div>
+        <table className="table">
+  <thead>
+    <tr>
+      <th className="fw-semibold">Winner</th>
+      <th className="fw-semibold">Address</th>
+      <th className="fw-semibold">Ticket No.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1st</td>
+      <td className="fw-semibold">{winner == undefined ? 'No winner yet' : winner}</td>
+      <td>ticket_no</td>
+    </tr>
+    <tr>
+      <td>2nd</td>
+      <td>{data?.secondWinner?.address}</td>
+      <td>ticket_no</td>
+    </tr>
+    <tr>
+      <td>3rd</td>
+      <td>{data?.thirdWinner?.address}</td>
+      <td>ticket_no</td>
+    </tr>
+    <tr>
+      <td>4th</td>
+      <td>{data?.randomWinner?.address}</td>
+      <td>ticket_no</td>
+    </tr>
+  </tbody>
+</table>
+
         {/* buy ticket button full width */}
         <div className="d-grid gap-2 my-4">
           <button onClick={()=>{
