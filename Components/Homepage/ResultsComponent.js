@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { _LotteryWinner } from "@/utils/newUtils/LotteryWinner";
 import priceConverter from "@/utils/priceConverter";
+import _getwinnerIndex from "@/utils/newUtils/getwinnerIndex";
 function ResultsComponent({data}) {
   const router=useRouter()
   const [winner, setWinner] = useState()
@@ -20,6 +21,10 @@ function ResultsComponent({data}) {
         setWinner(winner);
       }
       
+    }
+    const getTicketId = async () =>{
+      const ticketId = await _getwinnerIndex(data?.lotteryID)
+      console.log("ticketId",ticketId)
     }
     if(data?.lotteryID){
       getWinner()
