@@ -1,7 +1,45 @@
 import Head from 'next/head'
-import React from 'react'
-
+import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
+import axiosInstance from '../../../utils/axiosInstance'
 const index = () => {
+    const { packages } = useSelector(state => state.homepage)
+    const [winners, setWinners] = useState([])
+    const [lotteries, setLotteries] = useState([])
+    const [rounds, setRounds] = useState(0)
+    const [selected, setSelected] = useState('')
+    const handleChange = (e) => {
+        setSelected(e.target.value)
+        // find if found then get the package and get the round and set it to the state
+        const found = packages.find(item => item._id === e.target.value)
+        if (found) {
+            setRounds(found.rounds)
+            getLotteries(found.lotteryType)
+        }
+
+    }
+    const getLotteries = async (type) => {
+        // /lottery-type/:lotteryType
+        try {
+            const res = await axiosInstance.get(`/api/lottery-type/${type}`)
+            console.log(res.data)
+            setLotteries(res.data.data)
+            if(res.data.data.length > 0){
+                loadWinners(res.data.data[0]._id)
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    const loadWinners = async (id) => {
+        try {
+            const res = await axiosInstance.get(`/api/lottery-winner/${id}`)
+            console.log(res.data)
+            setWinners(res.data.data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
     return (
         <div>
             <Head>
@@ -24,16 +62,26 @@ const index = () => {
 
                     <div className="form-group col-3">
                         <label className='text-white' htmlFor="exampleFormControlSelect1">Package</label>
-                        <select className="form-control" id="exampleFormControlSelect1">
-                            <option>Easy</option>
-                            <option>Super-X</option>
+                        <select onChange={handleChange} className="form-control" id="exampleFormControlSelect1">
+                            <option value="">Select</option>
+                            {
+                                packages.map((item, index) => (
+                                    <option value={item?._id}>{item?.lotteryType}</option>
+                                ))
+                            }
                         </select>
                     </div>
                     <div className="form-group col-3 mx-1">
                         <label className='text-white' htmlFor="exampleFormControlSelect1">Round</label>
-                        <select className="form-control" id="exampleFormControlSelect1">
-                            <option>Round 1</option>
-                            <option>Round 2</option>                            
+                        <select onChange={(e) => {
+                            loadWinners(e.target.value)
+                        }} className="form-control" id="exampleFormControlSelect1">
+                            {/* rounds form array of length rounds */}
+                            {
+                                lotteries.map((item, index) => (
+                                    <option value={item?._id}>Round {item?.round}</option>
+                                ))
+                            }
                         </select>
                     </div>
 
@@ -54,16 +102,22 @@ const index = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">01</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        
+                        {
+                            winners.map((item, index) => (
+                                <tr>
+                                    <th scope="row">{index + 1}</th>
+                                    <td>{item?.address}</td>
+                                    <td>{item?.amount}</td>
+                                    <td>{item?.ticketNo}</td>
+
+
+                                </tr>
+                            ))
+                        }
+
                     </tbody>
                 </table>
-                </div>
+            </div>
 
 
         </div>

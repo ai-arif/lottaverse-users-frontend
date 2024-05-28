@@ -2,7 +2,8 @@ import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { _LotteryWinner } from "@/utils/newUtils/LotteryWinner";
 import priceConverter from "@/utils/priceConverter";
-import _getwinnerIndex from "@/utils/newUtils/getwinnerIndex";
+import { _getwinnerIndex } from "@/utils/newUtils/getwinnerIndex";
+
 function ResultsComponent({data}) {
   const router=useRouter()
   const [winner, setWinner] = useState()
@@ -11,7 +12,7 @@ function ResultsComponent({data}) {
       const winner = await _LotteryWinner(data?.lotteryID);
       console.log("winner",winner)
       // if the winner value is greater than 6, then show first 3 and last 3 characters, put * in between
-      if(winner.length > 6){
+      if(winner?.length > 6){
         const first = winner.slice(0,3);
         const last = winner.slice(-3);
         const middle = '*****';
@@ -28,6 +29,7 @@ function ResultsComponent({data}) {
     }
     if(data?.lotteryID){
       getWinner()
+      getTicketId()
     }
   } , [data])
   
