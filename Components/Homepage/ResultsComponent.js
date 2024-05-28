@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { _LotteryWinner } from "@/utils/newUtils/LotteryWinner";
-
+import priceConverter from "@/utils/priceConverter";
 function ResultsComponent({data}) {
   const router=useRouter()
   const [winner, setWinner] = useState()
@@ -43,6 +43,7 @@ function ResultsComponent({data}) {
       <th className="fw-semibold">Winner</th>
       <th className="fw-semibold">Address</th>
       <th className="fw-semibold">Ticket No.</th>
+      <th className="fw-semibold">Amount</th>
     </tr>
   </thead>
   <tbody>
@@ -50,21 +51,25 @@ function ResultsComponent({data}) {
       <td>1st</td>
       <td className="fw-semibold">{winner == undefined ? 'No winner yet' : winner}</td>
       <td>ticket_no</td>
+      <td>${priceConverter(data?.prizes?.firstPrize)}</td>
     </tr>
     <tr>
       <td>2nd</td>
       <td>{data?.secondWinner?.address}</td>
       <td>ticket_no</td>
+      <td>${priceConverter(data?.prizes?.secondPrize)}</td>
     </tr>
     <tr>
       <td>3rd</td>
       <td>{data?.thirdWinner?.address}</td>
       <td>ticket_no</td>
+      <td>${priceConverter(data?.prizes?.thirdPrize)}</td>
     </tr>
     <tr>
       <td>4th</td>
       <td>{data?.randomWinner?.address}</td>
       <td>ticket_no</td>
+      <td>${priceConverter(data?.prizes?.otherPrizes)}</td>
     </tr>
   </tbody>
 </table>

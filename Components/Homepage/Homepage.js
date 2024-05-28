@@ -7,8 +7,8 @@ import { fetchPackages } from "@/features/homepage/homepageSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 const Homepage = () => {
-  const dispatch=useDispatch()
-  const {packages}=useSelector(state=>state.homepage)
+  const dispatch = useDispatch()
+  const { packages } = useSelector(state => state.homepage)
   useEffect(() => {
     dispatch(fetchPackages())
   }, [])
@@ -29,10 +29,10 @@ const Homepage = () => {
       <section className="section dashboard">
         <div className="row">
           {
-            packages.map((item,index)=>(
+            packages.map((item, index) => (
               <div className="col-xxl-6 col-md-6">
-            <PackagesComponent data={item} />
-          </div>
+                <PackagesComponent data={item} />
+              </div>
             ))
           }
           {/* <div className="col-xxl-4 col-md-4">
@@ -45,15 +45,15 @@ const Homepage = () => {
       </section>
       <div className="pagetitle">
         <h1>Results</h1>
-        
+
       </div>
       <section className="section results">
         <div className="row">
           {
-            packages.map((item,index)=>(
+            packages.map((item, index) => (
               <div className="col-xxl-6 col-md-6">
-            <ResultsComponent data={item} />
-          </div>
+                <ResultsComponent data={item} />
+              </div>
             ))
           }
           {/* <div className="col-xxl-6 col-md-6">
@@ -64,16 +64,25 @@ const Homepage = () => {
           </div> */}
         </div>
       </section>
-      <section className="section">
-      <OtherCommissions/>
-      </section>
-      <div className="pagetitle">
+      <div className="row">
+        <div className="col-md-6">
+          <section className="section">
+            <OtherCommissions />
+          </section>
+
+        </div>
+        <div className="col-md-6">
+          
+        </div>
+      </div>
+      {/* <div className="pagetitle">
         <h1>Leaderboard</h1>
         
-      </div>
+      </div> */}
       <section className="section leaderboard">
-       <Leaderboard />
-      </section>
+            <Leaderboard />
+          </section>
+
     </div>
   );
 };
