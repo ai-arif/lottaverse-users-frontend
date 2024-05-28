@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import TicketSummaryModal from './TicketSummaryModal';
 import { _BuyTickets } from '@/utils/newUtils/BuyTickets';
 import { _BuyTicketsUSDT } from '@/utils/newUtils/BuyTicketUSDT';
@@ -9,10 +9,13 @@ import { _getOwner } from '@/utils/newUtils/getOwner';
 const BuyTicketModal = () => {
   const {lotteryId, ticketPrice} = useSelector(state=>state.user)
   const [showTicketSummary, setShowTicketSummary] = useState(false);
+  const closeButtonRef = useRef(null);
   
   
   const [loading, setLoading] = useState(false);
   const [randomNumbers, setRandomNumbers] = useState([]);
+
+  
   
   const generateRandomNumbers = () => {
     const newRandomNumbers = Array.from({ length: 6 }, () => {
@@ -35,6 +38,7 @@ const BuyTicketModal = () => {
   const handleCloseTicketSummary = () => {
     setShowTicketSummary(false);
   };
+  
 
   const handleBuyTicket = async () => {
     if (randomNumbers.length === 0) return alert("Please add a ticket");
@@ -48,6 +52,7 @@ const BuyTicketModal = () => {
       lotteryId: lotteryId,
       ticketIds: randomNumbers,
     })
+    
     const owner=await _getOwner(lotteryId);
     // calculate 18% of the ticket price
     const percentageAmount = (ticketPrice * 18) / 100;
@@ -76,15 +81,18 @@ const BuyTicketModal = () => {
       const res = await axiosInstance.post('/api/createpurchasehistory', {
         lotteryId: lotteryId,
         ticketIds: randomNumbers,
-        transactionHash:  "123"
+        transactionHash:  response?.hash
       })
       if (res.status === 200) {
+        closeModal();
         alert("Ticket bought successfully")
         handleCloseTicketSummary();
+        
         setLoading(false);
       }
     }
     else {
+      closeModal()
       setLoading(false);
       alert("Something went wrong")
     }
@@ -93,6 +101,12 @@ const BuyTicketModal = () => {
     setShowTicketSummary(false);
     setLoading(false);
   };
+
+  const closeModal = () => {
+    if (closeButtonRef.current) {
+      closeButtonRef.current.click();
+  }
+  }
 
   return (
     <div>
@@ -107,6 +121,7 @@ const BuyTicketModal = () => {
           <div className="modal-content" style={{ background: "#0a1223", color: "white" }}>
             <div className="modal-header">
               <h1 className="modal-title fs-5" id="exampleModalLabel">Roll the ball lotteryId {lotteryId}</h1>
+              
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body" style={{maxHeight:"400px", overflowY:"auto"}}>
@@ -157,6 +172,8 @@ const BuyTicketModal = () => {
         onDelete={handleDelete}
         ticketPrice={ticketPrice}
         loading={loading}
+        closeButtonRef={closeButtonRef}
+        
       />
     </div>
   );
