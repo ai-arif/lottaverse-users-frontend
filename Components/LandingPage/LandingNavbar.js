@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import React from 'react'
+import React, { useRef } from 'react'
 import axiosInstance from '../../utils/axiosInstance';
 import Cookies from 'js-cookie';
 import {
@@ -9,6 +9,7 @@ import { useRouter } from 'next/router';
 import ConnectWalletModal from './ConnectWalletModal';
 
 const LandingNavbar = () => {
+    const closeButtonRef = useRef(null);
     const router=useRouter()
     const getToken=async(address)=>{
         try {
@@ -17,11 +18,10 @@ const LandingNavbar = () => {
             })
             
             if(res.data.success){
+                closeModal()
                 Cookies.set('token',res.data.data.token,{expires:10})
                 router.push('/dashboard')
-                setTimeout(() => {
-                    document.getElementsByClassName("modal-backdrop")[0].remove()
-                }, 300);
+                
             }
         }
         catch(err){
@@ -35,6 +35,12 @@ const LandingNavbar = () => {
             await getToken(address)
         } catch (error) {
             alert('Please connect your wallet')
+        }
+    }
+
+    const closeModal=()=>{
+        if(closeButtonRef.current){
+            closeButtonRef.current.click()
         }
     }
 
@@ -75,7 +81,7 @@ const LandingNavbar = () => {
             <div id="mobile-menu-wrap"></div>
         </div>
     </header>
-    <ConnectWalletModal connectWallet={connectWallet}/>
+    <ConnectWalletModal connectWallet={connectWallet} closeButtonRef={closeButtonRef}/>
     </div>
   )
 }

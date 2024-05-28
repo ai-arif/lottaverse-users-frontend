@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import PackagesComponent from "./PackagesComponent";
 import ResultsComponent from "./ResultsComponent";
 import Leaderboard from "./Leaderboard";
+import OtherCommissions from "./OtherCommissions";
 import { fetchPackages } from "@/features/homepage/homepageSlice";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -62,6 +63,9 @@ const Homepage = () => {
             <ResultsComponent />
           </div> */}
         </div>
+      </section>
+      <section className="section">
+      <OtherCommissions/>
       </section>
       <div className="pagetitle">
         <h1>Leaderboard</h1>

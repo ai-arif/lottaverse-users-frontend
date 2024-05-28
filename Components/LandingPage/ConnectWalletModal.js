@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ConnectWalletModal = ({connectWallet}) => {
+const ConnectWalletModal = ({connectWallet,closeButtonRef}) => {
   return (
     <div>
 
@@ -29,7 +29,7 @@ const ConnectWalletModal = ({connectWallet}) => {
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button ref={closeButtonRef} type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         {/* <button type="button" class="btn btn-primary">Save changes</button> */}
       </div>
     </div>
