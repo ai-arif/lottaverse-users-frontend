@@ -1,5 +1,5 @@
 import React from 'react';
-
+import priceConverter from '@/utils/priceConverter';
 const TicketSummaryModal = ({ randomNumbers, onClose, onBuyTicket, onDelete,ticketPrice,loading, closeButtonRef }) => {
   
   return (
@@ -48,7 +48,7 @@ const TicketSummaryModal = ({ randomNumbers, onClose, onBuyTicket, onDelete,tick
                 <hr className="text-white" />
                 <div className="d-flex justify-content-between">
                 <span className="text-white small">Total Price</span>
-                <span className="text-white fw-bold">${randomNumbers.length * ticketPrice}</span>
+                <span className="text-white fw-bold">${priceConverter(randomNumbers.length * ticketPrice)}</span>
                 </div>
             </div>
           <div className="modal-footer">

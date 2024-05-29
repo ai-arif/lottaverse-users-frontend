@@ -65,3 +65,16 @@
     }
   }
   
+  .ticket-number {
+    display: inline-block;
+    width: 30px; /* Adjust the size as needed */
+    height: 30px; /* Adjust the size as needed */
+    line-height: 30px; /* Ensure the text is vertically centered */
+    margin: 5px;
+    color:black;
+    border-radius: 50%;
+    background-color: #f0f0f0; /* Adjust the background color as needed */
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #ccc; /* Optional: add a border */
+}

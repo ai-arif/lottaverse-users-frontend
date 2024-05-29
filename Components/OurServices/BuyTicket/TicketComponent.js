@@ -7,6 +7,7 @@ import { _getRemainingTickets } from '@/utils/newUtils/getRemainingTickets';
 import { useDispatch, useSelector } from 'react-redux';
 import { setLotteryId,setTicketPrice } from '@/features/user/userSlice';
 import { useRouter } from 'next/router';
+import priceConverter from '@/utils/priceConverter';
 
 const TicketComponent = ({data}) => {
     const dispatch=useDispatch()
@@ -43,7 +44,7 @@ const TicketComponent = ({data}) => {
                 <hr className='text-white' />
                 <div className="d-flex justify-content-between">
                     <span className="ps-2 text-white small">Per Ticket</span>
-                    <span className="text-white fw-bold">{data?.ticketPrice}</span>
+                    <span className="text-white fw-bold">${priceConverter(data?.ticketPrice)}</span>
                 </div>
 
                 {/* <div className="row align-items-center justify-content-center my-2">
@@ -58,8 +59,8 @@ const TicketComponent = ({data}) => {
                         handleSetLotteryId(data?.lotteryID, data?.ticketPrice)
                         
                         // console.log(data?.lotteryID)
-                        const ticketCount=await _getLotteryTicektCount(data?.lotteryID)
-                        console.log("ticketCount",ticketCount)
+                        // const ticketCount=await _getLotteryTicektCount(data?.lotteryID)
+                        // console.log("ticketCount",ticketCount)
                         // const getLotteryDetails =await _getLotteryDetails(data?.lotteryID)
                         // console.log(getLotteryDetails)
                         // const remainingTickets=await _getRemainingTickets(data?.lotteryID)

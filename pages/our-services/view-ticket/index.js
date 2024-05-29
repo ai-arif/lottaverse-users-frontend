@@ -34,7 +34,12 @@ const index = () => {
               <tr>
                 <td>{index + 1}</td>
                 <td>{history.lotteryPackage}</td>
-                <td>{history.ticketId}</td>
+                {/* <td>{history.ticketString}</td> */}
+                <td>
+                  {history.ticketString.split(' ').map((number, index) => (
+                    <span key={index} className="ticket-number">{number}</span>
+                  ))}
+                </td>
                 <td>{history.amount}</td>
                 <td>{new Date(history.createdAt).toLocaleDateString()}</td>
                 <td>
