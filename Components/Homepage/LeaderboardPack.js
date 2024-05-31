@@ -1,8 +1,11 @@
 import { _getLotteryTicektCount } from '@/utils/newUtils/getLotteryTicektCount';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+
+
 const LeaderboardPack = ({item}) => {
+  const [ticketPurchased, setTicketPurchased] = useState(0);
     let percentage = 5;
   const getColor = (value) => {
     if (value >= 80) {
@@ -13,10 +16,18 @@ const LeaderboardPack = ({item}) => {
       return '#FF0000'; // Red color for values < 50
     }
   };
-  const getTicketPurchased = async (id) => {
-    const ticket = await _getLotteryTicektCount(id)
-    return ticket
+  useEffect(() => {
+    getTicketPurchased(item.lotteryID)
+  }, [item])
+  const getTicketPurchased=async(id)=>{
+    const ticket=await _getLotteryTicektCount(id)
+    setTicketPurchased(ticket)
   }
+  const calculateValue = (type, tickets) => {
+    const multiplier = type?.toUpperCase() === "EASY" ? 3 : 10;
+    const result = tickets * multiplier * 0.05;
+    return result.toFixed(3);
+  };
   return (
     <div className="d-flex justify-content-between">
                   <div>
@@ -28,10 +39,10 @@ const LeaderboardPack = ({item}) => {
                     />
                   </div>
                   <div>
-                    {item?.lotteryType?.toUpperCase()}
+                    {item?.lotteryType?.toUpperCase()} 
                   </div>
                   <div>
-                    ${item?.lotteryType?.toUpperCase() === "EASY" ? 3:10}
+                  ${calculateValue(item?.lotteryType, ticketPurchased)}
                   </div>
                   <div>
                     <div style={{ width: 30, height: 30 }}>

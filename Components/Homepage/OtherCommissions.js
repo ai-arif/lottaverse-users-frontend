@@ -24,10 +24,10 @@ const OtherCommissions = () => {
                 <td>Leader bonus</td>
                 <td>{user?.leaderboardEarnings}</td>
             </tr>
-            <tr>
+            {/* <tr>
                 <td>Founder Bonus</td>
                 <td>{user?.founder}</td>
-            </tr>
+            </tr> */}
             </thead>
 
         </table>

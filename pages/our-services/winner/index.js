@@ -5,6 +5,7 @@ import axiosInstance from '../../../utils/axiosInstance'
 const index = () => {
     const { packages } = useSelector(state => state.homepage)
     const [winners, setWinners] = useState([])
+    const [errorMessage, setErrorMessage] = useState('');
     const [lotteries, setLotteries] = useState([])
     const [rounds, setRounds] = useState(0)
     const [selected, setSelected] = useState('')
@@ -24,11 +25,11 @@ const index = () => {
             const res = await axiosInstance.get(`/api/lottery-type/${type}`)
             console.log(res.data)
             setLotteries(res.data.data)
-            if(res.data.data.length > 0){
+            if (res.data.data.length > 0) {
                 loadWinners(res.data.data[0]._id)
             }
         } catch (error) {
-            console.log(error)
+            setErrorMessage(error.response.data.message)
         }
     }
     const loadWinners = async (id) => {
@@ -37,7 +38,12 @@ const index = () => {
             console.log(res.data)
             setWinners(res.data.data)
         } catch (error) {
-            console.log(error)
+            if (error.response && error.response.data && error.response.data.message) {
+                setErrorMessage(error.response.data.message);
+                setWinners([]);
+            } else {
+                setErrorMessage('An error occurred');
+            }
         }
     }
     return (
@@ -58,6 +64,7 @@ const index = () => {
                 </nav>
             </div>
             <div className="container-fluid">
+
                 <div className="row">
 
                     <div className="form-group col-3">
@@ -91,6 +98,13 @@ const index = () => {
                     </div>
                 </div>
             </div>
+            <div className="my-3 mb-3">
+                {
+                    errorMessage && <div className="alert alert-danger" role="alert">
+                        {errorMessage}
+                    </div>
+                }
+            </div>
             <div className="container-fluid my-4">
                 <table className="table table-dark p-2">
                     <thead>
@@ -108,7 +122,7 @@ const index = () => {
                                     <th scope="row">{index + 1}</th>
                                     <td>{item?.address}</td>
                                     <td>{item?.amount}</td>
-                                    <td>{item?.ticketNo}</td>
+                                    <td>{item?.ticketId}</td>
 
 
                                 </tr>

@@ -78,3 +78,25 @@
     font-weight: bold;
     border: 1px solid #ccc; /* Optional: add a border */
 }
+
+.login_table{
+  margin: 0 auto;
+  width: 100%;
+  padding: 10px;
+  background-color: #070b28;
+  border-radius: 10px;
+}
+
+.login_table > tr > td > div{
+  padding: 10px;
+  background-color: #070b28;
+}
+/* add color change on hover */
+.login_table > tr > td > div:hover{
+  background-color: #0d0f2d;
+}
+/* reduce margin padding between tr */
+.login_table > tr > td{
+  padding: 0;
+  margin: 0;
+}

@@ -1,7 +1,7 @@
 import React from 'react'
 import axiosInstance from '../../utils/axiosInstance'
 import Head from 'next/head'
-
+import priceConverter from '../../utils/priceConverter'
 export const getServerSideProps = async (context) => {
   const res = await axiosInstance.get('/api/leaderboard')
   const data = res.data.data
@@ -22,8 +22,8 @@ const index = ({data}) => {
                     <thead>
                         <tr>
                         <th scope="col">Sl.</th>
-                            <th scope="col">Id</th>
-                            <th scope="col">User</th>
+                            {/* <th scope="col">Id</th> */}
+                            <th scope="col">Address</th>
                             <th scope="col">Date</th>
                             <th scope="col">Total Ticket</th>
                             <th scope="col">Total Spent</th>
@@ -34,11 +34,11 @@ const index = ({data}) => {
                           data.map((item, index) => (
                             <tr key={index}>
                               <td>{index+1}</td>
-                                <td>{item?.referralId}</td>
+                                {/* <td>{item?.referralId}</td> */}
                                 <td>{item.address}</td>
                                 <td>{new Date(item.lastPurchaseDate).toDateString()}</td>
                                 <td>{item.totalTickets}</td>
-                                <td>{item.payout}</td>
+                                <td>{priceConverter(item.payout)}</td>
                             </tr>
                           ))
                         }

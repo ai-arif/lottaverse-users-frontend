@@ -63,19 +63,19 @@ function ResultsComponent({data}) {
     <tr>
       <td>2nd</td>
       <td>{data?.secondWinner?.address}</td>
-      <td>ticket_no</td>
+      <td>{data?.secondWinner?.ticketId}</td>
       <td>${priceConverter(data?.prizes?.secondPrize)}</td>
     </tr>
     <tr>
       <td>3rd</td>
       <td>{data?.thirdWinner?.address}</td>
-      <td>ticket_no</td>
+      <td>{data?.thirdWinner?.ticketId}</td>
       <td>${priceConverter(data?.prizes?.thirdPrize)}</td>
     </tr>
     <tr>
       <td>4th</td>
       <td>{data?.randomWinner?.address}</td>
-      <td>ticket_no</td>
+      <td>{data?.randomWinner?.ticketId}</td>
       <td>${priceConverter(data?.prizes?.otherPrizes)}</td>
     </tr>
   </tbody>

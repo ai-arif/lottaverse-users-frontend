@@ -34,7 +34,7 @@ const index = () => {
               <tr>
                 <td>{index + 1}</td>
                 <td>{history.lotteryPackage}</td>
-                {/* <td>{history.ticketString}</td> */}
+                
                 <td>
                   {history.ticketString.split(' ').map((number, index) => (
                     <span key={index} className="ticket-number">{number}</span>
@@ -44,11 +44,11 @@ const index = () => {
                 <td>{new Date(history.createdAt).toLocaleDateString()}</td>
                 <td>
                   {history.isDrawn === true && history?.isWinner == null ? (
-                    <span className="badge bg-danger">Loser</span>
+                    <span className="badge bg-danger">Lose</span>
                   ) : history.isDrawn === true && history?.isWinner != null ? (
-                    <span className="badge bg-success">Winner</span>
+                    <span className="badge bg-success">Win</span>
                   ) : (
-                    <span className="badge bg-warning text-dark">Pending</span>
+                    <span className="badge bg-warning text-dark">Waiting</span>
                   )}
                 </td>
 
