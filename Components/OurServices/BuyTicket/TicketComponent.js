@@ -29,7 +29,7 @@ const TicketComponent = ({data}) => {
 
     return (
         <div className="card info-card ticket-component position-relative">
-            <img src="https://img.freepik.com/premium-vector/casino-background_1302-16923.jpg?w=740" className="card-img-top" alt="Cover" style={{ objectFit: 'cover', height: '150px' }} />
+            <img src={data?.image ? `${process.env.API}${data?.image}`:"https://img.freepik.com/premium-vector/casino-background_1302-16923.jpg?w=740"} className="card-img-top" alt="Cover" style={{ objectFit: 'cover', height: '150px' }} />
             <div className="card-body  w-100" >
                 <h5 className="card-title text-center text-white">
                     Your Lottoday Combinations 

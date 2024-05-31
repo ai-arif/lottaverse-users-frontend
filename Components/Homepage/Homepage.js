@@ -45,7 +45,6 @@ const Homepage = () => {
       </section>
       <div className="pagetitle">
         <h1>Results</h1>
-
       </div>
       <section className="section results">
         <div className="row">

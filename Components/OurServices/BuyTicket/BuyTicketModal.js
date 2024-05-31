@@ -7,24 +7,24 @@ import { useSelector } from 'react-redux';
 import { _getOwner } from '@/utils/newUtils/getOwner';
 
 const BuyTicketModal = () => {
-  const {lotteryId, ticketPrice} = useSelector(state=>state.user)
+  const { lotteryId, ticketPrice } = useSelector(state => state.user)
   const [showTicketSummary, setShowTicketSummary] = useState(false);
   const closeButtonRef = useRef(null);
-  
-  
+
+
   const [loading, setLoading] = useState(false);
   const [randomNumbers, setRandomNumbers] = useState([]);
 
-  
-  
+
+
   const generateRandomNumbers = () => {
     const newRandomNumbers = Array.from({ length: 6 }, () => {
-        const now = new Date();
-        const uniqueSeed = now.getTime() + now.getMilliseconds();
-        return Math.floor((uniqueSeed % 100) + Math.random() * 100) % 100;
+      const now = new Date();
+      const uniqueSeed = now.getTime() + now.getMilliseconds();
+      return Math.floor((uniqueSeed % 100) + Math.random() * 100) % 100;
     });
     setRandomNumbers([...randomNumbers, newRandomNumbers]);
-};
+  };
 
   const handleAddTicket = () => {
     setShowTicketSummary(true);
@@ -38,7 +38,7 @@ const BuyTicketModal = () => {
   const handleCloseTicketSummary = () => {
     setShowTicketSummary(false);
   };
-  
+
 
   const handleBuyTicket = async () => {
     if (randomNumbers.length === 0) return alert("Please add a ticket");
@@ -52,8 +52,8 @@ const BuyTicketModal = () => {
       lotteryId: lotteryId,
       ticketIds: randomNumbers,
     })
-    
-    const owner=await _getOwner(lotteryId);
+
+    const owner = await _getOwner(lotteryId);
     // calculate 18% of the ticket price
     const percentageAmount = (ticketPrice * 18) / 100;
     const addresses = res.data.data.referAddress;
@@ -61,7 +61,7 @@ const BuyTicketModal = () => {
     console.log(addresses)
     console.log(amounts)
     // 0x089BB7064d27C0b82D935A35ad46b29d943c8D4D
-    
+
     // const response2 = await _BuyTickets(lotteryId,randomNumbers.length, price.toString() );
     const response = await _BuyTicketsUSDT(process.env.TOKEN_ADDRESS,
       lotteryId,
@@ -74,20 +74,17 @@ const BuyTicketModal = () => {
       false
     )
 
-    // console.log(response)
-    // console.log(response?.hash)
-    // response?.hash
     if (response?.hash) {
       const res = await axiosInstance.post('/api/createpurchasehistory', {
         lotteryId: lotteryId,
         ticketIds: randomNumbers,
-        transactionHash:  response?.hash
+        transactionHash: response?.hash
       })
       if (res.status === 200) {
         closeModal();
         alert("Ticket bought successfully")
         handleCloseTicketSummary();
-        
+
         setLoading(false);
       }
     }
@@ -105,7 +102,7 @@ const BuyTicketModal = () => {
   const closeModal = () => {
     if (closeButtonRef.current) {
       closeButtonRef.current.click();
-  }
+    }
   }
 
   return (
@@ -121,42 +118,48 @@ const BuyTicketModal = () => {
           <div className="modal-content" style={{ background: "#0a1223", color: "white" }}>
             <div className="modal-header">
               <h1 className="modal-title fs-5" id="exampleModalLabel">Roll the ball lotteryId {lotteryId}</h1>
-              
-              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+              <div className="rounded-button-container">
+                <button data-bs-dismiss="modal" type="button" className="custom-close-button" aria-label="Close"></button>
+              </div>
             </div>
-            <div className="modal-body" style={{maxHeight:"400px", overflowY:"auto"}}>
+            <div className="modal-body">
               <div style={{ display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center", marginBottom: "20px" }}>
                 <img onClick={generateRandomNumbers} className='rounded rounded-circle roll-the-ball' width={"100px"} height={"100px"} src="https://previews.123rf.com/images/djvstock/djvstock1705/djvstock170508533/78309597-refresh-arrows-in-circular-direction-icon-over-white-background-vector-illustration.jpg" alt="" />
                 <br />
               </div>
               <br />
-              {randomNumbers.map((numberCollection, index) => (
-                <div key={index}>
-                  <div className="d-flex justify-content-between">
-                    {numberCollection.map((number, idx) => (
-                      <div
-                        key={idx}
-                        style={{
-                          width: "60px",
-                          height: "60px",
-                          borderRadius: "50%",
-                          backgroundColor: "#ffffff",
-                          color: "black",
-                          display: "flex",
-                          justifyContent: "center",
-                          alignItems: "center",
-                          marginBottom: "10px",
-                          marginRight: "10px"
-                        }}
-                      >
-                        {number}
-                      </div>
-                    ))}
-                    <button onClick={() => handleDelete(index)} className="btn btn-danger">Delete</button>
+              <div style={{ maxHeight: "240px", overflowY: "auto" }}>
+
+
+                {randomNumbers.map((numberCollection, index) => (
+                  <div key={index}>
+                    <div className="d-flex justify-content-between">
+                      {numberCollection.map((number, idx) => (
+                        <div
+                          key={idx}
+                          style={{
+                            width: "60px",
+                            height: "60px",
+                            borderRadius: "50%",
+                            backgroundColor: "#ffffff",
+                            color: "black",
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            marginBottom: "10px",
+                            marginRight: "10px"
+                          }}
+                        >
+                          {number}
+                        </div>
+                      ))}
+                      <button onClick={() => handleDelete(index)} className="btn btn-danger">Delete</button>
+                    </div>
+                    <br />
                   </div>
-                  <br />
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -173,7 +176,7 @@ const BuyTicketModal = () => {
         ticketPrice={ticketPrice}
         loading={loading}
         closeButtonRef={closeButtonRef}
-        
+
       />
     </div>
   );

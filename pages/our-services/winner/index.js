@@ -5,6 +5,7 @@ import axiosInstance from '../../../utils/axiosInstance'
 const index = () => {
     const { packages } = useSelector(state => state.homepage)
     const [winners, setWinners] = useState([])
+    const [copyWinners, setCopyWinners] = useState([])
     const [errorMessage, setErrorMessage] = useState('');
     const [lotteries, setLotteries] = useState([])
     const [rounds, setRounds] = useState(0)
@@ -23,9 +24,10 @@ const index = () => {
         // /lottery-type/:lotteryType
         try {
             const res = await axiosInstance.get(`/api/lottery-type/${type}`)
-            console.log(res.data)
+            
             setLotteries(res.data.data)
             if (res.data.data.length > 0) {
+
                 loadWinners(res.data.data[0]._id)
             }
         } catch (error) {
@@ -37,6 +39,7 @@ const index = () => {
             const res = await axiosInstance.get(`/api/lottery-winner/${id}`)
             console.log(res.data)
             setWinners(res.data.data)
+            setCopyWinners(res.data.data)
         } catch (error) {
             if (error.response && error.response.data && error.response.data.message) {
                 setErrorMessage(error.response.data.message);
@@ -46,6 +49,23 @@ const index = () => {
             }
         }
     }
+    // winners.map((item, index) => (
+        // <tr>
+        // <th scope="row">{index + 1}</th>
+        // <td>{item?.address}</td>
+        // <td>{item?.amount}</td>
+        // <td>{item?.ticketId}</td>
+
+        const searchByTicketId =(e)=>{
+            // search multiple winners by ticket id withing the winners array
+            // do not find exact match
+            // find the ticket id that contains the search term
+            const search=e.target.value
+            const found=copyWinners.filter(item=>item.ticketId.includes(search))
+            if(found.length>0){
+                setWinners(found)
+            }
+        }
     return (
         <div>
             <Head>
@@ -94,7 +114,7 @@ const index = () => {
 
                     <div className="form-group col-3 ">
                         <label className='text-white' htmlFor="exampleInputEmail1">Ticket</label>
-                        <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter ticket number" />
+                        <input onChange={searchByTicketId} type="number" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter ticket number" />
                     </div>
                 </div>
             </div>

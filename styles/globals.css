@@ -100,3 +100,40 @@
   padding: 0;
   margin: 0;
 }
+
+.rounded-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-close-button {
+  background-color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px; /* Adjust size as needed */
+  height: 30px; /* Adjust size as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+.custom-close-button::before {
+  content: '×';
+  color: black;
+  font-size: 20px; /* Adjust size as needed */
+  font-weight: bold;
+  line-height: 1;
+  transition: color 0.3s, transform 0.3s; /* Smooth transition */
+}
+
+.custom-close-button:hover {
+  background-color: lightgray; /* Change background color on hover */
+}
+
+.custom-close-button:hover::before {
+  color: red; /* Change the color of '×' on hover */
+  transform: scale(1.2); /* Scale up '×' symbol on hover */
+}
