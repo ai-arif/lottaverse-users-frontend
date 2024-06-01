@@ -1,4 +1,5 @@
 import { _getLotteryTicektCount } from '@/utils/newUtils/getLotteryTicektCount';
+import priceConverter from '@/utils/priceConverter';
 import React, { useEffect, useState } from 'react'
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
@@ -44,29 +45,37 @@ const LeaderboardPack = ({ item }) => {
       <div>
         ${calculateValue(item?.lotteryType, ticketPurchased)}
       </div>
-      <div>
+      
         <div style={{ width: 30, height: 30 }}>
           <CircularProgressbar styles={buildStyles({
             rotation: 0.25,
             strokeLinecap: 'butt',
 
-            textSize: '46px',
+            textSize: '40px',
 
             pathTransitionDuration: 0.5,
 
-            pathColor: getColor(percentage),
+            pathColor: getColor(item.
+              maxTickets*ticketPurchased),
             textColor: '#e2f0f1',
             trailColor: '#d6d6d6',
             backgroundColor: '#3e98c7',
-          })} className="fw-bold" value={ticketPurchased} text={`${percentage}%`} />
+          })} className="fw-bold" value={item.
+            maxTickets*ticketPurchased} 
+            text=''
+            // text={`${(item.
+            //   maxTickets*ticketPurchased)}%`} 
+              />
         </div>
-      </div>
+      
 
       {/* create a rounded circle div and a value in the center of it */}
       <div>
         <div className="d-flex justify-content-center">
           <div className="rounded-circle d-flex justify-content-center align-items-center" style={{ width: 50, height: 50, backgroundColor: '#3e98c7' }}>
-            <span className="text-white fw-bold">5</span>
+            <span className="text-white fw-bold">
+              {priceConverter(item?.previousUnlockedAmount)}
+            </span>
           </div>
         </div>
       </div>

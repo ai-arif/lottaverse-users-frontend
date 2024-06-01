@@ -37,7 +37,7 @@ const index = () => {
                   <td>{item.totalUsers}</td>
                   <td>{item.activeUsers}</td>
                   <td>{item.inactiveUsers}</td>
-                  <td>{item.referralCommission}</td>
+                  <td>{item.commissionAmount}</td>
                 </tr>
               ))
             }

@@ -24,7 +24,7 @@ const index = () => {
         // /lottery-type/:lotteryType
         try {
             const res = await axiosInstance.get(`/api/lottery-type/${type}`)
-            
+
             setLotteries(res.data.data)
             if (res.data.data.length > 0) {
 
@@ -50,22 +50,22 @@ const index = () => {
         }
     }
     // winners.map((item, index) => (
-        // <tr>
-        // <th scope="row">{index + 1}</th>
-        // <td>{item?.address}</td>
-        // <td>{item?.amount}</td>
-        // <td>{item?.ticketId}</td>
+    // <tr>
+    // <th scope="row">{index + 1}</th>
+    // <td>{item?.address}</td>
+    // <td>{item?.amount}</td>
+    // <td>{item?.ticketId}</td>
 
-        const searchByTicketId =(e)=>{
-            // search multiple winners by ticket id withing the winners array
-            // do not find exact match
-            // find the ticket id that contains the search term
-            const search=e.target.value
-            const found=copyWinners.filter(item=>item.ticketId.includes(search))
-            if(found.length>0){
-                setWinners(found)
-            }
+    const searchByTicketId = (e) => {
+        // search multiple winners by ticket id withing the winners array
+        // do not find exact match
+        // find the ticket id that contains the search term
+        const search = e.target.value
+        const found = copyWinners.filter(item => item.ticketId.includes(search))
+        if (found.length > 0) {
+            setWinners(found)
         }
+    }
     return (
         <div>
             <Head>
@@ -129,6 +129,7 @@ const index = () => {
                 <table className="table table-dark p-2">
                     <thead>
                         <tr>
+                            <th scope="col">Sl</th>
                             <th scope="col">Position</th>
                             <th scope="col">User id</th>
                             <th scope="col">Win Amount</th>
@@ -140,6 +141,11 @@ const index = () => {
                             winners.map((item, index) => (
                                 <tr>
                                     <th scope="row">{index + 1}</th>
+                                    <td>
+                                        {
+                                            item?.position?.includes('Random') ? "4th" : item?.position?.includes('Second') ? "2nd" : item?.position?.includes('Third') ? "3rd" : item?.position
+                                        }
+                                    </td>
                                     <td>{item?.address}</td>
                                     <td>{item?.amount}</td>
                                     <td>{item?.ticketId}</td>

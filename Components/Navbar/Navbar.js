@@ -206,61 +206,6 @@ const Navbar = () => {
 
             </li>
 
-            <li className="nav-item dropdown pe-3">
-
-              <a className="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                <img src="assets/img/profile-img.jpg" alt="Profile" className="rounded-circle" />
-                {/* <span className="d-none d-md-block dropdown-toggle ps-2">{userInformation?.name}</span> */}
-              </a>
-
-              <ul className="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-                <li className="dropdown-header">
-                  {/* <h6>{userInformation?.name}</h6> */}
-                  {/* <span>Web Designer</span> */}
-                </li>
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-
-                <li>
-                  <Link className="dropdown-item d-flex align-items-center" href="/my-profile">
-                    <i className="bi bi-person"></i>
-                    <span>My Profile</span>
-                  </Link>
-                </li>
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-
-                <li>
-                  <a className="dropdown-item d-flex align-items-center" href="users-profile.html">
-                    <i className="bi bi-gear"></i>
-                    <span>Account Settings</span>
-                  </a>
-                </li>
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-
-                <li>
-                  <a className="dropdown-item d-flex align-items-center" href="pages-faq.html">
-                    <i className="bi bi-question-circle"></i>
-                    <span>Need Help?</span>
-                  </a>
-                </li>
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-
-                <li>
-                  <Link onClick={handleSignout} className="dropdown-item d-flex align-items-center" href="/login">
-                    <i className="bi bi-box-arrow-right"></i>
-                    <span>Sign Out</span>
-                  </Link>
-                </li>
-
-              </ul>
-            </li>
 
           </ul>
         </nav>
@@ -352,12 +297,12 @@ const Navbar = () => {
             </Link>
           </li>
 
-          <li class="nav-item">
+          {/* <li class="nav-item">
             <Link class="nav-link collapsed" href="/wallet/withdraw">
             <i class="bi bi-award"></i>
               <span>Withdraw</span>
             </Link>
-          </li>
+          </li> */}
           
         </ul>
 

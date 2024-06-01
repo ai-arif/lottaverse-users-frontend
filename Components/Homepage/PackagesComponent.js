@@ -126,6 +126,17 @@ const PackagesComponent = ({data}) => {
             <span className="text-color small fw-bold">${priceConverter(data?.prizes?.thirdPrize)}</span>
           </div>
         </div>
+        <div className="d-flex justify-content-between">
+          <div>
+            <div className="d-flex align-items-center">
+              <i class="bi bi-gift text-warning"></i>
+              <span className="ps-2">4th Prize</span>
+            </div>
+          </div>
+          <div className="ps-3">
+            <span className="text-color small fw-bold">${priceConverter(data?.prizes?.otherPrizes)}</span>
+          </div>
+        </div>
         {/* <div className="d-flex justify-content-between">
           <div>
             <div className="d-flex align-items-center">
