@@ -70,17 +70,17 @@ const Homepage = () => {
           </section>
 
         </div>
-        <div className="col-md-6">
-          
+        <div className="col-md-6 my-3">
+        <section className="section my-4 leaderboard">
+            <Leaderboard />
+          </section>
         </div>
       </div>
       {/* <div className="pagetitle">
         <h1>Leaderboard</h1>
         
       </div> */}
-      <section className="section leaderboard">
-            <Leaderboard />
-          </section>
+      
 
     </div>
   );
