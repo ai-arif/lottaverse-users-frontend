@@ -2,6 +2,7 @@ import Head from 'next/head'
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import axiosInstance from '../../../utils/axiosInstance'
+import priceConverter from '@/utils/priceConverter'
 const index = () => {
     const { packages } = useSelector(state => state.homepage)
     const [winners, setWinners] = useState([])
@@ -65,6 +66,10 @@ const index = () => {
         if (found.length > 0) {
             setWinners(found)
         }
+    }
+
+    const formatAddress = (address) => {
+        return address.slice(0, 6) + '...' + address.slice(-4)
     }
     return (
         <div>
@@ -131,7 +136,7 @@ const index = () => {
                         <tr>
                             <th scope="col">Sl</th>
                             <th scope="col">Position</th>
-                            <th scope="col">User id</th>
+                            <th scope="col">Address</th>
                             <th scope="col">Win Amount</th>
                             <th scope="col">Ticket No.</th>
                         </tr>
@@ -143,12 +148,16 @@ const index = () => {
                                     <th scope="row">{index + 1}</th>
                                     <td>
                                         {
-                                            item?.position?.includes('Random') ? "4th" : item?.position?.includes('Second') ? "2nd" : item?.position?.includes('Third') ? "3rd" : item?.position
+                                            item?.position?.includes('Random') ? "4th" : item?.position?.includes('Second') ? "2nd" : item?.position?.includes('Third') ? "3rd" : item?.position?.includes('First') ? "1st" : item?.position
                                         }
                                     </td>
                                     <td>{item?.address}</td>
-                                    <td>{item?.amount}</td>
-                                    <td>{item?.ticketId}</td>
+                                    <td>${priceConverter(item?.amount)}</td>
+                                    <td>
+                                        {item?.ticketString?.split(' ').map((number, index) => (
+                                            <span key={index} className="ticket-number">{number}</span>
+                                        ))}
+                                    </td>
 
 
                                 </tr>
