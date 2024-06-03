@@ -1,13 +1,13 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchUserInformation,fetchCommissionHistories, fetchPurchaseHistories } from '../../features/user/userSlice';
+import { fetchUserInformation, fetchCommissionHistories, fetchPurchaseHistories } from '../../features/user/userSlice';
 import { fetchPackages } from '@/features/homepage/homepageSlice';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
 const Navbar = () => {
-  const {user}=useSelector(state=>state.user)
-  
+  const { user } = useSelector(state => state.user)
+
   const dispatch = useDispatch()
   const router = useRouter()
 
@@ -27,8 +27,13 @@ const Navbar = () => {
 
   const handleSignout = () => {
     Cookies.remove('token')
-    
+
     router.push('/')
+  }
+  const formatAddress = (address) => {
+    if (address) {
+      return address.slice(0, 6) + '...' + address.slice(address.length - 4, address.length)
+    }
   }
   return (
     <div className='admin-dashboard'>
@@ -57,7 +62,7 @@ const Navbar = () => {
           </form>
         </div> */}
 
-        <nav className="header-nav ms-auto">
+        <nav className="header-nav ms-auto mx-3">
           <ul className="d-flex align-items-center">
 
             {/* <li className="nav-item d-block d-lg-none">
@@ -66,24 +71,25 @@ const Navbar = () => {
               </a>
             </li> */}
 
-            <li className="nav-item dropdown">
-
-              <a className="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-              <div class="btn-group">
-  <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-    {user?.address}
-  </button>
-  <ul class="dropdown-menu">
-    <li onClick={handleSignout}><a class="dropdown-item" href="#">Logout</a></li>
-    
-    
-    
-    
-  </ul>
-</div>
+            <li className="nav-item ">
+              <a className="nav-link nav-icon">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-danger" >
+                    {formatAddress(user?.address)}
+                  </button>
+                  {/* <ul class="dropdown-menu">
+                    <li onClick={handleSignout}><a class="dropdown-item" href="#">Logout</a></li>
+                  </ul> */}
+                </div>
               </a>
-
             </li>
+
+            <li onClick={handleSignout} className="nav-item dropdown">
+              <div className="logout-button bg-dark mx-1 mr-2">
+                <b><i className="text-white bi bi-power"></i></b>
+              </div>
+            </li>
+
 
 
 
@@ -105,7 +111,7 @@ const Navbar = () => {
           </li>
           <li className="nav-item">
             <a className="nav-link collapsed" data-bs-target="#myprofile" data-bs-toggle="collapse" href="#">
-            <i class="bi bi-person"></i><span>My Profile</span><i className="bi bi-chevron-down ms-auto"></i>
+              <i class="bi bi-person"></i><span>My Profile</span><i className="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="myprofile" className="nav-content collapse " data-bs-parent="#sidebar-nav">
               <li>
@@ -119,7 +125,7 @@ const Navbar = () => {
 
             </ul>
           </li>
-          
+
           {/* <li className="nav-item">
             <Link className="nav-link collapsed" href="/my-earning">
               <i class="bi bi-currency-dollar"></i>
@@ -172,7 +178,7 @@ const Navbar = () => {
 
           <li class="nav-item">
             <Link class="nav-link collapsed" href="/leaderboard">
-            <i class="bi bi-award"></i>
+              <i class="bi bi-award"></i>
               <span>Leaderboard</span>
             </Link>
           </li>
@@ -183,7 +189,7 @@ const Navbar = () => {
               <span>Withdraw</span>
             </Link>
           </li> */}
-          
+
         </ul>
 
       </aside>

@@ -79,6 +79,20 @@
     border: 1px solid #ccc; /* Optional: add a border */
 }
 
+.ticket-number1 {
+  display: inline-block;
+  width: 25px; /* Reduced size */
+  height: 25px; /* Reduced size */
+  line-height: 20px; /* Ensure the text is vertically centered */
+  margin: 2px; /* Reduced gap */
+  color: black;
+  border-radius: 50%;
+  background-color: #f0f0f0; /* Adjust the background color as needed */
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid #ccc; /* Optional: add a border */
+}
+
 .login_table{
   margin: 0 auto;
   width: 100%;
@@ -136,4 +150,85 @@
 .custom-close-button:hover::before {
   color: red; /* Change the color of '×' on hover */
   transform: scale(1.2); /* Scale up '×' symbol on hover */
+}
+
+/* Custom styles for the logout button */
+.logout-button {
+  position: relative;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: white;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.logout-button::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  z-index: -1;
+  background: linear-gradient(45deg, #ff6b6b, #f8e71c, #50e3c2, #ff6b6b);
+  border-radius: 7px;
+  background-size: 200%;
+  animation: gradient-animation 4s linear infinite;
+}
+
+.logout-button:hover {
+  border: 2px solid transparent;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.custom-row {
+  display: flex;
+  justify-content: center;
+}
+
+.custom-col {
+  flex: 1;
+  max-width: 600px;
+}
+
+.custom-card {
+  background-color: #7359fe;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.custom-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.custom-card-header h1 {
+  font-size: 1.5em; /* Larger font size for "My Earning" */
+}
+
+.custom-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Adjust the gap between items */
+}
+
+.custom-card-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
