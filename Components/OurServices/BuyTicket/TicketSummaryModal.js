@@ -1,6 +1,6 @@
 import React from 'react';
 import priceConverter from '@/utils/priceConverter';
-const TicketSummaryModal = ({ randomNumbers, onClose, onBuyTicket, onDelete, ticketPrice, loading, closeButtonRef }) => {
+const TicketSummaryModal = ({ setBuyWithCommission,randomNumbers, onClose, onBuyTicket, onDelete, ticketPrice, loading, closeButtonRef }) => {
 
   return (
     <div className="modal fade" id="ticketSummaryModal" tabIndex="-1" aria-labelledby="ticketSummaryModalLabel" aria-hidden="true">
@@ -62,7 +62,10 @@ const TicketSummaryModal = ({ randomNumbers, onClose, onBuyTicket, onDelete, tic
                   Loading...
                 </button>
               ) : (
-                <button onClick={onBuyTicket} type="button" className="btn btn-primary">Buy With Reward</button>
+                <button onClick={()=>{
+                  setBuyWithCommission(true)
+                  onBuyTicket(true)
+                }} type="button" className="btn btn-primary">Buy With Reward</button>
               )
             }
 

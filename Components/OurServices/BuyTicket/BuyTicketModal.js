@@ -9,6 +9,7 @@ import { _getOwner } from '@/utils/newUtils/getOwner';
 const BuyTicketModal = () => {
   const { lotteryId, ticketPrice } = useSelector(state => state.user)
   const [showTicketSummary, setShowTicketSummary] = useState(false);
+  const [buyWithCommission, setBuyWithCommission] = useState(false);
   const closeButtonRef = useRef(null);
 
 
@@ -40,8 +41,9 @@ const BuyTicketModal = () => {
   };
 
 
-  const handleBuyTicket = async () => {
+  const handleBuyTicket = async (useCommission=false) => {
     if (randomNumbers.length === 0) return alert("Please add a ticket");
+    
     setLoading(true);
     console.log("Number of tickets: ", randomNumbers.length)
     console.log("Lottery ID: ", lotteryId)
@@ -71,7 +73,7 @@ const BuyTicketModal = () => {
       amounts,
       owner,
       percentageAmount,
-      false
+      useCommission==true ? true: false
     )
 
     if (response?.hash) {
@@ -172,6 +174,7 @@ const BuyTicketModal = () => {
         randomNumbers={randomNumbers}
         onClose={handleCloseTicketSummary}
         onBuyTicket={handleBuyTicket}
+        setBuyWithCommission={setBuyWithCommission}
         onDelete={handleDelete}
         ticketPrice={ticketPrice}
         loading={loading}
