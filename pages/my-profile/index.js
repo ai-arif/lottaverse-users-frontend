@@ -38,8 +38,8 @@ const handleSubmitWithdraw=async()=>{
 }
   const claimReward=async()=>{
     try {
-      if(rewardAmount<=0){
-        alert('No reward to claim')
+      if(rewardAmount<10){
+        alert('You need to have at least $10 to withdraw')
         return;
       }
         const owner=await _getOwner();
