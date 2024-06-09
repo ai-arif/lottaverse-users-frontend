@@ -64,15 +64,16 @@ const handleSubmitWithdraw=async()=>{
       <Head>
         <title>Profile Overview</title>
       </Head>
-      <div class="row">
+      <div class="row" >
         <div class="col-md-12">
           <div class="card">
             <div class="card-header">Profile Overview</div>
-            <div class="card-body py-4 d-flex flex-column gap-3 ">
+            <div class="card-body py-4 d-flex flex-column gap-3" style={{minHeight:"450px"}}>
               <div className="mb-0 d-flex justify-content-between align-items-center">
                 <div className="d-flex  gap-1 align-items-end">
                   <div className="d-flex gap-2">
                     <p className="mb-0">{user?.address}</p>
+                    <br />
                     <img
                       src="/img/check.png"
                       alt="verified-icon"
@@ -86,22 +87,24 @@ const handleSubmitWithdraw=async()=>{
                   Status: Active
                 </p> */}
               </div>
-              <div className="d-flex justify-content-between align-items-center">
+              <div className="d-flex gap-5">
                 <p>
+                
                   <b>
+                  
                     {user?.userType=='premiun' ? 
-                    <span class="badge badge-success bg-success">Premiun</span>
+                    <span class="badge badge-success bg-success"><i class="bi bi-person"></i>Premiun</span>
                     :
-                    <span class="badge badge-primary bg-primary">User</span>
+                    <span class="badge badge-primary bg-primary"><i class="bi bi-person"></i>User</span>
                     }
                   </b>
                 </p>
                 <p>
-                  <b>Expiry Date: </b>{new Date(user?.expiryDate).toDateString()}
+                  <b>Expiry Date: </b>{new Date(user?.expiryDate).toLocaleString()} 
                 </p>
               </div>
               <div class="d-flex  align-items-center gap-3">
-                <div class="card profile-info-card p-0">
+                <div class="card profile-info-card2 p-0">
                   <div class="card-body py-3 px-4">
                     <h5 class="card-title text-warning p-0 mb-3">${priceConverter(rewardAmount)}</h5>
                     <h6 class="card-subtitle mb-2 text-light">
@@ -109,7 +112,7 @@ const handleSubmitWithdraw=async()=>{
                     </h6>
                   </div>
                 </div>
-                <div class="card profile-info-card p-0">
+                <div class="card profile-info-card2 p-0">
                   <div class="card-body py-3 px-4">
                     <h5 class="card-title text-warning p-0 mb-3">${priceConverter(user?.earnings)}</h5>
                     <h6 class="card-subtitle mb-2 text-light">
@@ -117,7 +120,7 @@ const handleSubmitWithdraw=async()=>{
                     </h6>
                   </div>
                 </div>
-                <div class="card profile-info-card p-0">
+                <div class="card profile-info-card2 p-0">
                   <div class="card-body py-3 px-4">
                     <h5 class="card-title text-warning p-0 mb-3">${priceConverter(user?.payout)}</h5>
                     <h6 class="card-subtitle mb-2 text-light">Pay Out</h6>

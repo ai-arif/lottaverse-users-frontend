@@ -79,6 +79,9 @@
     border: 1px solid #ccc; /* Optional: add a border */
     /* box-shadow: #070b28 0px 0px 5px; */
 }
+#buyTicket{
+  background-image: url('https://usdt-lottery.lottoday.io/_nuxt/combination-bg.BloqdcIr.png');
+}
 
 .ticket-number1 {
   display: inline-block;

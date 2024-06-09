@@ -117,7 +117,7 @@ const BuyTicketModal = () => {
         aria-hidden="true"
       >
         <div style={{minHeight:"300px"}} className="modal-dialog modal-dialog-centered modal-lg">
-          <div className="modal-content" style={{ background: "#0a1223", color: "white" }}>
+          <div className="modal-content" style={{ background: "#0B0629", color: "white" }}>
             <div className="modal-header">
               <h1 className="modal-title fs-5" id="exampleModalLabel">Roll the ball lotteryId {lotteryId}</h1>
 
@@ -131,33 +131,41 @@ const BuyTicketModal = () => {
                 <br />
               </div>
               <br />
-              <div className='w-75 d-flex justify-content-center align-items-center'>
+              <div className=' d-flex justify-content-center align-items-center'>
               <div style={{ maxHeight: "240px", overflowY: "auto" }}>
 
 
                 {randomNumbers.map((numberCollection, index) => (
                   <div key={index}>
-                    <div className="d-flex justify-content-between">
+                    <div id='buyTicket' className="d-flex justify-content-between">
                       {numberCollection.map((number, idx) => (
                         <div
                           key={idx}
                           style={{
-                            width: "60px",
-                            height: "60px",
+                            width: "40px",
+                            height: "40px",
+                            marginTop:"10px",
+                            marginLeft:"10px",
                             borderRadius: "50%",
-                            backgroundColor: "#ffffff",
-                            color: "black",
+                            backgroundColor: "#7359f8",
+                            color: "#fff",
+                            fontWeight: "bold",
                             display: "flex",
                             justifyContent: "center",
                             alignItems: "center",
-                            marginBottom: "10px",
+                            marginBottom: "2px",
                             marginRight: "10px"
                           }}
                         >
                           {number}
                         </div>
                       ))}
-                      <button onClick={() => handleDelete(index)} className="btn btn-danger">Delete</button>
+                      {/* <i class="fa-regular fa-trash"></i> */}
+                      {/* <div  className="bg-danger p-3"> */}
+                      <b className='p-3 text-center'>
+                      <i style={{cursor:"pointer"}} onClick={() => handleDelete(index)} className="text-danger  bi bi-trash"></i>
+                      </b>
+                      {/* </div> */}
                     </div>
                     <br />
                   </div>
