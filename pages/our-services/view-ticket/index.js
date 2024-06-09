@@ -17,7 +17,7 @@ const index = () => {
         <meta name="description" content="" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <table class="table table-dark p-2">
+      <table class="table table-transparent p-2">
         <thead>
           <tr>
             <th scope="col">Sl.</th>
@@ -33,7 +33,7 @@ const index = () => {
             purchaseHistories.map((history, index) => (
               <tr>
                 <td>{index + 1}</td>
-                <td>{history.lotteryPackage}</td>
+                <td>{history.lotteryPackage?.toUpperCase()} JACKPOT</td>
                 
                 <td>
                   {history.ticketString.split(' ').map((number, index) => (

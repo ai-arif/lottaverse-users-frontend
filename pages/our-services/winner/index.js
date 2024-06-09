@@ -151,7 +151,7 @@ const index = () => {
                                             item?.position?.includes('Random') ? "4th" : item?.position?.includes('Second') ? "2nd" : item?.position?.includes('Third') ? "3rd" : item?.position?.includes('First') ? "1st" : item?.position
                                         }
                                     </td>
-                                    <td>{item?.address}</td>
+                                    <td>{formatAddress(item?.address)}</td>
                                     <td>${priceConverter(item?.amount)}</td>
                                     <td>
                                         {item?.ticketString?.split(' ').map((number, index) => (

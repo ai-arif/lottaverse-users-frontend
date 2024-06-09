@@ -116,7 +116,7 @@ const BuyTicketModal = () => {
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div className="modal-dialog modal-dialog-centered">
+        <div style={{minHeight:"300px"}} className="modal-dialog modal-dialog-centered modal-lg">
           <div className="modal-content" style={{ background: "#0a1223", color: "white" }}>
             <div className="modal-header">
               <h1 className="modal-title fs-5" id="exampleModalLabel">Roll the ball lotteryId {lotteryId}</h1>
@@ -131,6 +131,7 @@ const BuyTicketModal = () => {
                 <br />
               </div>
               <br />
+              <div className='w-75 d-flex justify-content-center align-items-center'>
               <div style={{ maxHeight: "240px", overflowY: "auto" }}>
 
 
@@ -161,6 +162,7 @@ const BuyTicketModal = () => {
                     <br />
                   </div>
                 ))}
+              </div>
               </div>
             </div>
             <div className="modal-footer">
