@@ -1267,6 +1267,40 @@ h6 {
   }
 }
 
+.form-control {
+  background-color: transparent;
+  color: #fff;
+}
+
+.form-control::placeholder {
+  color: #fff;
+  opacity: 0.5;
+}
+
+.form-control:focus {
+  background-color: transparent;
+  box-shadow: none;
+  border-color: currentColor;
+  color: #fff;
+}
+
+.form-select {
+  background-color: #090329;
+  color: #fff;
+}
+
+.form-select::placeholder {
+  color: #fff;
+  opacity: 0.5;
+}
+
+.form-select:focus {
+  /* background-color: transparent; */
+  box-shadow: none;
+  border-color: currentColor;
+  color: #fff;
+}
+
 /*--------------------------------------------------------------
 # Error 404
 --------------------------------------------------------------*/

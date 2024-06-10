@@ -43,7 +43,7 @@ const index = () => {
                 Your Referral Link
               </label>
               <div className="input-group">
-                <input type="text" className="form-control bg-transparent text-white" id="exampleInputPassword1" value={user?.referralLink} readOnly />
+                <input type="text" className="form-control" id="exampleInputPassword1" value={user?.referralLink} readOnly />
                 <div className="input-group-append">
                   <button
                     onClick={() => {
