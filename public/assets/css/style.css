@@ -1030,11 +1030,7 @@ h6 {
   vertical-align: middle;
 }
 
-.dashboard .table {
-  --bs-table-bg: none;
-  --bs-table-color: #fff;
-}
-.results .table {
+.table {
   --bs-table-bg: none;
   --bs-table-color: #fff;
 }
