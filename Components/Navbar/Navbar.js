@@ -55,7 +55,7 @@ const Navbar = () => {
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav mx-auto mb-2 gap-lg-2 mb-lg-0">
               <li className="nav-item">
                 <Link className="nav-link text-white text-nowrap" href="/dashboard">
                   <i className="bi bi-grid"></i> <span>Dashboard</span>
