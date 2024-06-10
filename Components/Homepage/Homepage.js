@@ -1,17 +1,17 @@
+import { fetchPackages } from "@/features/homepage/homepageSlice";
 import React, { useEffect } from "react";
-import PackagesComponent from "./PackagesComponent";
-import ResultsComponent from "./ResultsComponent";
+import { useDispatch, useSelector } from "react-redux";
 import Leaderboard from "./Leaderboard";
 import OtherCommissions from "./OtherCommissions";
-import { fetchPackages } from "@/features/homepage/homepageSlice";
-import { useDispatch, useSelector } from "react-redux";
+import PackagesComponent from "./PackagesComponent";
+import ResultsComponent from "./ResultsComponent";
 
 const Homepage = () => {
-  const dispatch = useDispatch()
-  const { packages } = useSelector(state => state.homepage)
+  const dispatch = useDispatch();
+  const { packages } = useSelector((state) => state.homepage);
   useEffect(() => {
-    dispatch(fetchPackages())
-  }, [])
+    dispatch(fetchPackages());
+  }, []);
   return (
     <div>
       <div className="pagetitle">
@@ -28,13 +28,11 @@ const Homepage = () => {
 
       <section className="section dashboard">
         <div className="row">
-          {
-            packages.map((item, index) => (
-              <div className="col-xxl-6 col-md-6">
-                <PackagesComponent data={item} />
-              </div>
-            ))
-          }
+          {packages.map((item, index) => (
+            <div className="col-xxl-6 col-md-6">
+              <PackagesComponent data={item} />
+            </div>
+          ))}
           {/* <div className="col-xxl-4 col-md-4">
             <PackagesComponent />
           </div>
@@ -48,13 +46,11 @@ const Homepage = () => {
       </div>
       <section className="section results">
         <div className="row">
-          {
-            packages.map((item, index) => (
-              <div className="col-xxl-6 col-md-6">
-                <ResultsComponent data={item} />
-              </div>
-            ))
-          }
+          {packages.map((item, index) => (
+            <div className="col-xxl-6 col-md-6">
+              <ResultsComponent data={item} />
+            </div>
+          ))}
           {/* <div className="col-xxl-6 col-md-6">
             <ResultsComponent />
           </div> */}
@@ -68,10 +64,9 @@ const Homepage = () => {
           <section className="section">
             <OtherCommissions />
           </section>
-
         </div>
         <div className="col-md-6 my-3">
-        <section className="section my-4 leaderboard">
+          <section className="section my-4 leaderboard">
             <Leaderboard />
           </section>
         </div>
@@ -80,8 +75,6 @@ const Homepage = () => {
         <h1>Leaderboard</h1>
         
       </div> */}
-      
-
     </div>
   );
 };

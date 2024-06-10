@@ -16,7 +16,8 @@
 body {
   font-family: "Open Sans", sans-serif;
   /* background: #0a1223; */
-  background: #080852;
+  /* background: #080852; */
+  background-color: #090329;
   color: #444444;
 }
 
@@ -93,7 +94,6 @@ h6 {
   width: 100%; /* Stretch line to match width */
 }
 
-
 .arrow-down {
   width: 0;
   height: 0;
@@ -113,7 +113,7 @@ h6 {
 --------------------------------------------------------------*/
 .pagetitle {
   margin-bottom: 10px;
-  background-color: #0a1223;
+  /* background-color: #0a1223; */
   padding: 10px 15px;
 }
 
@@ -276,10 +276,9 @@ h6 {
 /* Card */
 .card {
   margin-bottom: 30px;
-  border: none;
+  border: 1px solid #d3d3d4;
   border-radius: 5px;
   box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
-  background-color: #15203a;
 }
 
 .card-header,
@@ -443,9 +442,9 @@ h6 {
   transition: all 0.5s;
   z-index: 997;
   height: 60px;
-  box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
+  /* box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1); */
   /* background-color: #0a1223; */
-  background-color: #080852;
+  /* background-color: #080852; */
   padding-left: 20px;
   /* Toggle Sidebar Button */
   /* Search Bar */
@@ -867,18 +866,17 @@ h6 {
 /* Info Cards */
 .dashboard .info-card {
   padding-bottom: 10px;
+  background: transparent;
   /* background-color: transparent; */
   /* a gradient color #4328f9 in the bottom to #7c61fa top*/
-  background: linear-gradient(180deg,#7c61fa  0%, #4328f9 100%);
-  
+  /* background: linear-gradient(180deg, #7c61fa 0%, #4328f9 100%); */
+
   box-shadow: 0 3px 12px rgba(241, 223, 223, 0.05);
 }
-.unlocked-holder-box{
+.unlocked-holder-box {
   background-color: transparent;
   border: #fff 2px dotted;
   padding: 2px 2px 2px 2px;
-
-
 }
 
 .dashboard .info-card h6 {
@@ -1031,13 +1029,23 @@ h6 {
   vertical-align: middle;
 }
 
+.dashboard .table {
+  --bs-table-bg: none;
+  --bs-table-color: #fff;
+}
+.results .table {
+  --bs-table-bg: none;
+  --bs-table-color: #fff;
+}
+
 .dashboard .top-selling img {
   border-radius: 5px;
   max-width: 60px;
 }
 
-.leaderboard-card{
-  background-color: #7359fe;
+.leaderboard-card {
+  background: transparent;
+  /* background-color: #7359fe; */
 }
 
 /*--------------------------------------------------------------
@@ -1132,12 +1140,11 @@ h6 {
 .profile .profile-edit img {
   max-width: 120px;
 }
- 
+
 .profile-info-card {
   border-style: dashed;
   border-color: #7359fe;
-} 
-
+}
 
 /*--------------------------------------------------------------
 # F.A.Q Page

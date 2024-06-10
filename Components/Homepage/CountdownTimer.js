@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React from "react";
 
 const CountdownTimer = ({ days, hours, minutes, seconds }) => {
   return (
@@ -7,7 +6,6 @@ const CountdownTimer = ({ days, hours, minutes, seconds }) => {
       <div className="card-body">
         <h5 className="card-title text-center"></h5>
         <div className="d-flex justify-content-between countdown-container">
-          
           <div className="countdown-item">
             <p className="text-center countdown-number">{days}</p>
             <p className="text-center countdown-label">D</p>

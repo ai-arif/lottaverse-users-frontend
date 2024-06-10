@@ -1,58 +1,58 @@
-import Link from 'next/link';
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchUserInformation, fetchCommissionHistories, fetchPurchaseHistories } from '../../features/user/userSlice';
-import { fetchPackages } from '@/features/homepage/homepageSlice';
-import Cookies from 'js-cookie';
-import { useRouter } from 'next/router';
+import { fetchPackages } from "@/features/homepage/homepageSlice";
+import Cookies from "js-cookie";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCommissionHistories, fetchPurchaseHistories, fetchUserInformation } from "../../features/user/userSlice";
 const Navbar = () => {
-  const { user } = useSelector(state => state.user)
+  const { user } = useSelector((state) => state.user);
 
-  const dispatch = useDispatch()
-  const router = useRouter()
+  const dispatch = useDispatch();
+  const router = useRouter();
 
   const [users, setUsers] = useState([]);
   const [isToggle, setToggle] = useState(true);
   useEffect(() => {
-    if (Cookies.get('token')) {
-      dispatch(fetchUserInformation(Cookies.get('token')))
-      dispatch(fetchPackages())
-      dispatch(fetchCommissionHistories())
-      dispatch(fetchPurchaseHistories())
-    }
-    else {
-      router.push('/')
+    if (Cookies.get("token")) {
+      dispatch(fetchUserInformation(Cookies.get("token")));
+      dispatch(fetchPackages());
+      dispatch(fetchCommissionHistories());
+      dispatch(fetchPurchaseHistories());
+    } else {
+      router.push("/");
     }
   }, []);
 
   const handleSignout = () => {
-    Cookies.remove('token')
+    Cookies.remove("token");
 
-    router.push('/')
-  }
+    router.push("/");
+  };
   const formatAddress = (address) => {
     if (address) {
-      return address.slice(0, 6) + '...' + address.slice(address.length - 4, address.length)
+      return address.slice(0, 6) + "..." + address.slice(address.length - 4, address.length);
     }
-  }
+  };
   return (
-    <div className='admin-dashboard'>
+    <div className="admin-dashboard">
       <header id="header" className="header admin-dashboard fixed-top d-flex align-items-center">
-
         <div className="d-flex align-items-center justify-content-between">
           <Link href="/" className="logo d-flex align-items-center">
             <img src="assets/img/logo.png" alt="" />
             <span className="d-none d-lg-block text-white">LottaVerse</span>
           </Link>
-          <i onClick={() => {
-            setToggle(!isToggle)
-            if (isToggle) {
-              document.body.classList.add('toggle-sidebar')
-            }
-            else {
-              document.body.classList.remove('toggle-sidebar')
-            }
-          }} className="bi bi-list toggle-sidebar-btn"></i>
+          <i
+            onClick={() => {
+              setToggle(!isToggle);
+              if (isToggle) {
+                document.body.classList.add("toggle-sidebar");
+              } else {
+                document.body.classList.remove("toggle-sidebar");
+              }
+            }}
+            className="bi bi-list toggle-sidebar-btn"
+          ></i>
         </div>
 
         {/* <div className="search-bar">
@@ -64,7 +64,6 @@ const Navbar = () => {
 
         <nav className="header-nav ms-auto mx-3">
           <ul className="d-flex align-items-center">
-
             {/* <li className="nav-item d-block d-lg-none">
               <a className="nav-link nav-icon search-bar-toggle " href="#">
                 <i className="bi bi-search"></i>
@@ -74,7 +73,7 @@ const Navbar = () => {
             <li className="nav-item ">
               <a className="nav-link nav-icon">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-danger" >
+                  <button type="button" class="btn btn-danger">
                     {formatAddress(user?.address)}
                   </button>
                   {/* <ul class="dropdown-menu">
@@ -86,23 +85,17 @@ const Navbar = () => {
 
             <li onClick={handleSignout} className="nav-item dropdown">
               <div className="logout-button bg-dark mx-1 mr-2">
-                <b><i className="text-white bi bi-power"></i></b>
+                <b>
+                  <i className="text-white bi bi-power"></i>
+                </b>
               </div>
             </li>
-
-
-
-
           </ul>
         </nav>
-
       </header>
 
-
       <aside id="sidebar" className="sidebar admin-dashboard">
-
         <ul className="sidebar-nav" id="sidebar-nav">
-
           <li className="nav-item">
             <Link className="nav-link " href="/dashboard">
               <i className="bi bi-grid"></i>
@@ -111,18 +104,21 @@ const Navbar = () => {
           </li>
           <li className="nav-item">
             <a className="nav-link collapsed" data-bs-target="#myprofile" data-bs-toggle="collapse" href="#">
-              <i class="bi bi-person"></i><span>My Profile</span><i className="bi bi-chevron-down ms-auto"></i>
+              <i class="bi bi-person"></i>
+              <span>My Profile</span>
+              <i className="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="myprofile" className="nav-content collapse " data-bs-parent="#sidebar-nav">
               <li>
                 <Link href="/my-profile">
-                  <i className="bi bi-circle"></i><span>Profile</span>
+                  <i className="bi bi-circle"></i>
+                  <span>Profile</span>
                 </Link>
                 <Link href="/my-profile/referral-link">
-                  <i className="bi bi-circle"></i><span>Referral Link</span>
+                  <i className="bi bi-circle"></i>
+                  <span>Referral Link</span>
                 </Link>
               </li>
-
             </ul>
           </li>
 
@@ -134,45 +130,53 @@ const Navbar = () => {
           </li> */}
           <li className="nav-item">
             <a className="nav-link collapsed" data-bs-target="#myteam" data-bs-toggle="collapse" href="#">
-              <i className="bxs-group"></i><span>My Team</span><i className="bi bi-chevron-down ms-auto"></i>
+              <i className="bxs-group"></i>
+              <span>My Team</span>
+              <i className="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="myteam" className="nav-content collapse " data-bs-parent="#sidebar-nav">
               <li>
                 <Link href="/my-team/structure">
-                  <i className="bi bi-circle"></i><span>Structure</span>
+                  <i className="bi bi-circle"></i>
+                  <span>Structure</span>
                 </Link>
                 <Link href="/my-team/generation">
-                  <i className="bi bi-circle"></i><span>Generation</span>
+                  <i className="bi bi-circle"></i>
+                  <span>Generation</span>
                 </Link>
                 <Link href="/my-team/referral">
-                  <i className="bi bi-circle"></i><span>Referral</span>
+                  <i className="bi bi-circle"></i>
+                  <span>Referral</span>
                 </Link>
               </li>
-
             </ul>
           </li>
 
           <li className="nav-item">
             <a className="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-              <i className="bi bi-menu-button-wide"></i><span>Our Service</span><i className="bi bi-chevron-down ms-auto"></i>
+              <i className="bi bi-menu-button-wide"></i>
+              <span>Our Service</span>
+              <i className="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="components-nav" className="nav-content collapse " data-bs-parent="#sidebar-nav">
               <li>
                 <Link href="/our-services/view-ticket">
-                  <i className="bi bi-circle"></i><span>View Ticket</span>
+                  <i className="bi bi-circle"></i>
+                  <span>View Ticket</span>
                 </Link>
               </li>
               <li>
                 <Link href="/our-services/buy-ticket">
-                  <i className="bi bi-circle"></i><span>Buy Ticket</span>
+                  <i className="bi bi-circle"></i>
+                  <span>Buy Ticket</span>
                 </Link>
               </li>
               <li>
                 <Link href="/our-services/winner">
-                  <i className="bi bi-circle"></i><span>Winner</span>
+                  <i className="bi bi-circle"></i>
+                  <span>Winner</span>
                 </Link>
               </li>
-
             </ul>
           </li>
 
@@ -189,12 +193,10 @@ const Navbar = () => {
               <span>Withdraw</span>
             </Link>
           </li> */}
-
         </ul>
-
       </aside>
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

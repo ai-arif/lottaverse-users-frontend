@@ -1,3 +1,10 @@
+.main {
+  background-color: #090329;
+  background-image: url(../public/img/dashbaord-main.webp);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
 /* .admin-dashboard {
   background: linear-gradient(to bottom right, #000080, #800080);
   background: -webkit-linear-gradient(to bottom right, #000080, #800080);
@@ -48,39 +55,39 @@
     padding: 0;
   } */
 
-  .roll-the-ball {
-    cursor: pointer;
-    animation: roll 1s infinite linear;
-  }
-  .roll-the-ball:hover {
-    animation-play-state: paused;
-  }
-
-  @keyframes roll {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-  
-  .ticket-number {
-    display: inline-block;
-    width: 30px; /* Adjust the size as needed */
-    height: 30px; /* Adjust the size as needed */
-    line-height: 30px; /* Ensure the text is vertically centered */
-    margin: 5px;
-    color:black;
-    border-radius: 50%;
-    background-color: #f0f0f0; /* Adjust the background color as needed */
-    text-align: center;
-    font-weight: bold;
-    border: 1px solid #ccc; /* Optional: add a border */
-    /* box-shadow: #070b28 0px 0px 5px; */
+.roll-the-ball {
+  cursor: pointer;
+  animation: roll 1s infinite linear;
 }
-#buyTicket{
-  background-image: url('https://usdt-lottery.lottoday.io/_nuxt/combination-bg.BloqdcIr.png');
+.roll-the-ball:hover {
+  animation-play-state: paused;
+}
+
+@keyframes roll {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.ticket-number {
+  display: inline-block;
+  width: 30px; /* Adjust the size as needed */
+  height: 30px; /* Adjust the size as needed */
+  line-height: 30px; /* Ensure the text is vertically centered */
+  margin: 5px;
+  color: black;
+  border-radius: 50%;
+  background-color: #f0f0f0; /* Adjust the background color as needed */
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid #ccc; /* Optional: add a border */
+  /* box-shadow: #070b28 0px 0px 5px; */
+}
+#buyTicket {
+  background-image: url("https://usdt-lottery.lottoday.io/_nuxt/combination-bg.BloqdcIr.png");
 }
 
 .ticket-number1 {
@@ -97,7 +104,7 @@
   border: 1px solid #ccc; /* Optional: add a border */
 }
 
-.login_table{
+.login_table {
   margin: 0 auto;
   width: 100%;
   padding: 10px;
@@ -105,16 +112,16 @@
   border-radius: 10px;
 }
 
-.login_table > tr > td > div{
+.login_table > tr > td > div {
   padding: 10px;
   background-color: #070b28;
 }
 /* add color change on hover */
-.login_table > tr > td > div:hover{
+.login_table > tr > td > div:hover {
   background-color: #0d0f2d;
 }
 /* reduce margin padding between tr */
-.login_table > tr > td{
+.login_table > tr > td {
   padding: 0;
   margin: 0;
 }
@@ -139,7 +146,7 @@
 }
 
 .custom-close-button::before {
-  content: '×';
+  content: "×";
   color: black;
   font-size: 20px; /* Adjust size as needed */
   font-weight: bold;
@@ -166,7 +173,7 @@
 }
 
 .logout-button::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -2px;
   left: -2px;
@@ -207,11 +214,16 @@
 }
 
 .custom-card {
-  background-color: #7359fe;
+  /* background-color: #7359fe; */
   color: white;
   padding: 20px;
   border-radius: 8px;
+  border: 1px solid #d3d3d4;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.leaderboard .card {
+  --bs-card-bg: none;
 }
 
 .custom-card-header {
