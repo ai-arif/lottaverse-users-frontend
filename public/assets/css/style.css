@@ -284,7 +284,8 @@ h6 {
 .card-header,
 .card-footer {
   border-color: #ebeef4;
-  background-color: #15203a;
+  /* background-color: #15203a; */
+  background: transparent;
   color: #fff;
   padding: 15px;
 }
