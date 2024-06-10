@@ -40,8 +40,8 @@ const Navbar = () => {
       <nav class="navbar navbar-expand-lg fixed-top py-3 nav-bg-blur" data-bs-theme="dark">
         <div class="container-fluid">
           <Link href="/" className="logo d-flex align-items-center">
-            <img src="assets/img/logo.png" alt="" />
-            <span className="d-none d-lg-block text-white">LottaVerse</span>
+            <img src="assets/img/logo.png" alt="LottaVerse" />
+            <span className="text-white">LottaVerse</span>
           </Link>
           <button
             class="navbar-toggler"
@@ -88,7 +88,7 @@ const Navbar = () => {
                 </Link>
               </li> */}
               <li class="nav-item dropdown">
-                <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link text-white text-nowrap dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   <i className="bx-group"></i> <span>My Team</span>
                 </a>
                 <ul class="dropdown-menu">
@@ -113,7 +113,7 @@ const Navbar = () => {
                 </ul>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link text-white text-nowrap dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   <i className="bi bi-menu-button-wide"></i> <span>Our Service</span>
                 </a>
                 <ul class="dropdown-menu">
@@ -138,7 +138,7 @@ const Navbar = () => {
                 </ul>
               </li>
               <li class="nav-item">
-                <Link class="nav-link text-white" href="/leaderboard">
+                <Link class="nav-link text-nowrap text-white" href="/leaderboard">
                   <i class="bi bi-award"></i> <span>Leaderboard</span>
                 </Link>
               </li>
