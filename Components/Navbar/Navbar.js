@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCommissionHistories, fetchPurchaseHistories, fetchUserInformation } from "../../features/user/userSlice";
+
 const Navbar = () => {
   const { user } = useSelector((state) => state.user);
 
@@ -12,7 +13,7 @@ const Navbar = () => {
   const router = useRouter();
 
   const [users, setUsers] = useState([]);
-  const [isToggle, setToggle] = useState(true);
+
   useEffect(() => {
     if (Cookies.get("token")) {
       dispatch(fetchUserInformation(Cookies.get("token")));
@@ -35,166 +36,135 @@ const Navbar = () => {
     }
   };
   return (
-    <div className="admin-dashboard">
-      <header id="header" className="header admin-dashboard fixed-top d-flex align-items-center">
-        <div className="d-flex align-items-center justify-content-between">
+    <div className="my-5 my-lg-5 ">
+      <nav class="navbar navbar-expand-lg fixed-top py-3 nav-bg-blur" data-bs-theme="dark">
+        <div class="container-fluid">
           <Link href="/" className="logo d-flex align-items-center">
             <img src="assets/img/logo.png" alt="" />
             <span className="d-none d-lg-block text-white">LottaVerse</span>
           </Link>
-          <i
-            onClick={() => {
-              setToggle(!isToggle);
-              if (isToggle) {
-                document.body.classList.add("toggle-sidebar");
-              } else {
-                document.body.classList.remove("toggle-sidebar");
-              }
-            }}
-            className="bi bi-list toggle-sidebar-btn"
-          ></i>
-        </div>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <Link className="nav-link text-white text-nowrap" href="/dashboard">
+                  <i className="bi bi-grid"></i> <span>Dashboard</span>
+                </Link>
+              </li>
 
-        {/* <div className="search-bar">
-          <form className="search-form d-flex align-items-center" method="POST" action="#">
-            <input type="text" name="query" placeholder="Search" title="Enter search keyword" />
-            <button type="submit" title="Search"><i className="bi bi-search"></i></button>
-          </form>
-        </div> */}
-
-        <nav className="header-nav ms-auto mx-3">
-          <ul className="d-flex align-items-center">
-            {/* <li className="nav-item d-block d-lg-none">
-              <a className="nav-link nav-icon search-bar-toggle " href="#">
-                <i className="bi bi-search"></i>
-              </a>
-            </li> */}
-
-            <li className="nav-item ">
-              <a className="nav-link nav-icon">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-danger">
-                    {formatAddress(user?.address)}
-                  </button>
-                  {/* <ul class="dropdown-menu">
-                    <li onClick={handleSignout}><a class="dropdown-item" href="#">Logout</a></li>
-                  </ul> */}
-                </div>
-              </a>
-            </li>
-
-            <li onClick={handleSignout} className="nav-item dropdown">
-              <div className="logout-button bg-dark mx-1 mr-2">
-                <b>
-                  <i className="text-white bi bi-power"></i>
-                </b>
+              <li class="nav-item dropdown">
+                <a class="nav-link text-white text-nowrap dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="bi bi-person"></i> <span>My Profile</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <Link className="dropdown-item" href="/my-profile">
+                      <i className="bi bi-circle"></i>
+                      <span>Profile</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link class="dropdown-item" href="/my-profile/referral-link">
+                      <i className="bi bi-circle"></i>
+                      <span>Referral Link</span>
+                    </Link>
+                  </li>
+                </ul>
+              </li>
+              {/* <li className="nav-item">
+                <Link className="nav-link text-white" href="/my-earning">
+                  <i class="bi bi-currency-dollar"></i>
+                  <span>My Earning</span>
+                </Link>
+              </li> */}
+              <li class="nav-item dropdown">
+                <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i className="bx-group"></i> <span>My Team</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <Link class="dropdown-item" href="/my-team/structure">
+                      <i className="bi bi-circle"></i>
+                      <span>Structure</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link class="dropdown-item" href="/my-team/generation">
+                      <i className="bi bi-circle"></i>
+                      <span>Generation</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link class="dropdown-item" href="/my-team/referral">
+                      <i className="bi bi-circle"></i>
+                      <span>Referral</span>
+                    </Link>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i className="bi bi-menu-button-wide"></i> <span>Our Service</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <Link class="dropdown-item" href="/our-services/view-ticket">
+                      <i className="bi bi-circle"></i>
+                      <span>View Ticket</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link class="dropdown-item" href="/our-services/buy-ticket">
+                      <i className="bi bi-circle"></i>
+                      <span>Buy Ticket</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link class="dropdown-item" href="/our-services/winner">
+                      <i className="bi bi-circle"></i>
+                      <span>Winner</span>
+                    </Link>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <Link class="nav-link text-white" href="/leaderboard">
+                  <i class="bi bi-award"></i> <span>Leaderboard</span>
+                </Link>
+              </li>
+              {/* <li class="nav-item">
+                <Link class="nav-link text-nowrap" href="/wallet/withdraw">
+                  <i class="bi bi-award"></i> <span>Withdraw</span>
+                </Link>
+              </li> */}
+            </ul>
+            <div className="d-flex gap-3">
+              <div>
+                <button type="button" class="btn btn-danger">
+                  <i className="text-white bi bi-wallet"></i> {formatAddress(user?.address)}
+                </button>
               </div>
-            </li>
-          </ul>
-        </nav>
-      </header>
-
-      <aside id="sidebar" className="sidebar admin-dashboard">
-        <ul className="sidebar-nav" id="sidebar-nav">
-          <li className="nav-item">
-            <Link className="nav-link " href="/dashboard">
-              <i className="bi bi-grid"></i>
-              <span>Dashboard</span>
-            </Link>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link collapsed" data-bs-target="#myprofile" data-bs-toggle="collapse" href="#">
-              <i class="bi bi-person"></i>
-              <span>My Profile</span>
-              <i className="bi bi-chevron-down ms-auto"></i>
-            </a>
-            <ul id="myprofile" className="nav-content collapse " data-bs-parent="#sidebar-nav">
-              <li>
-                <Link href="/my-profile">
-                  <i className="bi bi-circle"></i>
-                  <span>Profile</span>
-                </Link>
-                <Link href="/my-profile/referral-link">
-                  <i className="bi bi-circle"></i>
-                  <span>Referral Link</span>
-                </Link>
-              </li>
-            </ul>
-          </li>
-
-          {/* <li className="nav-item">
-            <Link className="nav-link collapsed" href="/my-earning">
-              <i class="bi bi-currency-dollar"></i>
-              <span>My Earning</span>
-            </Link>
-          </li> */}
-          <li className="nav-item">
-            <a className="nav-link collapsed" data-bs-target="#myteam" data-bs-toggle="collapse" href="#">
-              <i className="bxs-group"></i>
-              <span>My Team</span>
-              <i className="bi bi-chevron-down ms-auto"></i>
-            </a>
-            <ul id="myteam" className="nav-content collapse " data-bs-parent="#sidebar-nav">
-              <li>
-                <Link href="/my-team/structure">
-                  <i className="bi bi-circle"></i>
-                  <span>Structure</span>
-                </Link>
-                <Link href="/my-team/generation">
-                  <i className="bi bi-circle"></i>
-                  <span>Generation</span>
-                </Link>
-                <Link href="/my-team/referral">
-                  <i className="bi bi-circle"></i>
-                  <span>Referral</span>
-                </Link>
-              </li>
-            </ul>
-          </li>
-
-          <li className="nav-item">
-            <a className="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-              <i className="bi bi-menu-button-wide"></i>
-              <span>Our Service</span>
-              <i className="bi bi-chevron-down ms-auto"></i>
-            </a>
-            <ul id="components-nav" className="nav-content collapse " data-bs-parent="#sidebar-nav">
-              <li>
-                <Link href="/our-services/view-ticket">
-                  <i className="bi bi-circle"></i>
-                  <span>View Ticket</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/our-services/buy-ticket">
-                  <i className="bi bi-circle"></i>
-                  <span>Buy Ticket</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/our-services/winner">
-                  <i className="bi bi-circle"></i>
-                  <span>Winner</span>
-                </Link>
-              </li>
-            </ul>
-          </li>
-
-          <li class="nav-item">
-            <Link class="nav-link collapsed" href="/leaderboard">
-              <i class="bi bi-award"></i>
-              <span>Leaderboard</span>
-            </Link>
-          </li>
-
-          {/* <li class="nav-item">
-            <Link class="nav-link collapsed" href="/wallet/withdraw">
-            <i class="bi bi-award"></i>
-              <span>Withdraw</span>
-            </Link>
-          </li> */}
-        </ul>
-      </aside>
+              <div type="button" onClick={handleSignout}>
+                <div className="logout-button bg-dark">
+                  <b>
+                    <i className="text-white bi bi-power"></i>
+                  </b>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
     </div>
   );
 };

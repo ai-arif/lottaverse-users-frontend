@@ -166,7 +166,7 @@
 /* Custom styles for the logout button */
 .logout-button {
   position: relative;
-  padding: 10px;
+  padding: 7px 10px;
   border-radius: 5px;
   background-color: white;
   transition: border 0.3s, box-shadow 0.3s;
@@ -247,4 +247,24 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.nav-bg-blur {
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid #d3d3d4;
+}
+
+.navbar .dropdown-menu {
+  backdrop-filter: blur(15px);
+  background-color: #090329;
+  opacity: 0.3;
+  border: 1px solid #d3d3d4;
+}
+
+.navbar .dropdown-menu .dropdown-item {
+  color: #fff;
+}
+
+.navbar .dropdown-menu .dropdown-item:hover {
+  background-color: transparent;
 }
