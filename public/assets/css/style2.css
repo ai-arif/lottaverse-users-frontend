@@ -2386,7 +2386,7 @@ img {
   }
 
   .header__nav__option {
-    display: none;
+    /* display: none; */
   }
 }
 /* Wide Mobile = 480px */
@@ -2507,8 +2507,55 @@ img {
     position: relative;
   }
 
+  .header__logo {
+    padding: 10px 0;
+  }
+
   .header__nav__option {
-    display: none;
+    text-align: left;
+    padding: 10px 0;
+  }
+  .header__nav__option .header__nav__menu ul {
+    padding-left: 0;
+  }
+
+  .mybtn1 {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 10px 20px;
+  }
+
+  .section-heading .title {
+    font-size: 40px;
+    line-height: 50px;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .mybtn2 {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 500;
+    width: 170px;
+  }
+
+  .activities .tab-menu-area .nav-lend {
+    border-radius: 30px;
+  }
+  .activities .tab-menu-area .nav-lend .nav-item {
+    margin: 8px;
+  }
+  .activities .tab-menu-area .nav-lend .nav-item .nav-link {
+    padding: 0px 40px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .funfact .single-fun .count-area {
+    font-size: 50px;
+    line-height: 60px;
+    font-weight: 500;
   }
 
   .hero__text h2 {
@@ -2609,4 +2656,8 @@ img {
   .blog__details__quote {
     padding: 30px 40px 35px 35px;
   }
+}
+
+.table-responsive {
+  overflow-x: auto;
 }
