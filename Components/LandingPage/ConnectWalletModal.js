@@ -41,8 +41,15 @@ const ConnectWalletModal = ({ connectWallet, closeButtonRef }) => {
                 </tr>
               </table>
             </div>
-            <div className="modal-footer">
-              <button ref={closeButtonRef} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <div className="modal-footer d-flex justify-content-center">
+              {/* show a text Don't have wallet ? Download now */}
+              
+              <p className="text-white text-center">Don't have wallet ?  {"  "}
+                <a className='text-primary' href="https://ethereum.org/en/wallets/find-wallet/#main-content" target="_blank" rel="noopener noreferrer">Download now</a>
+
+              </p>
+              
+              {/* <button ref={closeButtonRef} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button> */}
               {/* <button type="button" className="btn btn-primary">Save changes</button> */}
             </div>
           </div>
