@@ -9,7 +9,7 @@ const ConnectWalletModal = ({ connectWallet, closeButtonRef }) => {
           <div className="modal-content" style={{ background: "#0B0629", color: "white" }}>
             <div className="modal-header">
               <h1 className="modal-title fs-5 text-white" id="exampleModalLabel">Choose Wallet</h1>
-              <button type="button" className="custom-close-button" data-bs-dismiss="modal" aria-label="Close"></button>
+              <button ref={closeButtonRef} type="button" className="custom-close-button" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">
               <table className='table login_table table-dark'>
@@ -49,7 +49,7 @@ const ConnectWalletModal = ({ connectWallet, closeButtonRef }) => {
 
               </p>
               
-              {/* <button ref={closeButtonRef} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button> */}
+              {/* <button ref={closeButtonRef} type="button" className="btn d-none btn-secondary" data-bs-dismiss="modal">Close</button> */}
               {/* <button type="button" className="btn btn-primary">Save changes</button> */}
             </div>
           </div>
