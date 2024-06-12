@@ -2388,6 +2388,22 @@ img {
 }
 /* Wide Mobile = 480px */
 @media only screen and (max-width: 767px) {
+  .hero-title .gradient_text {
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+  .hero-title a {
+    margin: 10px 0;
+  }
+
+  .hero-title p {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
   .services__title {
     margin-bottom: 50px;
   }

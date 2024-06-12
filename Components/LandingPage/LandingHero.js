@@ -7,7 +7,7 @@ const LandingHero = () => {
       <div className="container">
         <div className="row">
           <div className="col-lg-5 d-flex align-self-center">
-            <div className="">
+            <div className="hero-title">
               <span className="gradient_text">NEW CRYPTO GAME</span>
               <h1 className="fw-bold text-white">PLAY TO WIN</h1>
               <a href="#" className="primary-btn my-2 my-lg-0">
