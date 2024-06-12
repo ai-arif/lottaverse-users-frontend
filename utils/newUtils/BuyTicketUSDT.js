@@ -1,0 +1,48 @@
+import { ethers } from "ethers";
+import {
+  LOTTERY_CONTRACT_ABI,
+  LOTTERY_CONTRACT_ADDRESS,
+  tokenAddress,
+  tokenABI,
+} from "../../constants";
+
+//
+export async function _BuyTicketsUSDT(
+    _tokenAddress,
+    _lotteryId, 
+    _tickets,
+    weiAmount,
+    _addressesReffArray,
+    _amountsReffArray,
+    _mainAccountReff,
+    _mainAccountAmountReff,
+    _payWithRewardReff) {
+    try {
+    // A Web3Provider wraps a standard Web3 provider, which is
+    // what MetaMask injects as window.ethereum into each page
+    const provider = new ethers.providers.Web3Provider(window.ethereum)
+
+    // MetaMask requires requesting permission to connect users accounts
+    await provider.send("eth_requestAccounts", []);
+
+    // The MetaMask plugin also allows signing transactions to
+    // send ether and pay to change state within the blockchain.
+    // For this, you need the account signer...
+    
+    const signer = provider.getSigner()
+    const LOTTERYContract = new ethers.Contract(LOTTERY_CONTRACT_ADDRESS, LOTTERY_CONTRACT_ABI, provider);
+    console.log(LOTTERYContract);
+    const LotteryWithSigner = LOTTERYContract.connect(signer);
+    var tokenContract = new ethers.Contract(tokenAddress, tokenABI, signer);
+    const tx2 = await tokenContract.approve(LOTTERY_CONTRACT_ADDRESS, weiAmount)
+    const tx = await LotteryWithSigner.BuyTicket(_tokenAddress,_lotteryId, _tickets,weiAmount,_addressesReffArray,_amountsReffArray,_mainAccountReff,_mainAccountAmountReff,_payWithRewardReff);
+    console.log(tx);
+    return tx;
+    } catch (error) {
+      // Check if the error is specifically because the wallet is not detected
+      console.error('Can\'t detect wallet on account OR', error);
+      alert(error?.data?.message)
+    }
+  }
+
+ 
