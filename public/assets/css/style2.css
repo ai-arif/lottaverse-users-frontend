@@ -434,6 +434,9 @@ img {
   transition: all 0.3s ease-in;
   background: -webkit-gradient(linear, right top, left top, from(#1c294e), to(#1c294e));
   background: linear-gradient(to left, #1c294e, #1c294e);
+  z-index: 50;
+  position: absolute;
+  margin-bottom: 40px;
 }
 .slick-slide {
   margin-left: 27px;
@@ -2719,4 +2722,13 @@ img {
 
 .table-responsive {
   overflow-x: auto;
+}
+
+.slick-slide {
+  margin: 0;
+  padding: 0;
+}
+
+.slick-list {
+  overflow: hidden;
 }

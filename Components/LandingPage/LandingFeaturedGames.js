@@ -20,15 +20,16 @@ const LandingFeaturedGames = () => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
-          infinite: true,
-          dots: true,
+          infinite: false,
+          dots: false,
         },
       },
       {
         breakpoint: 600,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToScroll: 1, // Keep it 1
+          infinite: false,
         },
       },
       {
@@ -36,20 +37,21 @@ const LandingFeaturedGames = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          infinite: false,
         },
       },
     ],
   };
   return (
-    <div class="container" id="featured_game">
-      <div class="section-heading d-flex flex-column align-items-center">
-        <h5 class="subtitle text-center">Try to check out our</h5>
-        <h2 class="title text-center">featured games</h2>
-        <p class="text text-center">Check out our latest featured game! To meet today's challenges &amp; earn cryptocurrency. Top 10 players receive prizes every hour!</p>
+    <div className="container" id="featured_game">
+      <div className="section-heading d-flex flex-column align-items-center">
+        <h5 className="subtitle text-center">Try to check out our</h5>
+        <h2 className="title text-center">featured games</h2>
+        <p className="text text-center">Check out our latest featured game! To meet today's challenges &amp; earn cryptocurrency. Top 10 players receive prizes every hour!</p>
       </div>
       <div style={{ maxHeight: "380px" }}>
         <Slider {...settings}>
-          <div className="item">
+          <div className="item px-2">
             <div class="single-game d-flex justify-content-center align-items-center">
               <img src="https://pixner.net/dooplo3/main-v1/assets/images/game/icon1.png" alt="" />
               <a href="#" class="mybtn2">
@@ -57,7 +59,7 @@ const LandingFeaturedGames = () => {
               </a>
             </div>
           </div>
-          <div className="item">
+          <div className="item px-2">
             <div class="single-game d-flex justify-content-center align-items-center">
               <div>
                 <img src="https://pixner.net/dooplo3/main-v1/assets/images/game/icon1.png" alt="" />
@@ -67,7 +69,7 @@ const LandingFeaturedGames = () => {
               </a>
             </div>
           </div>
-          <div className="item">
+          <div className="item px-2">
             <div class="single-game d-flex justify-content-center align-items-center">
               <img src="https://pixner.net/dooplo3/main-v1/assets/images/game/icon1.png" alt="" />
               <a href="#" class="mybtn2">
@@ -75,7 +77,7 @@ const LandingFeaturedGames = () => {
               </a>
             </div>
           </div>
-          <div className="item ">
+          <div className="item px-2">
             <div class="single-game d-flex justify-content-center align-items-center ">
               <img src="https://pixner.net/dooplo3/main-v1/assets/images/game/icon1.png" alt="" />
               <a href="#" class="mybtn2">
