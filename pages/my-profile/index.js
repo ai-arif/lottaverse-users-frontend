@@ -12,6 +12,7 @@ const index = () => {
   const {user}=useSelector(state=>state.user)
   const [rewardAmount, setRewardAmount] = useState(0);
     const [withdrawhistory, setWithdrawHistory] = useState([]);
+
     useEffect(() => {
         connectWallet();
         loadWithdrawHistory();
@@ -38,17 +39,18 @@ const handleSubmitWithdraw=async()=>{
 }
   const claimReward=async()=>{
     try {
-      if(rewardAmount<10){
+      
+      if(rewardAmount<10 || rewardAmount==undefined ){
         alert('You need to have at least $10 to withdraw')
         return;
       }
-        const owner=await _getOwner();
+      const owner=await _getOwner();
         console.log("owner",owner)
         let address=await _connectWallet();
         const tokenAddress=process.env.TOKEN_ADDRESS
         console.log("tokenAddress",tokenAddress)
-        const rewardAmount=await _claimReward(1,tokenAddress,address,owner);
-        console.log("rewardAmount",rewardAmount)
+        const rewardAmount2=await _claimReward(1,tokenAddress,address,owner);
+        console.log("rewardAmount",rewardAmount2)
         setTimeout(() => {
             connectWallet();
         }, 1000);
@@ -56,7 +58,6 @@ const handleSubmitWithdraw=async()=>{
         
     } catch (error) {
         console.log(error)
-        alert('Please connect your wallet')
     }
 }
   return (
