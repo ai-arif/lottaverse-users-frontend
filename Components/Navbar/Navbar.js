@@ -39,8 +39,8 @@ const Navbar = () => {
     <div className="my-5 my-lg-5 ">
       <nav class="navbar navbar-expand-lg fixed-top py-3 nav-bg-blur" data-bs-theme="dark">
         <div class="container-fluid">
-          <Link href="/" className="logo d-flex align-items-center">
-            <img src="assets/img/logo.png" alt="LottaVerse" />
+          <Link href="/dashboard" className="logo d-flex align-items-center">
+            <img src="/assets/img/logo.png" alt="LottaVerse" />
             <span className="text-white">LottaVerse</span>
           </Link>
           <button

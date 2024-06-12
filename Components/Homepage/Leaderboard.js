@@ -24,7 +24,7 @@ function Leaderboard() {
           <div className="card-body " style={{ width: "350px" }}>
 
             {
-              packages.map((item, index) => (
+              packages?.map((item, index) => (
                 <LeaderboardPack item={item}/>
               ))
             }          

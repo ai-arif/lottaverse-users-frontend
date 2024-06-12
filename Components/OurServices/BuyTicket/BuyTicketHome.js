@@ -21,7 +21,7 @@ const BuyTicketHome = () => {
         <section className="section dashboard">
           <div className="row">
             {
-              packages.map((item,index)=>(
+              packages?.map((item,index)=>(
                 <div className="col-xxl-6 col-md-6">
               <TicketComponent data={item} />
             </div>

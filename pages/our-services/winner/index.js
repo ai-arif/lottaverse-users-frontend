@@ -96,7 +96,7 @@ const index = () => {
             </label>
             <select onChange={handleChange} className="form-select" id="exampleFormControlSelect1">
               <option value="">Select</option>
-              {packages.map((item, index) => (
+              {packages?.map((item, index) => (
                 <option value={item?._id}>{item?.lotteryType}</option>
               ))}
             </select>
@@ -113,7 +113,7 @@ const index = () => {
               id="exampleFormControlSelect1"
             >
               {/* rounds form array of length rounds */}
-              {lotteries.map((item, index) => (
+              {lotteries?.map((item, index) => (
                 <option value={item?._id}>Round {item?.round}</option>
               ))}
             </select>

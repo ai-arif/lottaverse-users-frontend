@@ -5,6 +5,7 @@ import Leaderboard from "./Leaderboard";
 import OtherCommissions from "./OtherCommissions";
 import PackagesComponent from "./PackagesComponent";
 import ResultsComponent from "./ResultsComponent";
+import Link from "next/link";
 
 const Homepage = () => {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ const Homepage = () => {
         <nav>
           <ol className="breadcrumb">
             <li className="breadcrumb-item">
-              <a href="index.html">Home</a>
+              <Link href="/dashboard">Home</Link>
             </li>
             <li className="breadcrumb-item active">Dashboard</li>
           </ol>
@@ -28,7 +29,7 @@ const Homepage = () => {
 
       <section className="section dashboard">
         <div className="row">
-          {packages.map((item, index) => (
+          {packages?.map((item, index) => (
             <div className="col-xxl-6 col-md-6">
               <PackagesComponent data={item} />
             </div>
@@ -46,7 +47,7 @@ const Homepage = () => {
       </div>
       <section className="section results">
         <div className="row">
-          {packages.map((item, index) => (
+          {packages?.map((item, index) => (
             <div className="col-xxl-6 col-md-6">
               <ResultsComponent data={item} />
             </div>
