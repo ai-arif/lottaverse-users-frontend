@@ -98,7 +98,7 @@ const LandingFooter = () => {
         </div>
         <div className="footer__copyright">
           <p className="footer__copyright__text text-center">
-            Copyright &copy; 2024 All rights reserved | This template is made with <i className="fa fa-heart-o" aria-hidden="true"></i> by{" "}
+            Copyright &copy; 2024 All rights reserved | This template is made with ❤  <i className="fa fa-heart-o" aria-hidden="true"></i> by{" "}
             <a href="https://www.devsgiant.com" target="_blank">
               DevsGiant
             </a>
