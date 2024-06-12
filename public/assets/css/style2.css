@@ -307,14 +307,13 @@ h6 {
   min-height: max-content;
 }
 .section-heading {
-  margin-bottom: 44px;
+  /* margin-bottom: 44px; */
 }
 .section-heading .subtitle {
   font-size: 24px;
   line-height: 34px;
   font-weight: 600;
   text-transform: uppercase;
-  margin-bottom: 8px;
   background: -webkit-gradient(linear, right top, left top, from(rgb(255, 52, 77)), to(rgb(210, 39, 60)));
   background: linear-gradient(to left, rgb(255, 52, 77), rgb(210, 39, 60));
   -webkit-background-clip: text;
@@ -326,7 +325,6 @@ h6 {
   font-weight: 700;
   text-transform: uppercase;
   color: #fff;
-  margin-bottom: 10px;
 }
 .link {
   font-size: 16px;
@@ -457,7 +455,6 @@ img {
   font-size: 24px;
   line-height: 34px;
   font-weight: 300;
-  margin-bottom: 0px;
   display: inline-block;
   margin-top: 9px;
 }
@@ -2526,11 +2523,19 @@ img {
     padding: 10px 20px;
   }
 
-  .section-heading .title {
-    font-size: 40px;
-    line-height: 50px;
+  .section-heading .subtitle {
+    font-size: 20px;
+    line-height: 30px;
     font-weight: 500;
-    margin-bottom: 10px;
+  }
+  .section-heading .title {
+    font-size: 36px;
+    line-height: 44px;
+    font-weight: 500;
+  }
+  .section-heading .text {
+    font-size: 16px;
+    line-height: 20px;
   }
 
   .mybtn2 {
@@ -2553,9 +2558,15 @@ img {
   }
 
   .funfact .single-fun .count-area {
-    font-size: 50px;
-    line-height: 60px;
+    font-size: 44px;
+    line-height: 54px;
     font-weight: 500;
+  }
+
+  .funfact .single-fun p {
+    font-size: 16px;
+    line-height: 20px;
+    margin-top: 7px;
   }
 
   .hero__text h2 {
@@ -2615,6 +2626,38 @@ img {
 
   .blog__details__quote {
     padding: 30px 45px 35px 35px;
+  }
+
+  .footer__option {
+    padding-bottom: 25px;
+    padding-top: 50px;
+  }
+
+  .footer__option__item {
+    margin-bottom: 16px;
+  }
+  .footer__option__item h5 {
+    font-weight: 500;
+    margin-bottom: 25px;
+  }
+  .footer__option__item p {
+    margin-bottom: 10px;
+  }
+  .footer__option__item .read__more {
+    font-size: 14px;
+  }
+  .footer__option__item .read__more span {
+    font-size: 14px;
+  }
+  .footer__option__item ul li a {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .footer__option__item form input {
+    font-size: 14px;
+  }
+  .footer__option__item form button {
+    font-size: 14px;
   }
 }
 /* Small Device = 320px */

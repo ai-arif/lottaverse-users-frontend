@@ -42,47 +42,53 @@ const LandingNavbar = () => {
     <div>
       <header className="header2">
         <div className="container">
-          <div className="row">
-            <div className="col-lg-2">
-              <div className="header__logo">
-                <Link href="/">
-                  <span className="fw-bold text-white fs-2">Lotaverse</span>
-                </Link>
+          <nav class="navbar navbar-expand-lg py-3 py-lg-4" data-bs-theme="dark">
+            <div class="container-fluid">
+              <Link href="/">
+                <span className="fw-bold text-white fs-2">Lotaverse</span>
+              </Link>
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto mb-2 gap-2 gap-lg-3 mt-3 mt-lg-0 mb-lg-0">
+                  <li class="nav-item">
+                    <Link href="/" className="text-white">
+                      Home
+                    </Link>
+                  </li>
+                  <li class="nav-item">
+                    <Link href="#features" className="text-white">
+                      Features
+                    </Link>
+                  </li>
+                  <li class="nav-item">
+                    <Link href="#featured_game" className="text-white">
+                      Featured Game
+                    </Link>
+                  </li>
+                  <li class="nav-item">
+                    <Link href="#fun_fact" className="text-white">
+                      Fun Fact
+                    </Link>
+                  </li>
+                </ul>
+                <div className="d-flex gap-3">
+                  <li data-bs-toggle="modal" data-bs-target="#exampleModal" className="mybtn1 link1" style={{ cursor: "pointer" }}>
+                    <span>Connect Wallet</span>
+                  </li>
+                </div>
               </div>
             </div>
-            <div className="col-lg-10">
-              <div className="header__nav__option">
-                <nav className="header__nav__menu mobile-menu">
-                  <ul>
-                    <li className="active">
-                      <Link href="/">Home</Link>
-                    </li>
-
-                    <li data-bs-toggle="modal" data-bs-target="#exampleModal" className="mybtn1 link1" style={{ cursor: "pointer" }}>
-                      <span>Connect Wallet</span>
-                    </li>
-                  </ul>
-                </nav>
-                {/* <div className="header__nav__social">
-                  <a href="#">
-                    <i className="fa fa-facebook"></i>
-                  </a>
-                  <a href="#" className="">
-                    <i className="fa fa-twitter"></i>
-                  </a>
-                  <a href="#">
-                    <i className="fa fa-dribbble"></i>
-                  </a>
-                  <a href="#">
-                    <i className="fa fa-instagram"></i>
-                  </a>
-                  <a href="#">
-                    <i className="fa fa-youtube-play"></i>
-                  </a>
-                </div> */}
-              </div>
-            </div>
-          </div>
+          </nav>
         </div>
       </header>
       <ConnectWalletModal connectWallet={connectWallet} closeButtonRef={closeButtonRef} />

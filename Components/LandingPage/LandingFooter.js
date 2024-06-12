@@ -34,8 +34,8 @@ const LandingFooter = () => {
           </div>
         </div>
         <div className="footer__option">
-          <div className="row">
-            <div className="col-lg-4 col-md-6 col-sm-6">
+          <div className="row row-cols-2 row-cols-lg-4 justify-content-between">
+            <div className="col">
               <div className="footer__option__item">
                 <h5>About us</h5>
                 <p>Lotaverse ensures transparency, security, and efficiency in ticket transactions, eliminating common issues.</p>
@@ -44,7 +44,7 @@ const LandingFooter = () => {
                 </a>
               </div>
             </div>
-            <div className="col-lg-2 col-md-3 col-sm-3">
+            <div className="col">
               <div className="footer__option__item">
                 <h5>Who we are</h5>
                 <ul className="ps-0">
@@ -63,7 +63,7 @@ const LandingFooter = () => {
                 </ul>
               </div>
             </div>
-            <div className="col-lg-2 col-md-3 col-sm-3">
+            <div className="col">
               <div className="footer__option__item">
                 <h5>Our work</h5>
                 <ul className="ps-0">
@@ -82,7 +82,7 @@ const LandingFooter = () => {
                 </ul>
               </div>
             </div>
-            <div className="col-lg-4 col-md-12">
+            <div className="col">
               <div className="footer__option__item">
                 <h5>Newsletter</h5>
                 <p>Lotaverse is an award-winning, full-service production company specializing.</p>
@@ -97,16 +97,12 @@ const LandingFooter = () => {
           </div>
         </div>
         <div className="footer__copyright">
-          <div className="row">
-            <div className="col-lg-12 text-center">
-              <p className="footer__copyright__text">
-                Copyright &copy; 2024 All rights reserved | This template is made with <i className="fa fa-heart-o" aria-hidden="true"></i> by{" "}
-                <a href="https://www.facebook.com/ai.arif.main" target="_blank">
-                  AI Arif
-                </a>
-              </p>
-            </div>
-          </div>
+          <p className="footer__copyright__text text-center">
+            Copyright &copy; 2024 All rights reserved | This template is made with <i className="fa fa-heart-o" aria-hidden="true"></i> by{" "}
+            <a href="https://www.devsgiant.com" target="_blank">
+              DevsGiant
+            </a>
+          </p>
         </div>
       </div>
     </footer>

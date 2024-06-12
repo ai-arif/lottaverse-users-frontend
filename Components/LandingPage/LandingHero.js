@@ -27,12 +27,11 @@ const LandingHero = () => {
               </div>
             </div>
           </div>
-
           <div className="col-lg-7" style={{ position: "relative" }}>
-            <div className="hero-img2 d-block d-md-none">
+            <div className="hero-img2 d-block d-lg-none">
               <img src="assets/images/heroarea.png" alt="" />
             </div>
-            <div className="hero-img d-none d-md-block">
+            <div className="hero-img d-none d-lg-block">
               <img className="img-fluid full-image" src="assets/images/heroarea.png" alt="" />
               <img className="shape phone" src="/img/phone.png" alt="" />
               <img className="shape man" src="/img/man222.png" alt="" />
@@ -51,9 +50,6 @@ const LandingHero = () => {
           </div>
         </div>
       </div>
-      <br />
-      <br />
-      <br />
     </div>
   );
 };

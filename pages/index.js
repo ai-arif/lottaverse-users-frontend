@@ -31,7 +31,7 @@ const index = () => {
       <LandingHero />
       <LandingFeatures />
       <LandingFeaturedGames />
-      <LandingActivities />
+      {/* <LandingActivities /> */}
       <LandingFunFact />
       {/* <LandingRecentWinners/> */}
       <br />

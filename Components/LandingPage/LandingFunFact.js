@@ -2,10 +2,10 @@ import React from "react";
 
 const LandingFunFact = () => {
   return (
-    <div class="funfact">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4">
+    <div class="funfact" id="fun_fact">
+      <div class="container my-3 py-3 my-lg-5 py-lg-5">
+        <div class="row row-cols-1 row-cols-lg-3 g-4">
+          <div class="col">
             <div class="single-fun">
               <img src="https://pixner.net/dooplo3/main-v1/assets/images/funfact/icon1.png" alt="" />
               <div class="count-area">
@@ -14,7 +14,7 @@ const LandingFunFact = () => {
               <p>Players</p>
             </div>
           </div>
-          <div class="col-lg-4">
+          <div class="col">
             <div class="single-fun">
               <img src="https://pixner.net/dooplo3/main-v1/assets/images/funfact/icon1.png" alt="" />
               <div class="count-area">
@@ -23,7 +23,7 @@ const LandingFunFact = () => {
               <p>Games</p>
             </div>
           </div>
-          <div class="col-lg-4">
+          <div class="col">
             <div class="single-fun">
               <img src="https://pixner.net/dooplo3/main-v1/assets/images/funfact/icon3.png" alt="" />
               <div class="count-area">

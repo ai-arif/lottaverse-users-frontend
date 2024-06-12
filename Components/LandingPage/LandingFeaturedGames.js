@@ -2,7 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 
 const LandingFeaturedGames = () => {
-  var settings = {
+  const settings = {
     dots: false,
     infinite: true,
     navigator: false,
@@ -19,7 +19,7 @@ const LandingFeaturedGames = () => {
         breakpoint: 1024,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToScroll: 1,
           infinite: true,
           dots: true,
         },
@@ -29,71 +29,61 @@ const LandingFeaturedGames = () => {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          initialSlide: 2,
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: 390,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          initialSlide: 1,
         },
       },
     ],
   };
   return (
-    <div class="container my-4">
-      <br />
-      <br />
-      <div class="row justify-content-center align-items-center">
-        <div class="col-lg-8 col-md-10">
-          <div class="section-heading">
-            <h5 class="subtitle text-center">Try to check out our</h5>
-            <h2 class="title text-center">featured games</h2>
-            <p class="text text-center">Check out our latest featured game! To meet today's challenges &amp; earn cryptocurrency. Top 10 players receive prizes every hour!</p>
-          </div>
-        </div>
+    <div class="container" id="featured_game">
+      <div class="section-heading d-flex flex-column align-items-center">
+        <h5 class="subtitle text-center">Try to check out our</h5>
+        <h2 class="title text-center">featured games</h2>
+        <p class="text text-center">Check out our latest featured game! To meet today's challenges &amp; earn cryptocurrency. Top 10 players receive prizes every hour!</p>
       </div>
-      <div class="row">
-        <div class="col-lg-12" style={{ maxHeight: "380px" }}>
-          <Slider {...settings} className="row">
-            <div className="item col-12 col-md-4 mb-4">
-              <div class="single-game d-flex justify-content-center align-items-center">
+      <div style={{ maxHeight: "380px" }}>
+        <Slider {...settings}>
+          <div className="item">
+            <div class="single-game d-flex justify-content-center align-items-center">
+              <img src="https://pixner.net/dooplo3/main-v1/assets/images/game/icon1.png" alt="" />
+              <a href="#" class="mybtn2">
+                PLay NoW !
+              </a>
+            </div>
+          </div>
+          <div className="item">
+            <div class="single-game d-flex justify-content-center align-items-center">
+              <div>
                 <img src="https://pixner.net/dooplo3/main-v1/assets/images/game/icon1.png" alt="" />
-                <a href="#" class="mybtn2">
-                  PLay NoW !
-                </a>
               </div>
+              <a href="#" class="mybtn2">
+                PLay NoW !
+              </a>
             </div>
-            <div className="item col-12 col-md-4 mb-4">
-              <div class="single-game d-flex justify-content-center align-items-center">
-                <div>
-                  <img src="https://pixner.net/dooplo3/main-v1/assets/images/game/icon1.png" alt="" />
-                </div>
-                <a href="#" class="mybtn2">
-                  PLay NoW !
-                </a>
-              </div>
+          </div>
+          <div className="item">
+            <div class="single-game d-flex justify-content-center align-items-center">
+              <img src="https://pixner.net/dooplo3/main-v1/assets/images/game/icon1.png" alt="" />
+              <a href="#" class="mybtn2">
+                PLay NoW !
+              </a>
             </div>
-            <div className="item col-12 col-md-4 mb-4">
-              <div class="single-game d-flex justify-content-center align-items-center">
-                <img src="https://pixner.net/dooplo3/main-v1/assets/images/game/icon1.png" alt="" />
-                <a href="#" class="mybtn2">
-                  PLay NoW !
-                </a>
-              </div>
+          </div>
+          <div className="item ">
+            <div class="single-game d-flex justify-content-center align-items-center ">
+              <img src="https://pixner.net/dooplo3/main-v1/assets/images/game/icon1.png" alt="" />
+              <a href="#" class="mybtn2">
+                PLay NoW !
+              </a>
             </div>
-            <div className="item col-md-4 mb-4 ">
-              <div class="single-game d-flex justify-content-center align-items-center ">
-                <img src="https://pixner.net/dooplo3/main-v1/assets/images/game/icon1.png" alt="" />
-                <a href="#" class="mybtn2">
-                  PLay NoW !
-                </a>
-              </div>
-            </div>
-          </Slider>
-        </div>
+          </div>
+        </Slider>
       </div>
     </div>
   );
