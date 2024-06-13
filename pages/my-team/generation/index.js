@@ -30,10 +30,10 @@ const index = () => {
           </thead>
           <tbody className='text-center'>
             {
-              referralLevelCount.map((item, index) => (
+              referralLevelCount?.slice(1,referralLevelCount?.length)?.map((item, index) => (
                 <tr key={index}>
                   {/* <th scope="row">{index+1}</th> */}
-                  <th scope="row">Level {item.referralLevel}</th>
+                  <th scope="row">Level {item.referralLevel-1}</th>
                   <td>{item.totalUsers}</td>
                   <td>{item.activeUsers}</td>
                   <td>{item.inactiveUsers}</td>
