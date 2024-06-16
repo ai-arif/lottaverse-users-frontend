@@ -3,25 +3,33 @@ import {
   LOTTERY_CONTRACT_ABI,
   LOTTERY_CONTRACT_ADDRESS,
 } from "../../constants";
-import MetaMaskSDK from "@metamask/sdk";
+import { useWeb3ModalProvider, useWeb3ModalAccount } from '@web3modal/ethers5/react'
+//import { useEthersSigner } from './wagmiSignerHook'
 
 
-const MMSDK = new MetaMaskSDK({  dappMetadata: {
-  name: "LottaVerse DApp",
-},});
+// const MMSDK = new MetaMaskSDK({  dappMetadata: {
+//   name: "LottaVerse DApp",
+// },});
 
 //
-export async function _createLottery(
+export function CreateLottery(    _ticketPrice,
+  _maxTickets,
+  _operatorCommissionPercentage,
+  _expiration) {
+  const { address, chainId, isConnected } = useWeb3ModalAccount()
+  const { walletProvider } = useWeb3ModalProvider()
+  async function _createLottery(
     _ticketPrice,
     _maxTickets,
     _operatorCommissionPercentage,
     _expiration) {
     try {
-      const ethereum = await MMSDK.getProvider();
+      //const ethereum = await MMSDK.getProvider();
     
       // This opens the app correctly, ask form permission, and gets back to the browser
-      await ethereum.request({ method: 'eth_requestAccounts', params: [] });
-      const provider = ((window.ethereum != null) ? new ethers.providers.Web3Provider(window.ethereum) : ethers.providers.getDefaultProvider());
+      //await ethereum.request({ method: 'eth_requestAccounts', params: [] });
+      //const provider = ((window.ethereum != null) ? new ethers.providers.Web3Provider(window.ethereum) : ethers.providers.getDefaultProvider());
+      
       // A Web3Provider wraps a standard Web3 provider, which is
       // what MetaMask injects as window.ethereum into each page
       //const provider = new ethers.providers.Web3Provider(window.ethereum)
@@ -33,8 +41,15 @@ export async function _createLottery(
       // send ether and pay to change state within the blockchain.
       // For this, you need the account signer...
     
-    const signer = provider.getSigner()
-    const LOTTERYContract = new ethers.Contract(LOTTERY_CONTRACT_ADDRESS, LOTTERY_CONTRACT_ABI, provider);
+      //const signer = provider.getSigner()
+      //const signer = await getEthersSigner(1);
+
+
+      if (!isConnected) throw Error('User disconnected')
+
+      const ethersProvider = new ethers.providers.Web3Provider(walletProvider)
+      const signer = await ethersProvider.getSigner()
+    const LOTTERYContract = new ethers.Contract(LOTTERY_CONTRACT_ADDRESS, LOTTERY_CONTRACT_ABI, ethersProvider);
     console.log(LOTTERYContract);
     const LotteryWithSigner = LOTTERYContract.connect(signer);
     const  _lotteryOperator = await signer.getAddress();
@@ -50,4 +65,11 @@ export async function _createLottery(
     }
   }
 
+  return <button onClick={() => _createLottery(
+    _ticketPrice,
+    _maxTickets,
+    _operatorCommissionPercentage,
+    _expiration)}>Get User Address</button>
+} 
+ 
  

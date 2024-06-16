@@ -3,8 +3,10 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useRef } from "react";
 import axiosInstance from "../../utils/axiosInstance";
-import { _connectWallet } from "../../utils/newUtils/connectWallet";
+import { ConnectWallet } from "../../utils/newUtils/connectWallet";
 import ConnectWalletModal from "./ConnectWalletModal";
+import { ConnectButton } from '@rainbow-me/rainbowkit';
+
 
 const LandingNavbar = () => {
   const closeButtonRef = useRef(null);
@@ -32,6 +34,14 @@ const LandingNavbar = () => {
     }
   };
 
+  const myFunction= async () => {
+    try {
+      let address = await _connectWallet();
+      console.log(address);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const closeModal = () => {
     if (closeButtonRef.current) {
       closeButtonRef.current.click();
@@ -81,11 +91,14 @@ const LandingNavbar = () => {
                     </Link>
                   </li>
                 </ul>
+                <w3m-button />
                 <div className="d-flex gap-3">
                   <li data-bs-toggle="modal" data-bs-target="#exampleModal" className="mybtn1 link1" style={{ cursor: "pointer" }}>
                     <span>Connect Wallet</span>
                   </li>
                 </div>
+                {/* <button onClick={myFunction}>Log Message</button> */}
+                <ConnectWallet/>
               </div>
             </div>
           </nav>
