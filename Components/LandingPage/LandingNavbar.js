@@ -3,14 +3,17 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useRef } from "react";
 import axiosInstance from "../../utils/axiosInstance";
-import { ConnectWallet } from "../../utils/newUtils/connectWallet";
+import { _connectWallet } from "../../utils/newUtils/connectWallet";
 import ConnectWalletModal from "./ConnectWalletModal";
 import { ConnectButton } from '@rainbow-me/rainbowkit';
-
+import { useWeb3ModalProvider, useWeb3ModalAccount } from '@web3modal/ethers5/react'
 
 const LandingNavbar = () => {
+  const { address, chainId, isConnected } = useWeb3ModalAccount()
+  const { walletProvider } = useWeb3ModalProvider()
   const closeButtonRef = useRef(null);
   const router = useRouter();
+
   const getToken = async (address) => {
     try {
       let res = await axiosInstance.post("/api/register", { address: address, referralLink: router.asPath });
@@ -36,8 +39,8 @@ const LandingNavbar = () => {
 
   const myFunction= async () => {
     try {
-      let address = await _connectWallet();
-      console.log(address);
+      let address_return = await _connectWallet(walletProvider,address, chainId, isConnected);
+      console.log(address_return);
     } catch (error) {
       console.log(error);
     }
@@ -97,8 +100,8 @@ const LandingNavbar = () => {
                     <span>Connect Wallet</span>
                   </li>
                 </div>
-                {/* <button onClick={myFunction}>Log Message</button> */}
-                <ConnectWallet/>
+                <button onClick={myFunction}>Get User Address</button>
+                {/* <ConnectWallet/> */}
               </div>
             </div>
           </nav>
