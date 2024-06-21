@@ -68,7 +68,16 @@ const PackagesComponent = ({ data }) => {
   return (
     <div className="">
       {/* show the day, hour, minute, and seconds timer here */}
-      <CountdownTimer days={timer.days} hours={timer.hours} minutes={timer.minutes} seconds={timer.seconds} />
+      <div className="d-flex justify-content-between">
+        <h3>
+          {/* Remaining */}
+
+        </h3>
+      <h3 className="text-white">
+        {timer.days}d {timer.hours}h {timer.minutes}m {timer.seconds}s
+      </h3>
+      </div>
+      {/* <CountdownTimer days={timer.days} hours={timer.hours} minutes={timer.minutes} seconds={timer.seconds} /> */}
       {/* show the timer details here */}
       <div className="card info-card shadow-lg">
         <div className="card-body">
@@ -77,10 +86,10 @@ const PackagesComponent = ({ data }) => {
         </h5> */}
           <div className="d-flex justify-content-between  my-3">
             <p>
-              <b>{data?.lotteryType?.toUpperCase()}</b>
+              <b>{data?.lotteryType?.toUpperCase()} JACKPOT</b>
             </p>
             <div className="ps-3">
-              <p className="">
+              <p className="custom-font">
                 Per Ticket <br />
                 <span className="text-color  fw-bold">${priceConverter(data?.ticketPrice)}</span>
               </p>
@@ -90,44 +99,44 @@ const PackagesComponent = ({ data }) => {
             <div>
               <div className="d-flex align-items-center">
                 <i class="bi bi-gift text-warning"></i>
-                <span className="ps-2">1st Prize</span>
+                <span className="ps-2 custom-font">1st Prize</span>
               </div>
             </div>
             <div className="ps-3">
-              <span className="text-color  fw-bold">${priceConverter(data?.prizes?.firstPrize)}</span>
+              <span className="text-color custom-font fw-bold">${priceConverter(data?.prizes?.firstPrize)}</span>
             </div>
           </div>
           <div className="d-flex justify-content-between">
             <div>
               <div className="d-flex align-items-center">
                 <i class="bi bi-gift text-warning"></i>
-                <span className="ps-2">2nd Prize</span>
+                <span className="ps-2 custom-font">2nd Prize</span>
               </div>
             </div>
             <div className="ps-3">
-              <span className="text-color  fw-bold">${priceConverter(data?.prizes?.secondPrize)}</span>
+              <span className="text-color custom-font fw-bold">${priceConverter(data?.prizes?.secondPrize)}</span>
             </div>
           </div>
           <div className="d-flex justify-content-between">
             <div>
               <div className="d-flex align-items-center">
                 <i class="bi bi-gift text-warning"></i>
-                <span className="ps-2">3rd Prize</span>
+                <span className="ps-2 custom-font">3rd Prize</span>
               </div>
             </div>
             <div className="ps-3">
-              <span className="text-color  fw-bold">${priceConverter(data?.prizes?.thirdPrize)}</span>
+              <span className="text-color custom-font fw-bold">${priceConverter(data?.prizes?.thirdPrize)}</span>
             </div>
           </div>
           <div className="d-flex justify-content-between">
             <div>
               <div className="d-flex align-items-center">
                 <i class="bi bi-gift text-warning"></i>
-                <span className="ps-2">4th Prize</span>
+                <span className="ps-2 custom-font">4th Prize</span>
               </div>
             </div>
             <div className="ps-3">
-              <span className="text-color  fw-bold">${priceConverter(data?.prizes?.otherPrizes)}</span>
+              <span className="text-color custom-font fw-bold">${priceConverter(data?.prizes?.otherPrizes)}</span>
             </div>
           </div>
           {/* <div className="d-flex justify-content-between">
@@ -145,9 +154,9 @@ const PackagesComponent = ({ data }) => {
           <table className="table my-4">
             <thead>
               <tr>
-                <th scope="col">Round</th>
-                <th scope="col">Ticket Purchased</th>
-                <th scope="col">Players</th>
+                <th scope="col custom-font">Round</th>
+                <th scope="col custom-font">Ticket Purchased</th>
+                <th scope="col custom-font">Players</th>
               </tr>
             </thead>
             <tbody>

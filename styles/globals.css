@@ -268,3 +268,7 @@
 .navbar .dropdown-menu .dropdown-item:hover {
   background-color: transparent;
 }
+.custom-font{
+  font-family: 'Poppins', sans-serif;
+  font-size: large;
+}
