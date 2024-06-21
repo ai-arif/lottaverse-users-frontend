@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import CountdownTimer from "./CountdownTimer";
 
-import { _getLotteryTicektCount } from "@/utils/newUtils/getLotteryTicektCount";
+import { GetLotteryTicektCount, _getLotteryTicektCount } from "@/utils/newUtils/getLotteryTicektCount";
 
 const PackagesComponent = ({ data }) => {
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ const PackagesComponent = ({ data }) => {
   const [ticketPurchased, setTicketPurchased] = useState(0);
   const [timer, setTimer] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   useEffect(() => {
-    getTicketPurchased(data.lotteryID);
+    // getTicketPurchased(data.lotteryID);
     const calculateTimeLeft = () => {
       if (data?.expiration) {
         // Convert the Unix epoch time to a moment object
@@ -80,9 +80,9 @@ const PackagesComponent = ({ data }) => {
               <b>{data?.lotteryType?.toUpperCase()}</b>
             </p>
             <div className="ps-3">
-              <p className="small">
+              <p className="">
                 Per Ticket <br />
-                <span className="text-color small fw-bold">${priceConverter(data?.ticketPrice)}</span>
+                <span className="text-color  fw-bold">${priceConverter(data?.ticketPrice)}</span>
               </p>
             </div>
           </div>
@@ -94,7 +94,7 @@ const PackagesComponent = ({ data }) => {
               </div>
             </div>
             <div className="ps-3">
-              <span className="text-color small fw-bold">${priceConverter(data?.prizes?.firstPrize)}</span>
+              <span className="text-color  fw-bold">${priceConverter(data?.prizes?.firstPrize)}</span>
             </div>
           </div>
           <div className="d-flex justify-content-between">
@@ -105,7 +105,7 @@ const PackagesComponent = ({ data }) => {
               </div>
             </div>
             <div className="ps-3">
-              <span className="text-color small fw-bold">${priceConverter(data?.prizes?.secondPrize)}</span>
+              <span className="text-color  fw-bold">${priceConverter(data?.prizes?.secondPrize)}</span>
             </div>
           </div>
           <div className="d-flex justify-content-between">
@@ -116,7 +116,7 @@ const PackagesComponent = ({ data }) => {
               </div>
             </div>
             <div className="ps-3">
-              <span className="text-color small fw-bold">${priceConverter(data?.prizes?.thirdPrize)}</span>
+              <span className="text-color  fw-bold">${priceConverter(data?.prizes?.thirdPrize)}</span>
             </div>
           </div>
           <div className="d-flex justify-content-between">
@@ -127,7 +127,7 @@ const PackagesComponent = ({ data }) => {
               </div>
             </div>
             <div className="ps-3">
-              <span className="text-color small fw-bold">${priceConverter(data?.prizes?.otherPrizes)}</span>
+              <span className="text-color  fw-bold">${priceConverter(data?.prizes?.otherPrizes)}</span>
             </div>
           </div>
           {/* <div className="d-flex justify-content-between">
@@ -138,7 +138,7 @@ const PackagesComponent = ({ data }) => {
             </div>
           </div>
           <div className="ps-3">
-            <span className="text-color small fw-bold">${data?.prizes?.fourthPrize}</span>
+            <span className="text-color  fw-bold">${data?.prizes?.fourthPrize}</span>
           </div>
         </div>
          */}
@@ -153,7 +153,10 @@ const PackagesComponent = ({ data }) => {
             <tbody>
               <tr>
                 <td>{data?.roundCount}</td>
-                <td>{ticketPurchased}</td>
+                {/* <td>{ticketPurchased}</td> */}
+                <td>
+                <GetLotteryTicektCount _lotteryId={data.lotteryID} />
+                </td>
                 <td>{data?.userCount}</td>
               </tr>
             </tbody>

@@ -12,11 +12,12 @@ import { useWeb3ModalProvider, useWeb3ModalAccount } from '@web3modal/ethers5/re
 // },});
 
 //
-export function GetLotteryTicektCount(_lotteryId) {
+export function GetLotteryTicektCount({_lotteryId}) {
   const { address, chainId, isConnected } = useWeb3ModalAccount()
   const { walletProvider } = useWeb3ModalProvider()
   async function _getLotteryTicektCount(_lotteryId) {
     try {
+      console.log('getting lottery id',_lotteryId)
      //const ethereum = await MMSDK.getProvider();
     
       // This opens the app correctly, ask form permission, and gets back to the browser

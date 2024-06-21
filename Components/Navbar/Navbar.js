@@ -89,7 +89,7 @@ const Navbar = () => {
               </li> */}
               <li class="nav-item dropdown">
                 <a class="nav-link text-white text-nowrap dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <i className="bx-group"></i> <span>My Team</span>
+                <i class="bi bi-people"></i> <span>My Team</span>
                 </a>
                 <ul class="dropdown-menu">
                   <li>

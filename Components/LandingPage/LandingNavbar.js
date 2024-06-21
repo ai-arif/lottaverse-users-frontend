@@ -1,7 +1,7 @@
 import Cookies from "js-cookie";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import axiosInstance from "../../utils/axiosInstance";
 import { _connectWallet } from "../../utils/newUtils/connectWallet";
 import ConnectWalletModal from "./ConnectWalletModal";
@@ -28,6 +28,13 @@ const LandingNavbar = () => {
     }
   };
 
+  useEffect(() => {
+    console.log(isConnected)
+    if(isConnected){
+      getToken(address);
+    }
+  }, [isConnected]);
+
   const connectWallet = async () => {
     try {
       let address = await _connectWallet();
@@ -39,6 +46,7 @@ const LandingNavbar = () => {
 
   const myFunction= async () => {
     try {
+      console.log("going to get the address")
       let address_return = await _connectWallet(walletProvider,address, chainId, isConnected);
       console.log(address_return);
     } catch (error) {
@@ -58,7 +66,7 @@ const LandingNavbar = () => {
           <nav class="navbar navbar-expand-lg py-3 py-lg-4" data-bs-theme="dark">
             <div class="container-fluid">
               <Link href="/">
-                <span className="fw-bold text-white fs-2">Lotaverse</span>
+                <span className="fw-bold text-white fs-2">Lottaverse</span>
               </Link>
               <button
                 class="navbar-toggler"
