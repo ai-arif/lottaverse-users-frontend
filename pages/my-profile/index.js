@@ -73,7 +73,7 @@ const handleSubmitWithdraw=async()=>{
               <div className="mb-0 d-flex justify-content-between align-items-center">
                 <div className="d-flex  gap-1 align-items-end">
                   <div className="d-flex gap-2">
-                    <p className="mb-0">{user?.address}</p>
+                    <p className="text-break small mb-0">{user?.address}</p>
                     <br />
                     <img
                       src="/img/check.png"
@@ -93,7 +93,7 @@ const handleSubmitWithdraw=async()=>{
                 
                   <b>
                   
-                    {user?.userType=='premiun' ? 
+                    {user?.userType=='premium' ? 
                     <span class="badge badge-success bg-success"><i class="bi bi-person"></i>Premiun</span>
                     :
                     <span class="badge badge-primary bg-primary"><i class="bi bi-person"></i>User</span>
@@ -104,7 +104,7 @@ const handleSubmitWithdraw=async()=>{
                   <b>Expiry Date: </b>{new Date(user?.expiryDate).toLocaleString()} 
                 </p>
               </div>
-              <div class="d-flex  align-items-center gap-3">
+              <div class="d-flex flex-wrap align-items-center gap-3">
                 <div class="card profile-info-card2 p-0">
                   <div class="card-body py-3 px-4">
                     <h5 class="card-title text-warning p-0 mb-3">${priceConverter(rewardAmount)}</h5>
