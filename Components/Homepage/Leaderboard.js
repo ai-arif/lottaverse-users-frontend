@@ -11,7 +11,7 @@ function Leaderboard() {
   return (
     <div className=" card  mx-auto p-4">
       <div className="d-flex align-items-center gap-5 mx-auto">
-        <div className="card leaderboard-card mb-0 px-3">
+        <div className="card leaderboard-card mb-0 px-3" style={{border:"none"}}>
           <div className="card-title d-flex gap-2 align-items-center justify-content-center">
             <img
               src="img/lock-icon.png"
@@ -21,7 +21,7 @@ function Leaderboard() {
             />
             <h5 className="fw-bold mb-0">Locked</h5>
           </div>
-          <div className="card-body " style={{ width: "350px" }}>
+          <div className="card-body " style={{ width: "350px", }}>
 
             {
               packages?.map((item, index) => (
