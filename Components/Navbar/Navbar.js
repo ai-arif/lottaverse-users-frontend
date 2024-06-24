@@ -5,10 +5,11 @@ import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCommissionHistories, fetchPurchaseHistories, fetchUserInformation } from "../../features/user/userSlice";
+import { useWeb3ModalAccount } from "@web3modal/ethers5/react";
 
 const Navbar = () => {
   const { user } = useSelector((state) => state.user);
-
+  const {  isConnected } = useWeb3ModalAccount()
   const dispatch = useDispatch();
   const router = useRouter();
 
@@ -25,9 +26,14 @@ const Navbar = () => {
     }
   }, []);
 
+  useEffect(() => {
+    if(!isConnected){
+      handleSignout()
+    }
+  },[isConnected]);
+
   const handleSignout = () => {
     Cookies.remove("token");
-
     router.push("/");
   };
   const formatAddress = (address) => {
@@ -150,9 +156,10 @@ const Navbar = () => {
             </ul>
             <div className="d-flex gap-3">
               <div>
-                <button type="button" class="btn btn-danger">
+              <w3m-button />
+                {/* <button type="button" class="btn btn-danger">
                   <i className="text-white bi bi-wallet"></i> {formatAddress(user?.address)}
-                </button>
+                </button> */}
               </div>
               <div type="button" onClick={handleSignout}>
                 <div className="logout-button bg-dark">

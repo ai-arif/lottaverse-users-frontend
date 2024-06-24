@@ -30,7 +30,7 @@ const LeaderboardPack = ({ item }) => {
   const calculateValue = (type, tickets) => {
     const multiplier = type?.toUpperCase() === "EASY" ? 3 : 10;
     const result = tickets * multiplier * 0.05;
-    console.log(type,tickets)
+    
     return result.toFixed(3);
   };
   return (

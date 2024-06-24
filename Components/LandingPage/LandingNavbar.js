@@ -29,7 +29,6 @@ const LandingNavbar = () => {
   };
 
   useEffect(() => {
-    console.log(isConnected)
     if(isConnected){
       getToken(address);
     }
@@ -38,6 +37,7 @@ const LandingNavbar = () => {
   const connectWallet = async () => {
     try {
       let address = await _connectWallet();
+      
       await getToken(address);
     } catch (error) {
       alert("Please connect your wallet");

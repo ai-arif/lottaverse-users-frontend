@@ -7,59 +7,62 @@ import { useSelector } from "react-redux";
 import axiosInstance from "@/utils/axiosInstance";
 import { _getRewardAmount } from "@/utils/newUtils/getRewardAmount";
 import priceConverter from "@/utils/priceConverter";
+import { useWeb3ModalAccount, useWeb3ModalProvider } from "@web3modal/ethers5/react";
 
 const index = () => {
-  const {user}=useSelector(state=>state.user)
+  const { user } = useSelector(state => state.user)
   const [rewardAmount, setRewardAmount] = useState(0);
-    const [withdrawhistory, setWithdrawHistory] = useState([]);
+  const { address, chainId, isConnected } = useWeb3ModalAccount()
 
-    useEffect(() => {
-        connectWallet();
-        loadWithdrawHistory();
-    }, [])
-  const loadWithdrawHistory=async()=>{
-    const res=await axiosInstance.get('/api/withdrawhistory')
+  const { walletProvider } = useWeb3ModalProvider()
+  const [withdrawhistory, setWithdrawHistory] = useState([]);
+
+  useEffect(() => {
+    connectWallet();
+    loadWithdrawHistory();
+  }, [])
+  const loadWithdrawHistory = async () => {
+    const res = await axiosInstance.get('/api/withdrawhistory')
     setWithdrawHistory(res.data.data)
-}
-const handleSubmitWithdraw=async()=>{
-    const res=await axiosInstance.post('/api/withdraw',{
-        amount:rewardAmount
+  }
+  const handleSubmitWithdraw = async () => {
+    const res = await axiosInstance.post('/api/withdraw', {
+      amount: rewardAmount
     })
     await loadWithdrawHistory();
-}
-  const connectWallet=async()=>{
-    try {
-        let address=await _connectWallet();
-        const rewardAmount=await _getRewardAmount(address,1);
-        setRewardAmount(rewardAmount);
-    } catch (error) {
-        console.log(error)
-        alert('Please connect your wallet')
-    }
-}
-  const claimReward=async()=>{
+  }
+  const connectWallet = async () => {
     try {
       
-      if(rewardAmount<10 || rewardAmount==undefined ){
+      const rewardAmount = await _getRewardAmount(address, 1, walletProvider, isConnected);
+      setRewardAmount(rewardAmount);
+    } catch (error) {
+      console.log(error)
+      alert('Please connect your wallet')
+    }
+  }
+  const claimReward = async () => {
+    try {
+      
+      if (rewardAmount < 10 || rewardAmount == undefined) {
         alert('You need to have at least $10 to withdraw')
         return;
       }
-      const owner=await _getOwner();
-        console.log("owner",owner)
-        let address=await _connectWallet();
-        const tokenAddress=process.env.TOKEN_ADDRESS
-        console.log("tokenAddress",tokenAddress)
-        const rewardAmount2=await _claimReward(1,tokenAddress,address,owner);
-        console.log("rewardAmount",rewardAmount2)
-        setTimeout(() => {
-            connectWallet();
-        }, 1000);
-        await handleSubmitWithdraw();
-        
+      const owner = await _getOwner(walletProvider, isConnected);
+      
+      const tokenAddress = process.env.TOKEN_ADDRESS
+      
+      const rewardAmount2 = await _claimReward(1, tokenAddress, address, owner);
+      
+      setTimeout(() => {
+        connectWallet();
+      }, 1000);
+      await handleSubmitWithdraw();
+
     } catch (error) {
-        console.log(error)
+      console.log(error)
     }
-}
+  }
   return (
     <div class="container">
       <Head>
@@ -69,7 +72,7 @@ const handleSubmitWithdraw=async()=>{
         <div class="col-md-12">
           <div class="card">
             <div class="card-header">Profile Overview</div>
-            <div class="card-body py-4 d-flex flex-column gap-3" style={{minHeight:"450px"}}>
+            <div class="card-body py-4 d-flex flex-column gap-3" style={{ minHeight: "450px" }}>
               <div className="mb-0 d-flex justify-content-between align-items-center">
                 <div className="d-flex  gap-1 align-items-end">
                   <div className="d-flex gap-2">
@@ -90,18 +93,18 @@ const handleSubmitWithdraw=async()=>{
               </div>
               <div className="d-flex gap-5">
                 <p>
-                
+
                   <b>
-                  
-                    {user?.userType=='premium' ? 
-                    <span class="badge badge-success bg-success"><i class="bi bi-person"></i>Premiun</span>
-                    :
-                    <span class="badge badge-primary bg-primary"><i class="bi bi-person"></i>User</span>
+
+                    {user?.userType == 'premium' ?
+                      <span class="badge badge-success bg-success"><i class="bi bi-person"></i>Premiun</span>
+                      :
+                      <span class="badge badge-primary bg-primary"><i class="bi bi-person"></i>User</span>
                     }
                   </b>
                 </p>
                 <p>
-                  <b>Expiry Date: </b>{new Date(user?.expiryDate).toLocaleString()} 
+                  <b>Expiry Date: </b>{new Date(user?.expiryDate).toLocaleString()}
                 </p>
               </div>
               <div class="d-flex flex-wrap align-items-center gap-3">
