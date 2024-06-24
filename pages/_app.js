@@ -26,7 +26,6 @@ import { Provider } from "react-redux";
 //   QueryClient,
 // } from "@tanstack/react-query";
 
-
 // const config = getDefaultConfig({
 //   appName: 'LottaVerse',
 //   projectId: "8f57e9c62e1855a9dd77dbdcab920d82",
@@ -36,27 +35,21 @@ import { Provider } from "react-redux";
 
 // const queryClient = new QueryClient();
 
-import { createWeb3Modal, defaultConfig } from '@web3modal/ethers5/react'
+import { createWeb3Modal, defaultConfig } from "@web3modal/ethers5/react";
 
-import {
-  mainnet,
-  polygon,
-  optimism,
-  arbitrum,
-  base,
-} from 'wagmi/chains';
+// import { mainnet, polygon, optimism, arbitrum, base } from "wagmi/chains";
 
 // 1. Get projectId at https://cloud.walletconnect.com
-const projectId = "8f57e9c62e1855a9dd77dbdcab920d82"
+const projectId = "8f57e9c62e1855a9dd77dbdcab920d82";
 
 // 2. Set chains
-// const mainnet = {
-//   chainId: 1,
-//   name: 'Ethereum',
-//   currency: 'ETH',
-//   explorerUrl: 'https://etherscan.io',
-
-// }
+const polygon = {
+  chainId: 137,
+  name: "Polygon",
+  currency: "MATIC",
+  explorerUrl: "https://polygonscan.com",
+  rpcUrl: "https://polygon-rpc.com",
+};
 
 // 3. Create a metadata object
 const metadata = {
@@ -65,6 +58,13 @@ const metadata = {
   url: 'https://app.lottaverse.io/', // origin must match your domain & subdomain
   icons: ['https://avatars.LottaVerse.com/']
 }
+
+// const metadata = {
+//   name: "My Website",
+//   description: "My Website description",
+//   url: "https://mywebsite.com", // origin must match your domain & subdomain
+//   icons: ["https://avatars.mywebsite.com/"],
+// };
 
 // 4. Create Ethers config
 const ethersConfig = defaultConfig({
@@ -77,7 +77,7 @@ const ethersConfig = defaultConfig({
   enableCoinbase: true, // true by default
   //rpcUrl: '...', // used for the Coinbase SDK
   //defaultChainId: 1 // used for the Coinbase SDK
-})
+});
 
 // 5. Create a Web3Modal instance
 createWeb3Modal({
@@ -86,24 +86,29 @@ createWeb3Modal({
   projectId,
   //enableAnalytics: true, // Optional - defaults to your Cloud configuration
   //enableOnramp: true // Optional - false as default
-})
-
+});
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
-  const restictedRoutes = ["/login", "/register", "/create-mess", "/join-mess", "/", "404", "/forgot-password", "/reset-password", "/verify-email", "/verify-phone"];
+  const restictedRoutes = [
+    "/login",
+    "/register",
+    "/create-mess",
+    "/join-mess",
+    "/",
+    "404",
+    "/forgot-password",
+    "/reset-password",
+    "/verify-email",
+    "/verify-phone",
+  ];
 
   return (
-
-
-          <Provider store={store}>
-            {restictedRoutes.includes(router.pathname) ? null : <Navbar />}
-            <Toaster position="bottom-right" />
-            <Component {...pageProps} />
-            <Analytics />
-          </Provider>
-
-  
-
+    <Provider store={store}>
+      {restictedRoutes.includes(router.pathname) ? null : <Navbar />}
+      <Toaster position="bottom-right" />
+      <Component {...pageProps} />
+      <Analytics />
+    </Provider>
   );
 }
