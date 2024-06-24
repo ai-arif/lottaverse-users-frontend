@@ -1,5 +1,6 @@
 import { _getLotteryTicektCount } from '@/utils/newUtils/getLotteryTicektCount';
 import priceConverter from '@/utils/priceConverter';
+import { useWeb3ModalAccount, useWeb3ModalProvider } from '@web3modal/ethers5/react';
 import React, { useEffect, useState } from 'react'
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
@@ -7,6 +8,8 @@ import 'react-circular-progressbar/dist/styles.css';
 
 const LeaderboardPack = ({ item }) => {
   const [ticketPurchased, setTicketPurchased] = useState(0);
+  const {  isConnected } = useWeb3ModalAccount()
+  const { walletProvider } = useWeb3ModalProvider()
   let percentage = 5;
   const getColor = (value) => {
     if (value >= 80) {
@@ -21,12 +24,13 @@ const LeaderboardPack = ({ item }) => {
     getTicketPurchased(item.lotteryID)
   }, [item])
   const getTicketPurchased = async (id) => {
-    const ticket = await _getLotteryTicektCount(id)
+    const ticket = await _getLotteryTicektCount(id, walletProvider, isConnected)
     setTicketPurchased(ticket)
   }
   const calculateValue = (type, tickets) => {
     const multiplier = type?.toUpperCase() === "EASY" ? 3 : 10;
     const result = tickets * multiplier * 0.05;
+    console.log(type,tickets)
     return result.toFixed(3);
   };
   return (

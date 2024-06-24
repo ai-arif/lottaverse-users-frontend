@@ -7,14 +7,17 @@ import { useDispatch } from "react-redux";
 import CountdownTimer from "./CountdownTimer";
 
 import { GetLotteryTicektCount, _getLotteryTicektCount } from "@/utils/newUtils/getLotteryTicektCount";
+import { useWeb3ModalAccount, useWeb3ModalProvider } from "@web3modal/ethers5/react";
 
 const PackagesComponent = ({ data }) => {
   const dispatch = useDispatch();
   const router = useRouter();
   const [ticketPurchased, setTicketPurchased] = useState(0);
   const [timer, setTimer] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+    const {  isConnected } = useWeb3ModalAccount()
+  const { walletProvider } = useWeb3ModalProvider()
   useEffect(() => {
-    // getTicketPurchased(data.lotteryID);
+    getTicketPurchased(data.lotteryID);
     const calculateTimeLeft = () => {
       if (data?.expiration) {
         // Convert the Unix epoch time to a moment object
@@ -61,7 +64,7 @@ const PackagesComponent = ({ data }) => {
     }
   };
   const getTicketPurchased = async (id) => {
-    const ticket = await _getLotteryTicektCount(id);
+    const ticket = await _getLotteryTicektCount(id,walletProvider,isConnected);
     setTicketPurchased(ticket);
   };
 
@@ -162,9 +165,9 @@ const PackagesComponent = ({ data }) => {
             <tbody>
               <tr>
                 <td>{data?.roundCount}</td>
-                {/* <td>{ticketPurchased}</td> */}
+                <td>{ticketPurchased}</td>
                 <td>
-                <GetLotteryTicektCount _lotteryId={data.lotteryID} />
+                {/* <GetLotteryTicektCount _lotteryId={data.lotteryID} /> */}
                 </td>
                 <td>{data?.userCount}</td>
               </tr>

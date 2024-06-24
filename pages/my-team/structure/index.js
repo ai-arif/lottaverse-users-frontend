@@ -42,6 +42,7 @@ const IndexPage = () => {
   const renderFamily = (family, isFirstChild = false) => {
     return (
       <>
+      <br />
         {family?.children && (
           <>
             <div className="d-flex flex-column align-items-center">

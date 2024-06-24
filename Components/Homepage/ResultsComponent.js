@@ -2,6 +2,7 @@ import { fetchPackages } from "@/features/homepage/homepageSlice";
 import axiosInstance from "@/utils/axiosInstance";
 import { _LotteryWinner } from "@/utils/newUtils/LotteryWinner";
 import { _getwinnerIndex } from "@/utils/newUtils/getwinnerIndex";
+import { useWeb3ModalAccount, useWeb3ModalProvider,  } from '@web3modal/ethers5/react'
 import priceConverter from "@/utils/priceConverter";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
@@ -11,10 +12,12 @@ function ResultsComponent({ data }) {
   const dispatch = useDispatch();
   const router = useRouter();
   const [winner, setWinner] = useState();
+    const { address, chainId, isConnected } = useWeb3ModalAccount()
+  const { walletProvider } = useWeb3ModalProvider()
   useEffect(() => {
     const getWinner = async () => {
-      const winner = await _LotteryWinner(data?.lotteryID);
-
+      const winner = await _LotteryWinner(data?.lotteryID,walletProvider);
+      
       // if the winner value is greater than 6, then show first 3 and last 3 characters, put * in between
       if (winner?.length > 6) {
         const first = winner.slice(0, 3);
@@ -26,7 +29,7 @@ function ResultsComponent({ data }) {
         } else {
           console.log("naai");
           const generateWinner = async () => {
-            const ticketId = await _getwinnerIndex(data?.lotteryID);
+            const ticketId = await _getwinnerIndex(data?.lotteryID,walletProvider, isConnected);
             console.log("ticketId", ticketId);
             const res = await axiosInstance.post("/api/firstwinnerpurchase", { lotteryId: data?.lotteryID, address: winner, index: ticketId });
             console.log("res", res);
@@ -39,7 +42,7 @@ function ResultsComponent({ data }) {
       }
     };
     const getTicketId = async () => {
-      const ticketId = await _getwinnerIndex(data?.lotteryID);
+      const ticketId = await _getwinnerIndex(data?.lotteryID, walletProvider, isConnected);
       return ticketId;
     };
     if (data?.lotteryID) {
