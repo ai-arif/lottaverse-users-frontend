@@ -4,6 +4,7 @@ import {
   LOTTERY_CONTRACT_ADDRESS,
 } from "../../constants";
 import { useWeb3ModalProvider, useWeb3ModalAccount } from '@web3modal/ethers5/react'
+import { useEffect, useState } from "react";
 //import { useEthersSigner } from './wagmiSignerHook'
 
 
@@ -15,6 +16,9 @@ import { useWeb3ModalProvider, useWeb3ModalAccount } from '@web3modal/ethers5/re
 export function GetLotteryTicektCount({_lotteryId}) {
   const { address, chainId, isConnected } = useWeb3ModalAccount()
   const { walletProvider } = useWeb3ModalProvider()
+  const [ticketCount, setTicketCount] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null); 
+
   async function _getLotteryTicektCount(_lotteryId) {
     try {
       console.log('getting lottery id',_lotteryId)
@@ -49,12 +53,28 @@ export function GetLotteryTicektCount({_lotteryId}) {
     const tx =await LotteryWithSigner.getLotteryTicektCount(_lotteryId);
     const tx1 = tx.toString();
     console.log(tx1);
+    setTicketCount(tx1);
     return tx1;
     } catch (error) {
       // Check if the error is specifically because the wallet is not detected
       console.error('Can\'t detect wallet on account OR', error);
+      setErrorMessage(error.message);
     }
   }
-  return <button onClick={() => _getLotteryTicektCount(_lotteryId)}>Get User Address</button>
+  useEffect(() => {
+    _getLotteryTicektCount(_lotteryId);
+  }, [_lotteryId, isConnected, walletProvider]);
+  return (
+    <div>
+      {ticketCount === null ? (
+        <div>Loading...</div>
+      ) : (
+        <div>{`Lottery Ticket Count: ${ticketCount}`}</div>
+      )}
+      {errorMessage && (
+        <div>{`Error: ${errorMessage}`}</div>
+      )}
+    </div>
+  )
 }
  

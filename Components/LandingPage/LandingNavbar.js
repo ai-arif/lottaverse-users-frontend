@@ -102,13 +102,14 @@ const LandingNavbar = () => {
                     </Link>
                   </li>
                 </ul>
-                <w3m-button />
+                
                 <div className="d-flex gap-3">
-                  <li data-bs-toggle="modal" data-bs-target="#exampleModal" className="mybtn1 link1" style={{ cursor: "pointer" }}>
+                <w3m-button />
+                  {/* <li data-bs-toggle="modal" data-bs-target="#exampleModal" className="mybtn1 link1" style={{ cursor: "pointer" }}>
                     <span>Connect Wallet</span>
-                  </li>
+                  </li> */}
                 </div>
-                <button onClick={myFunction}>Get User Address</button>
+                {/* <button onClick={myFunction}>Get User Address</button> */}
                 {/* <ConnectWallet/> */}
               </div>
             </div>
