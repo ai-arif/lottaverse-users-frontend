@@ -5,11 +5,14 @@ import { _BuyTicketsUSDT } from '@/utils/newUtils/BuyTicketUSDT';
 import axiosInstance from '../../../utils/axiosInstance'
 import { useSelector } from 'react-redux';
 import { _getOwner } from '@/utils/newUtils/getOwner';
+import { useWeb3ModalAccount, useWeb3ModalProvider } from '@web3modal/ethers5/react';
 
 const BuyTicketModal = () => {
   const { lotteryId, ticketPrice } = useSelector(state => state.user)
   const [showTicketSummary, setShowTicketSummary] = useState(false);
   const [buyWithCommission, setBuyWithCommission] = useState(false);
+  const { address, chainId, isConnected } = useWeb3ModalAccount()
+  const { walletProvider } = useWeb3ModalProvider()
   const closeButtonRef = useRef(null);
 
 
@@ -45,9 +48,7 @@ const BuyTicketModal = () => {
     if (randomNumbers.length === 0) return alert("Please add a ticket");
     
     setLoading(true);
-    console.log("Number of tickets: ", randomNumbers.length)
-    console.log("Lottery ID: ", lotteryId)
-    console.log("Ticket Price: ", ticketPrice)
+    
     const price = ticketPrice * randomNumbers.length;
     console.log("Total Price: ", price)
     const res = await axiosInstance.post('/api/prepurchase', {
@@ -55,14 +56,12 @@ const BuyTicketModal = () => {
       ticketIds: randomNumbers,
     })
 
-    const owner = await _getOwner(lotteryId);
+    const owner = await _getOwner(walletProvider, isConnected);
     // calculate 18% of the ticket price
     const percentageAmount = (ticketPrice * 18) / 100;
     const addresses = res.data.data.referAddress;
     const amounts = res.data.data.amount;
-    console.log(addresses)
-    console.log(amounts)
-    // 0x089BB7064d27C0b82D935A35ad46b29d943c8D4D
+    
 
     // const response2 = await _BuyTickets(lotteryId,randomNumbers.length, price.toString() );
     const response = await _BuyTicketsUSDT(process.env.TOKEN_ADDRESS,
@@ -73,7 +72,8 @@ const BuyTicketModal = () => {
       amounts,
       owner,
       percentageAmount,
-      useCommission==true ? true: false
+      useCommission==true ? true: false,
+      walletProvider, isConnected
     )
 
     if (response?.hash) {

@@ -13,7 +13,6 @@ const index = () => {
   const { user } = useSelector(state => state.user)
   const [rewardAmount, setRewardAmount] = useState(0);
   const { address, chainId, isConnected } = useWeb3ModalAccount()
-
   const { walletProvider } = useWeb3ModalProvider()
   const [withdrawhistory, setWithdrawHistory] = useState([]);
 
