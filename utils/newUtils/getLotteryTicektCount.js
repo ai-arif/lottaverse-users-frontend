@@ -65,11 +65,11 @@ export function GetLotteryTicektCount({_lotteryId}) {
     _getLotteryTicektCount(_lotteryId);
   }, [_lotteryId, isConnected, walletProvider]);
   return (
-    <div>
+    <div className="">
       {ticketCount === null ? (
         <div>Loading...</div>
       ) : (
-        <div>{`Lottery Ticket Count: ${ticketCount}`}</div>
+        <div>{`${ticketCount}`}</div>
       )}
       {errorMessage && (
         <div>{`Error: ${errorMessage}`}</div>
